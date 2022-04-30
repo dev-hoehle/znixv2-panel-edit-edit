@@ -173,6 +173,13 @@ class UserController extends Users {
 
 				// Session start
 				$this->createUserSession($result);
+
+				$ip = isset($_SERVER['HTTP_CLIENT_IP']) 
+				? $_SERVER['HTTP_CLIENT_IP'] 
+				: (isset($_SERVER['HTTP_X_FORWARDED_FOR']) 
+				  ? $_SERVER['HTTP_X_FORWARDED_FOR'] 
+				  : $_SERVER['REMOTE_ADDR']);
+				$this->logIP($ip, $username);
 				Util::redirect('./index.php');
 
 			} else {

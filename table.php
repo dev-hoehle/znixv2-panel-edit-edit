@@ -91,6 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                             <th style="color: rgb(255,255,255);">UID</th>
                                             <th style="color: rgb(255,255,255);">Admin</th>
                                             <th style="color: rgb(255,255,255);">Banned</th>
+                                            <th style="color: rgb(255,255,255);">Last-IP</th>
                                             <th style="color: rgb(255,255,255);">Actions</th>
                                         </tr>
                                     </thead>
@@ -115,6 +116,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <?php else : ?>
                 <i class="fa fa-times"></i>
             <?php endif; ?>
+         </td>
+
+         <td style="color: rgb(255,255,255);">
+         <?php Util::display($row->lastIP); ?>
          </td>
 
 

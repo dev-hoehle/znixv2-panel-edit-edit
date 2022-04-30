@@ -79,6 +79,12 @@ class Users extends Database
 	}
 
 
+
+	protected function logIP($ip , $username)
+	{
+		$this->prepare('UPDATE `users` SET `lastIP` = ? WHERE `username` = ?');
+		$this->statement->execute([$ip, $username]);
+	}
 	// Login - Sends data to DB
 	protected function login($username, $password)
 	{
