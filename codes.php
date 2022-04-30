@@ -10,7 +10,7 @@ Session::init();
 $subList = $admin->getSubCodeArray();
 $invList = $admin->getInvCodeArray();
 
-$username = Session::get("username"); 
+$username = Session::get("username");
 $uid = Session::get("uid");
 
 
@@ -21,15 +21,14 @@ Util::head('Admin Panel');
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
-	if (isset($_POST["genSub"])) {
-		$admin->getSubCodeGen($username); 
-	}
+    if (isset($_POST["genSub"])) {
+        $admin->getSubCodeGen($username);
+    }
     if (isset($_POST["genInv"])) {
-		$admin->getInvCodeGen($username); 
-	}
+        $admin->getInvCodeGen($username);
+    }
 
-	header("location: codes.php");
-
+    header("location: codes.php");
 }
 
 ?>
@@ -52,10 +51,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body id="page-top">
     <div id="wrapper">
-    <?php Util::navbar(); ?>
+        <?php Util::navbar(); ?>
         <div class="d-flex flex-column" id="content-wrapper">
             <div id="content" style="background: #121421;">
-            <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
+                <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
                     <div class="container-fluid"><button class="btn d-md-none rounded-circle me-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars" style="color: rgb(255,255,255);"></i></button>
                         <ul class="navbar-nav flex-nowrap ms-auto">
                             <li class="nav-item dropdown no-arrow mx-1">
@@ -70,74 +69,78 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
                 </nav>
                 <div class="container-fluid">
-                <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
-                    <h3 class="text-dark mb-4" data-aos="fade-down" data-aos-duration="1000">Codes</h3><button name="genInv" type="submit" class="btn btn-success" data-aos="fade-down" data-aos-duration="800" style="font-size: 12px;color: rgb(255,255,255);">Invite</button><button class="btn btn-success" data-aos="fade-down" data-aos-duration="800" name="genSub" type="submit" style="margin-left: 10px;font-size: 12px;color: rgb(255,255,255);">Subscription</button>
-                    <div class="card shadow" data-aos="fade-down" data-aos-duration="600" style="background: #252935;border-style: none;margin-top: 20px;">
-                        <div class="card-header py-3" style="color: rgb(133, 135, 150);background: #252935;border-style: none;">
-                            <p class="text-primary m-0 fw-bold">Subscriptions</p>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
-                                <table class="table my-0" id="dataTable">
-                                    <thead>
-                                        <tr>
-                                            <th style="color: rgb(255,255,255);">Code</th>
-                                            <th style="color: rgb(255,255,255);max-width: 30px;">Created by</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
+                    <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
+                        <h3 class="text-dark mb-4" data-aos="fade-down" data-aos-duration="1000">Codes</h3><button name="genInv" type="submit" class="btn btn-success" data-aos="fade-down" data-aos-duration="800" style="font-size: 12px;color: rgb(255,255,255);">Invite</button><button class="btn btn-success" data-aos="fade-down" data-aos-duration="800" name="genSub" type="submit" style="margin-left: 10px;font-size: 12px;color: rgb(255,255,255);">Subscription</button>
+                        <div class="card shadow" data-aos="fade-down" data-aos-duration="600" style="background: #252935;border-style: none;margin-top: 20px;">
+                            <div class="card-header py-3" style="color: rgb(133, 135, 150);background: #252935;border-style: none;">
+                                <p class="text-primary m-0 fw-bold">Subscriptions</p>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
+                                    <table class="table my-0" id="dataTable">
+                                        <thead>
+                                            <tr>
+                                                <th style="color: rgb(255,255,255);">Code</th>
+                                                <th style="color: rgb(255,255,255);max-width: 30px;">Created by</th>
+                                                <th style="color: rgb(255,255,255);">Copy</th>
 
-                                    <?php foreach ($subList as $row) : ?>
-                                        <tr>
-                                        
-                                        <td style="color: rgb(255,255,255);max-width: 100px;"><?php Util::display($row->code); ?></td>
-                                        
-                                        <td style="color: rgb(255,255,255);max-width: 30px;"><?php Util::display($row->createdBy); ?></td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php foreach ($subList as $row) : ?>
+                                                <tr>
+
+                                                    <td style="color: rgb(255,255,255);max-width: 100px;"><?php Util::display($row->code); ?></td>
+
+                                                    <td style="color: rgb(255,255,255);max-width: 30px;"><?php Util::display($row->createdBy); ?></td>
+                                                    <td style="color: rgb(255,255,255);max-width: 30px;"><input class="btn btn-outline-primary btn-sm" type="submit" value="Copy code" id="cop" onclick="setClipboard('<?php echo $row->code; ?>')"></td>
+
+                                                </tr>
+                                            <?php endforeach; ?>
 
 
-                                     </tr>
-                                    <?php endforeach; ?>
-
-        
-                                    </tbody>
-                                    <tfoot>
-                                        <tr></tr>
-                                    </tfoot>
-                                </table>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr></tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card shadow" data-aos="fade-down" data-aos-duration="400" style="background: #252935;border-style: none;margin-top: 26px;">
-                        <div class="card-header py-3" style="color: rgb(133, 135, 150);background: #252935;border-style: none;">
-                            <p class="text-primary m-0 fw-bold">Invites</p>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive table mt-2" id="dataTable-1" role="grid" aria-describedby="dataTable_info">
-                                <table class="table my-0" id="dataTable">
-                                    <thead>
-                                        <tr>
-                                            <th style="color: rgb(255,255,255);">Code</th>
-                                            <th style="color: rgb(255,255,255);max-width: 30px;">Created by</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
+                        <div class="card shadow" data-aos="fade-down" data-aos-duration="400" style="background: #252935;border-style: none;margin-top: 26px;">
+                            <div class="card-header py-3" style="color: rgb(133, 135, 150);background: #252935;border-style: none;">
+                                <p class="text-primary m-0 fw-bold">Invites</p>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive table mt-2" id="dataTable-1" role="grid" aria-describedby="dataTable_info">
+                                    <table class="table my-0" id="dataTable">
+                                        <thead>
+                                            <tr>
+                                                <th style="color: rgb(255,255,255);">Code</th>
+                                                <th style="color: rgb(255,255,255);max-width: 30px;">Created by</th>
+                                                <th style="color: rgb(255,255,255);">Copy</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
 
-                                    <?php foreach ($invList as $row) : ?>
-                                        <tr>
-                                        <td style="color: rgb(255,255,255);max-width: 100px;"><?php Util::display($row->code); ?></td>
-                                        <td style="color: rgb(255,255,255);max-width: 30px;"><?php Util::display($row->createdBy); ?></td>
+                                            <?php foreach ($invList as $row) : ?>
+                                                <tr>
+                                                    <td style="color: rgb(255,255,255);max-width: 100px;"><?php Util::display($row->code); ?></td>
+                                                    <td style="color: rgb(255,255,255);max-width: 30px;"><?php Util::display($row->createdBy); ?></td>
+                                                    <td style="color: rgb(255,255,255);max-width: 30px;"><input class="btn btn-outline-primary btn-sm" type="submit" value="Copy code" id="cop" onclick="setClipboard('<?php echo $row->code; ?>')"></td>
 
-                                      </tr>
-                                <?php endforeach; ?>
 
-                                    </tbody>
-                                    <tfoot>
-                                        <tr></tr>
-                                    </tfoot>
-                                </table>
+                                                </tr>
+                                            <?php endforeach; ?>
+
+                                        </tbody>
+                                        <tfoot>
+                                            <tr></tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     </form>
                 </div>
             </div>
@@ -147,6 +150,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <script src="assets/js/bs-init.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="assets/js/theme.js"></script>
+    <script>
+        function setClipboard(value) {
+            var tempInput = document.createElement("input");
+            tempInput.style = "position: absolute; left: -1000px; top: -1000px";
+            tempInput.value = value;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+        }
+        $(document).ready(function() {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
 </body>
 
 </html>
