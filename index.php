@@ -115,7 +115,24 @@ Util::head($username);
                                         <div class="col me-2">
                                             <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span style="color: rgb(255,255,255);">subscription</span></div>
                                             <div class="text-dark fw-bold h5 mb-0"><span style="color: rgb(255,255,255);">
-                                            <?php if ($sub > 0) { Util::display($sub . ' days'); } else {Util::display('0 days'); } ?></span></div>
+                                            <?php
+                                             if ($sub > 0) 
+                                             { 
+                                                if ($sub > 0 && $sub > 1000) 
+                                                { 
+                                                    Util::display('Lifetime'); 
+                                                }
+                                                else
+                                                {
+                                                    Util::display($sub . ' days'); 
+                                                }
+                                                 
+                                             }
+                                            else {
+                                                  Util::display('0 days');
+                                                 }
+                                              
+                                              ?></span></div>
                                         </div>
                                         <div class="col-auto"><i class="fas fa-database fa-2x text-gray-300" style="color: rgb(200,200,200)!important;"></i></div>
                                     </div>
@@ -150,7 +167,8 @@ Util::head($username);
                                 <ul class="list-group list-group-flush" style="background: rgb(37,41,53);">
                                     <li class="list-group-item" style="background: rgb(37,41,53);">
                                         <div class="row align-items-center no-gutters">
-                                            <div class="col me-2"  style="color: rgb(255,255,255);"><button class="btn btn-success" onclick="downloadfix()" href="/download.php" id="DOWNLOAD"  type="button" style="margin-left: 0px;font-size: 12px;color: rgb(255,255,255);margin-bottom: 10px;">Download</button></div>
+                                        <a style="margin-left: 0px;font-size: 12px;color: rgb(255,255,255);margin-bottom: 10px;" class='nav-link' href=download.php >Download <i class="fas fa-download"></i></a>
+
                                         </div>
                                     </li>
                                 </ul>

@@ -118,8 +118,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <?php endif; ?>
          </td>
 
-         <td style="color: rgb(255,255,255);">
-         <?php Util::display($row->lastIP); ?>
+         <td title="Click to copy" data-toggle="tooltip" data-placement="top" onclick="setClipboard('<?php  echo $row->lastIP; ?>')" style="color: rgb(255,255,255);">
+         <?php Util::display($row->lastIP ); ?>
          </td>
 
 
@@ -161,6 +161,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <script src="assets/js/bs-init.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="assets/js/theme.js"></script>
+    <script>
+function setClipboard(value) {
+    var tempInput = document.createElement("input");
+    tempInput.style = "position: absolute; left: -1000px; top: -1000px";
+    tempInput.value = value;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempInput);
+}
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();   
+});
+    </script>
 </body>
 
 </html>
