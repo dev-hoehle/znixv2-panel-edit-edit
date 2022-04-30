@@ -17,7 +17,7 @@ class UserController extends Users {
 		//Session::set("hwid", $user->hwid);
 		Session::set("admin", (int) $user->admin);
 		Session::set("banned", (int) $user->banned);
-		//Session::set("invitedBy", $user->invitedBy);
+		Session::set("invitedBy", $user->invitedBy);
 		//Session::set("createdBy", $user->createdBy);
 
 	}
@@ -180,68 +180,11 @@ class UserController extends Users {
 				return 'Username/Password is wrong.';
 
 			}
-
 		}
-
 	}
 
-	public function loginExec($data) {
 
-		// Bind login data 
-		$username = trim($data['username']);
-		$password = $data['password'];
 
-		// Empty error vars
-		$userError = $passError = "";
-
-		// Validate username
-		if (empty($username)) {
-
-			return $userError  = "Please enter a username.";
-
-		}
-
-		// Validate password
-		if (empty($password)) {
-
-			return $passError  = "Please enter a password.";
-
-		}
-
-		// Check if all errors are empty
-		if (empty($userError) && empty($passError)) {
-
-			$result = $this->login($username, $password);
-
-			if ($result) {
-
-				$sub = $this->subActiveCheck($username);
-				
-				if($sub <= 0){
-
-					return "You don't have an active sub.";
-
-				
-				}
-
-				else{
-
-					// Session start
-				$this->createUserSession($result);
-				Util::redirect('./fickcrmnlOvkuCztXMtqRylqzdfLVrVFQujNKbMjXZPhWakNFVQgXxjTESw.php');
-					
-
-				}
-
-			} else {
-
-				return 'Username/Password is wrong.';
-
-			}
-
-		}
-
-	}
 
 
 	public function activateSub($data) {

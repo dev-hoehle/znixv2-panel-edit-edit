@@ -5,10 +5,10 @@ define('SITE_ROOT', dirname(__FILE__, 3)); // DO NOT CHANGE
 define('SITE_URL', 'http://'.$_SERVER['SERVER_NAME']); // DO NOT CHANGE
 
 // Website Name
-define('SITE_NAME', 'sxck');
+define('SITE_NAME', 'anditv21`s Panel edit');
 
 // Website Description
-define('SITE_DESC', 'sxck | panel');
+define('SITE_DESC', 'anditv21`s Panel edit');
 
 /**
  * Folder name should be defined starting with the "/" (slash)
@@ -20,7 +20,7 @@ define('SITE_DESC', 'sxck | panel');
 define('SUB_DIR', '/');
 
 // Loader link // From Root folder
-define('LOADER_URL', SITE_ROOT.'/vlc.exe');
+define('LOADER_URL', SITE_ROOT.'/x.exe');
 
 // API key
-define('API_KEY', 'yfDPzMLd367mwta5P7GPP6mSJ85EWJd23Wm5zYNGedYwaft6drKWxmC4CRJnM7HAsHV5GdBqLNZ');
+define('API_KEY', 'dmyeXILqwHb4X5r1x7O2wUgsrP9yF1');
