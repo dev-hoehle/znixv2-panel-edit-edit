@@ -10,6 +10,21 @@ deny from all
 #Prevent directory listings
 Options All -Indexes
 
+php_flag display_startup_errors off
+php_flag display_errors off
+php_flag html_errors off
+
+
+php_flag  log_errors on
+php_value error_log  /var/www/PHP_errors.log
+
+# prevent access to PHP error log
+<Files PHP_errors.log>
+ Order allow,deny
+ Deny from all
+ Satisfy All
+</Files>
+
 
 #Block bad bots
 RewriteEngine On 

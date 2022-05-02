@@ -7,10 +7,12 @@ $cheat = new CheatController;
 
 Session::init();
 
-if (!Session::isLogged()) { Util::redirect('./auth/login.php'); }
+if (!Session::isLogged()) {
+    Util::redirect('./auth/login.php');
+}
 
-$username = Session::get("username"); 
-$uid = Session::get("uid"); 
+$username = Session::get("username");
+$uid = Session::get("uid");
 $sub = $user->getSubStatus();
 
 Util::banCheck();
@@ -38,7 +40,7 @@ Util::head($username);
 
 <body id="page-top">
     <div id="wrapper">
-    <?php Util::navbar(); ?>
+        <?php Util::navbar(); ?>
         <div class="d-flex flex-column" id="content-wrapper">
             <div id="content" style="background: #121421;">
                 <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
@@ -67,9 +69,9 @@ Util::head($username);
                                         <div class="col me-2">
                                             <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span style="color: rgb(255,255,255);">Cheat status</span></div>
                                             <?php if ($cheat->getCheatData()->status == 'Undetected') : ?>
-                                            <div class="text-dark fw-bold h5 mb-0"><span style="color: var(--bs-green);">Undetected</span></div>
+                                                <div class="text-dark fw-bold h5 mb-0"><span style="color: var(--bs-green);">Undetected</span></div>
                                             <?php elseif ($cheat->getCheatData()->status == 'Detected') : ?>
-                                            <div class="text-dark fw-bold h5 mb-0"><span style="color: var(--bs-red);">Detected</span></div>
+                                                <div class="text-dark fw-bold h5 mb-0"><span style="color: var(--bs-red);">Detected</span></div>
                                             <?php endif; ?>
                                         </div>
                                         <div class="col-auto"><i class="fas fa-info-circle fa-2x text-gray-300" style="color: rgb(200,200,200)!important;"></i></div>
@@ -95,19 +97,19 @@ Util::head($username);
                                 <div class="card-body">
                                     <div class="row align-items-center no-gutters">
                                         <div class="col me-2">
-                                        <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span style="color: rgb(255,255,255);">Maintenance</span></div>
+                                            <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span style="color: rgb(255,255,255);">Maintenance</span></div>
                                             <?php if ($cheat->getCheatData()->maintenance == '-') : ?>
-                                            <div class="text-dark fw-bold h5 mb-0"><span style="color:#fff;">No</span></div>
+                                                <div class="text-dark fw-bold h5 mb-0"><span style="color:#fff;">No</span></div>
                                             <?php elseif ($cheat->getCheatData()->maintenance == 'UNDER') : ?>
                                                 <div class="text-dark fw-bold h5 mb-0"><span style="color: var(--bs-yellow);">Yes</span></div>
-                                                <?php endif; ?>
+                                            <?php endif; ?>
                                         </div>
                                         <div class="col-auto"><i class="fas fa-wrench fa-2x text-gray-300" style="color: rgb(200,200,200)!important;"></i></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="col-md-6 col-xl-3 mb-4" id="SUBCOL">
                             <div class="card shadow border-start-primary py-2" style="background: rgb(37,41,53);border-style: none;">
                                 <div class="card-body">
@@ -115,31 +117,25 @@ Util::head($username);
                                         <div class="col me-2">
                                             <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span style="color: rgb(255,255,255);">subscription</span></div>
                                             <div class="text-dark fw-bold h5 mb-0"><span style="color: rgb(255,255,255);">
-                                            <?php
-                                             if ($sub > 0) 
-                                             { 
-                                                if ($sub > 0 && $sub > 1000) 
-                                                { 
-                                                    Util::display('Lifetime'); 
-                                                }
-                                                else
-                                                {
-                                                    Util::display($sub . ' days'); 
-                                                }
-                                                 
-                                             }
-                                            else {
-                                                  Util::display('0 days');
-                                                 }
-                                              
-                                              ?></span></div>
+                                                    <?php
+                                                    if ($sub > 0) {
+                                                        if ($sub > 0 && $sub > 1000) {
+                                                            Util::display('Lifetime');
+                                                        } else {
+                                                            Util::display($sub . ' days');
+                                                        }
+                                                    } else {
+                                                        Util::display('0 days');
+                                                    }
+
+                                                    ?></span></div>
                                         </div>
                                         <div class="col-auto"><i class="fas fa-database fa-2x text-gray-300" style="color: rgb(200,200,200)!important;"></i></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
                     <div class="row" data-aos="fade-down" data-aos-duration="400">
                         <div class="col-lg-6 mb-4">
@@ -159,24 +155,24 @@ Util::head($username);
                             </div>
                         </div>
                         <?php if ($user->getSubStatus() > 0) : ?>
-                        <div class="col-lg-6 mb-4" id="DOWNLOADCOL">
-                            <div class="card shadow mb-4" style="border-style: none;background: rgb(37,41,53);max-width: 664px;">
-                                <div class="card-header py-3" style="border-style: none;background: rgb(37,41,53);">
-                                    <h6 class="text-primary fw-bold m-0" style="color: rgb(255,255,255)!important;">Loader</h6>
-                                </div>
-                                <ul class="list-group list-group-flush" style="background: rgb(37,41,53);">
-                                    <li class="list-group-item" style="background: rgb(37,41,53);">
-                                        <div class="row align-items-center no-gutters">
-                                        <a style="margin-left: 0px;font-size: 12px;color: rgb(255,255,255);margin-bottom: 10px;" class='nav-link' href=download.php >Download <i class="fas fa-download"></i></a>
+                            <div class="col-lg-6 mb-4" id="DOWNLOADCOL">
+                                <div class="card shadow mb-4" style="border-style: none;background: rgb(37,41,53);max-width: 664px;">
+                                    <div class="card-header py-3" style="border-style: none;background: rgb(37,41,53);">
+                                        <h6 class="text-primary fw-bold m-0" style="color: rgb(255,255,255)!important;">Loader</h6>
+                                    </div>
+                                    <ul class="list-group list-group-flush" style="background: rgb(37,41,53);">
+                                        <li class="list-group-item" style="background: rgb(37,41,53);">
+                                            <div class="row align-items-center no-gutters">
+                                                <a style="margin-left: 0px;font-size: 12px;color: rgb(255,255,255);margin-bottom: 10px;" class='nav-link' href=download.php>Download <i class="fas fa-download"></i></a>
 
-                                        </div>
-                                    </li>
-                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
                         <?php endif; ?>
                     </div>
-                    
+
                 </div>
             </div>
         </div>

@@ -8,9 +8,8 @@ $API = new ApiController;
 
 // Check data
 if (empty($_GET['user']) || empty($_GET['pass']) || empty($_GET['hwid']) || empty($_GET['key'])) {
-	
-	$response = array('status' => 'failed', 'error' => 'Missing arguments');
 
+	$response = array('status' => 'failed', 'error' => 'Missing arguments');
 } else {
 
 	$username = $_GET['user'];
@@ -24,15 +23,12 @@ if (empty($_GET['user']) || empty($_GET['pass']) || empty($_GET['hwid']) || empt
 		// decode
 		$password = base64_decode($passwordHash);
 		$hwid = base64_decode($hwidHash);
-		
-		$response = $API->getUserAPI($username, $password, $hwid, $admin);
 
+		$response = $API->getUserAPI($username, $password, $hwid, $admin);
 	} else {
 
 		$response = array('status' => 'failed', 'error' => 'Invalid API key');
-		
 	}
-
 }
 
 echo (json_encode($response));
