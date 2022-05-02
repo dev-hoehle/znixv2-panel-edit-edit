@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $admin->setCheatVersion($ver);
     }
 
-    header("location: admin.php");
+    header("location: index.php");
 }
 
 
