@@ -17,15 +17,16 @@
 
 
 
-### Added Features
+Changes
 
 ###### USER
 * Activate multiple subscription´s with code (30 days)
 ###### ADMIN PANEL
-* Gift user subscription
+* Cleaned up
+* Added Gift user subscription
   * Input options:
     * `LT for Lifetime`
     * `T for a trail subscription (3 days)`
     * `- to remove a users subscription`
     * `Intager for custom amount in days`
-* View a users last known IP address
+* Added option to view a users last known IP address
