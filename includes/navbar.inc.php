@@ -11,9 +11,10 @@
                     <li class="nav-item"><a class="nav-link active" href="profile.php" style="text-align: center;"><i class="fas fa-long-arrow-alt-right"></i><span>Profile</span></a></li>
 
                     <?php if (Session::isAdmin() == true) : ?>
-                        <li class="nav-item"><a class="nav-link active" href="/admin/index.php" style="text-align: center;"><i class="fas fa-long-arrow-alt-right"></i><span>Admin</span></a></li>
+                        <li class="nav-item"><a class="nav-link active" href="/admin/index.php" style="text-align: center;"><i class="fas fa-long-arrow-alt-right"></i><span>Admin-Dashboard</span></a></li>
                         <li class="nav-item"><a class="nav-link active" href="/admin/table.php" style="text-align: center;"><i class="fas fa-long-arrow-alt-right"></i><span>Users</span></a></li>
                         <li class="nav-item"><a class="nav-link active" href="/admin/codes.php" style="text-align: center;"><i class="fas fa-long-arrow-alt-right"></i><span>Codes</span></a></li>
+                        <li class="nav-item"><a class="nav-link active" href="/admin/gift.php" style="text-align: center;"><i class="fas fa-long-arrow-alt-right"></i><span>Sub-Gift</span></a></li>
                     <?php endif; ?>
 
 

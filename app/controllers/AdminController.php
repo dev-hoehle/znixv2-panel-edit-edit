@@ -15,6 +15,19 @@ class AdminController extends Admin {
 
 	}
 
+	//
+	public function giftsub($name, $sub, $time) {
+		
+		return $this->subgift($name, $sub, $time);
+
+	}
+
+	public function subcheckbyusername($name) {
+		
+		return $this->checksubbyun($name);
+
+	}
+
 
 	//
 	public function getInvCodeArray() {
