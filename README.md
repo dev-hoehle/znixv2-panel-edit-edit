@@ -29,3 +29,4 @@
     * `- to remove a users subscription`
     * `Intager for custom amount in days`
 * View a users last known IP address
+* Password Reset

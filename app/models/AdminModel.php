@@ -26,6 +26,13 @@ class Admin extends Database
 		}
 	}
 
+	protected function pwreset($hashedPassword, $username)
+    {
+        $this->prepare('UPDATE `users` SET `password` = ? WHERE `username` = ?');
+        $this->statement->execute([$hashedPassword, $username]);
+        return true;
+    }
+
 	protected function subgift($name, $sub, $time)
 	{
 

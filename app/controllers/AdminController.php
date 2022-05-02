@@ -43,6 +43,11 @@ class AdminController extends Admin {
 		return $this->subCodeArray();
 
 	}
+	//
+	public function resetpw($hashedPassword, $username)
+	{
+		return $this->pwreset($hashedPassword, $username);
+	}
 
 
 	//
