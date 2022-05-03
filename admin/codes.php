@@ -24,6 +24,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST["genSub"])) {
         $admin->getSubCodeGen($username);
     }
+    if (isset($_POST["genSub3M"])) {
+        $admin->getSubCodeGen3M($username);
+    }
+    if (isset($_POST["genSubtrail"])) {
+        $admin->getSubCodeGentrail($username);
+    }
     if (isset($_POST["genInv"])) {
         $admin->getInvCodeGen($username);
     }
@@ -70,7 +76,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </nav>
                 <div class="container-fluid">
                     <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
-                        <h3 class="text-dark mb-4" data-aos="fade-down" data-aos-duration="1000">Codes</h3><button name="genInv" type="submit" class="btn btn-success" data-aos="fade-down" data-aos-duration="800" style="font-size: 12px;color: rgb(255,255,255);">Invite</button><button class="btn btn-success" data-aos="fade-down" data-aos-duration="800" name="genSub" type="submit" style="margin-left: 10px;font-size: 12px;color: rgb(255,255,255);">Subscription</button>
+                        <h3 class="text-dark mb-4" data-aos="fade-down" data-aos-duration="1000">Codes</h3><button name="genInv" type="submit" class="btn btn-success" data-aos="fade-down" data-aos-duration="800" style="font-size: 12px;color: rgb(255,255,255);">Invite</button>
+                        <button class="btn btn-success" data-aos="fade-down" data-aos-duration="800" name="genSub" type="submit" style="margin-left: 10px;font-size: 12px;color: rgb(255,255,255);">Subscription</button>
+                        <button class="btn btn-success" data-aos="fade-down" data-aos-duration="800" name="genSub3M" type="submit" style="margin-left: 10px;font-size: 12px;color: rgb(255,255,255);">Subscription (3 Months)</button>
+                    <button class="btn btn-success" data-aos="fade-down" data-aos-duration="800" name="genSubtrail" type="submit" style="margin-left: 10px;font-size: 12px;color: rgb(255,255,255);">Subscription (Trail)</button>
                         <div class="card shadow" data-aos="fade-down" data-aos-duration="600" style="background: #252935;border-style: none;margin-top: 20px;">
                             <div class="card-header py-3" style="color: rgb(133, 135, 150);background: #252935;border-style: none;">
                                 <p class="text-primary m-0 fw-bold">Subscriptions</p>

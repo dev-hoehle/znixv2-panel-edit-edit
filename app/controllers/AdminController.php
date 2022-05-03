@@ -62,7 +62,22 @@ class AdminController extends Admin {
 	//
 	public function getSubCodeGen($username) {
 
-		$code = Util::randomCode(20);
+		$code = "1m-".Util::randomCode(20);
+		return $this->subCodeGen($code, $username);
+
+	}
+
+	//
+	public function getSubCodeGen3M($username) {
+
+		$code = "3m-".Util::randomCode(20);
+		return $this->subCodeGen($code, $username);
+
+	}
+	//
+	public function getSubCodeGentrail($username) {
+
+		$code = "Trail-".Util::randomCode(20);
 		return $this->subCodeGen($code, $username);
 
 	}

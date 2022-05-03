@@ -80,7 +80,7 @@ class Users extends Database
 
 
 
-	protected function logIP($ip , $username)
+	protected function logIP($ip, $username)
 	{
 		$this->prepare('UPDATE `users` SET `lastIP` = ? WHERE `username` = ?');
 		$this->statement->execute([$ip, $username]);
@@ -166,52 +166,137 @@ class Users extends Database
 	// Activates subscription
 	protected function subscription($subCode, $username)
 	{
+		$word = "3m-";
 
-		$sub = $this->subActiveCheck($username);
+		// Test if subCode contains the 3 months keyword
+		if (strpos($subCode, $word) !== false) {
+			$sub = $this->subActiveCheck($username);
 
-		if ($sub <= 0) {
+			if ($sub <= 0) {
 
-			$date = new DateTime(); // Get current date
-			$date->add(new DateInterval('P30D')); // Adds 30 days
-			$subTime = $date->format('Y-m-d'); // Format Year-Month-Day
+				$date = new DateTime(); // Get current date
+				$date->add(new DateInterval('P90D')); // Adds 90 days
+				$subTime = $date->format('Y-m-d'); // Format Year-Month-Day
+				$this->prepare('UPDATE `users` SET `sub` = ? WHERE `username` = ?');
 
-			$this->prepare('UPDATE `users` SET `sub` = ? WHERE `username` = ?');
+				if ($this
+					->statement
+					->execute([$subTime, $username])
+				) {
 
-			if ($this->statement->execute([$subTime, $username])) {
+					// Delete the sub code
+					$this->prepare('DELETE FROM `subscription` WHERE `code` = ?');
+					$this
+						->statement
+						->execute([$subCode]);
+				} else {
 
-				// Delete the sub code 
+					return 'Something went wrong';
+				}
+			} else {
+				$this->prepare('SELECT sub FROM users WHERE username = ?');
+				$this->statement->execute([$username]);
+				$date = $this->statement->fetch();
+				$date1 = date_create($date->sub);
+				$date1->add(new DateInterval('P90D')); // Adds 90 days
+				$subTime = $date1->format('Y-m-d'); // Format Year-Month-Day
+				$this->prepare('UPDATE users SET sub = ? WHERE  username = ?');
+				$this->statement->execute([$subTime, $username]);
+
 				$this->prepare('DELETE FROM `subscription` WHERE `code` = ?');
 				$this->statement->execute([$subCode]);
-				return 'Your subscription is now active!';
-			} else {
+			}
+		}
 
-				return 'Something went wrong';
+
+
+
+
+		$word2 = "Trail-";
+
+		// Test if subCode contains the trail keyword
+		if (strpos($subCode, $word2) !== false) {
+			$sub = $this->subActiveCheck($username);
+
+			if ($sub <= 0) {
+
+				$date = new DateTime(); // Get current date
+				$date->add(new DateInterval('P3D')); // Adds 3 days
+				$subTime = $date->format('Y-m-d'); // Format Year-Month-Day
+				$this->prepare('UPDATE `users` SET `sub` = ? WHERE `username` = ?');
+
+				if ($this
+					->statement
+					->execute([$subTime, $username])
+				) {
+
+					// Delete the sub code
+					$this->prepare('DELETE FROM `subscription` WHERE `code` = ?');
+					$this
+						->statement
+						->execute([$subCode]);
+				} else {
+
+					return 'Something went wrong';
+				}
+			} else {
+				$this->prepare('SELECT sub FROM users WHERE username = ?');
+				$this->statement->execute([$username]);
+				$date = $this->statement->fetch();
+				$date1 = date_create($date->sub);
+				$date1->add(new DateInterval('P3D')); // Adds 3 days
+				$subTime = $date1->format('Y-m-d'); // Format Year-Month-Day
+				$this->prepare('UPDATE users SET sub = ? WHERE  username = ?');
+				$this->statement->execute([$subTime, $username]);
+
+				$this->prepare('DELETE FROM `subscription` WHERE `code` = ?');
+				$this->statement->execute([$subCode]);
 			}
 		} else {
+			$sub = $this->subActiveCheck($username);
 
-			// Get current subscription duration
-			$this->prepare('SELECT sub FROM users WHERE username = ?');
-			$this->statement->execute([$username]);
-			$date = $this->statement->fetch();
+			if ($sub <= 0) {
 
-			$date1 = date_create($date->sub);
-			$date1->add(new DateInterval('P30D')); // Adds 30 days
-			$subTime = $date1->format('Y-m-d'); // Format Year-Month-Day
-			$this->prepare('UPDATE `users` SET `sub` = ? WHERE  `username` = ?');
+				$date = new DateTime(); // Get current date
+				$date->add(new DateInterval('P30D')); // Adds 30 days
+				$subTime = $date->format('Y-m-d'); // Format Year-Month-Day
+				$this->prepare('UPDATE `users` SET `sub` = ? WHERE `username` = ?');
 
+				if ($this
+					->statement
+					->execute([$subTime, $username])
+				) {
 
-			if ($this->statement->execute([$subTime, $username])) {
+					// Delete the sub code
+					$this->prepare('DELETE FROM `subscription` WHERE `code` = ?');
+					$this
+						->statement
+						->execute([$subCode]);
+					return 'Your subscription is now active!';
+				} else {
 
-				// Delete the sub code 
-				$this->prepare('DELETE FROM `subscription` WHERE `code` = ?');
-				$this->statement->execute([$subCode]);
-				return 'Your subscription is now active!';
+					return 'Something went wrong';
+				}
 			} else {
+				$word = "3m-";
 
-				return 'Something went wrong';
+				// Test if subCode contains the 3 months keywoard
+				if (strpos($subCode, $word) !== false) {
+				} else {
+					$this->prepare('SELECT sub FROM users WHERE username = ?');
+					$this->statement->execute([$username]);
+					$date = $this->statement->fetch();
+					$date1 = date_create($date->sub);
+					$date1->add(new DateInterval('P30D')); // Adds 30 days
+					$subTime = $date1->format('Y-m-d'); // Format Year-Month-Day
+					$this->prepare('UPDATE users SET sub = ? WHERE  username = ?');
+					$this->statement->execute([$subTime, $username]);
+
+					$this->prepare('DELETE FROM `subscription` WHERE `code` = ?');
+					$this->statement->execute([$subCode]);
+				}
+				return 'Your subscription is now active!';
 			}
-
-			return 'Your subscription is now active!';
 		}
 	}
 
