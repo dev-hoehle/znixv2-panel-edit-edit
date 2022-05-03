@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 03, 2022 at 01:55 PM
+-- Generation Time: May 03, 2022 at 02:40 PM
 -- Server version: 10.5.15-MariaDB-0+deb11u1
 -- PHP Version: 7.4.28
 
@@ -81,15 +81,16 @@ CREATE TABLE `users` (
   `banned` int(1) NOT NULL DEFAULT 0,
   `invitedBy` varchar(255) NOT NULL,
   `createdAt` timestamp NULL DEFAULT current_timestamp(),
-  `lastIP` varchar(255) DEFAULT NULL
+  `lastIP` varchar(255) DEFAULT NULL,
+  `remembertoken` varchar(50) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`uid`, `username`, `password`, `hwid`, `admin`, `sub`, `banned`, `invitedBy`, `createdAt`, `lastIP`) VALUES
-(1, 'admin', '$2y$10$7wOzYc.AXpXc1nE/b0IqLOsP2w1cK9LZXDUi6hoSyuWBDj3DoBjOK', NULL, 1, '2047-02-17', 0, '', '2022-04-30 22:04:37', NULL);
+INSERT INTO `users` (`uid`, `username`, `password`, `hwid`, `admin`, `sub`, `banned`, `invitedBy`, `createdAt`, `lastIP`, `remembertoken`) VALUES
+(1, 'admin', '$2y$10$7wOzYc.AXpXc1nE/b0IqLOsP2w1cK9LZXDUi6hoSyuWBDj3DoBjOK', NULL, 1, '2047-02-17', 0, '', '2022-04-30 22:04:37', NULL, NULL);
 
 --
 -- Indexes for dumped tables
