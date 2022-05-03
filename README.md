@@ -20,7 +20,8 @@
 Changes
 
 ###### USER
-* Activate multiple subscription´s with code (30 days)
+* Activate multiple subscription´s with code (30/90 days)
+* Activate Trail subscription´s with code (3 days)
 ###### ADMIN PANEL
 * Cleaned up
 * Added Gift user subscription
