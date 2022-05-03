@@ -1,4 +1,4 @@
-# znixv2-panel-edit-edit
+# User Management Panel
 
 
 
@@ -18,6 +18,8 @@
 
 
 Changes
+###### AUTH
+* Added remember Login
 
 ###### USER
 * Activate multiple subscription´s with code (30/90 days)
@@ -33,3 +35,11 @@ Changes
 * View a users last known IP address
 * Password Reset
 * Set News
+
+## Setup ##
+
+- Download The Repository
+- Upload all files to your PHP host of choice
+- Then copy and paste db.sql into SQL import tab on phpmyadmin
+- Change https://github.com/anditv21/znixv2-panel-edit-edit/blob/main/app/core/Database#L4 to your database credentials
+- Rename https://github.com/anditv21/znixv2-panel-edit-edit/blob/main/app/core/Database to Database.php
