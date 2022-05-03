@@ -1,4 +1,4 @@
-# znixv2-panel-edit-edit
+# User Management Panel
 
 
 
@@ -18,6 +18,8 @@
 
 
 Changes
+###### AUTH
+* Added remember Login
 
 ###### USER
 * Activate multiple subscription´s with code (30/90 days)
