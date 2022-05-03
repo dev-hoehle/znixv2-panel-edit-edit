@@ -72,8 +72,8 @@ class Admin extends Database
 						$time = "3";
 					}
 
-					$this->prepare('SELECT `sub` FROM `users` WHERE `uid` = ?');
-					$this->statement->execute([$rowUID]);
+					$this->prepare('SELECT `sub` FROM `users` WHERE `username` = ?');
+					$this->statement->execute([$name]);
 					$date = $this->statement->fetch();
 					$date1 = date_create($date->sub);
 					$days = 'P' . $time . 'D';
@@ -81,7 +81,7 @@ class Admin extends Database
 					$subTime = $date1->format('Y-m-d'); // Format Year-Month-Day
 
 
-					$this->prepare('UPDATE `users` SET `sub` = ? WHERE  `uid` = ?');
+					$this->prepare('UPDATE `users` SET `sub` = ? WHERE  `username` = ?');
 					$this->statement->execute([$subTime, $name]);
 				}
 			}
