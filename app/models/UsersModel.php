@@ -43,6 +43,15 @@ class Users extends Database
 	}
 
 
+	protected function getnews()
+	{
+		$this->prepare('SELECT * FROM `cheat`');
+		$this->statement->execute();
+		$result = $this->statement->fetch();
+
+		return $result->news;
+	}
+
 	// Check if sub code is valid
 	protected function subCodeCheck($subCode)
 	{

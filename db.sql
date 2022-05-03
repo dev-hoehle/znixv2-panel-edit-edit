@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 30, 2022 at 09:23 PM
+-- Generation Time: May 03, 2022 at 01:55 PM
 -- Server version: 10.5.15-MariaDB-0+deb11u1
 -- PHP Version: 7.4.28
 
@@ -30,6 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `cheat` (
   `status` int(1) NOT NULL DEFAULT 0,
   `version` float NOT NULL DEFAULT 0,
+  `news` varchar(255) NOT NULL DEFAULT '0',
   `maintenance` int(1) NOT NULL DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -37,8 +38,8 @@ CREATE TABLE `cheat` (
 -- Dumping data for table `cheat`
 --
 
-INSERT INTO `cheat` (`status`, `version`, `maintenance`) VALUES
-(0, 1, 0);
+INSERT INTO `cheat` (`status`, `version`, `news`, `maintenance`) VALUES
+(0, 1, 'Welcome to znixv2-panel-edit-edit by anditv21!', 0);
 
 -- --------------------------------------------------------
 
@@ -88,7 +89,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`uid`, `username`, `password`, `hwid`, `admin`, `sub`, `banned`, `invitedBy`, `createdAt`, `lastIP`) VALUES
-(1, 'admin', '$2y$10$7wOzYc.AXpXc1nE/b0IqLOsP2w1cK9LZXDUi6hoSyuWBDj3DoBjOK', NULL, 1, '3056-01-23', 0, '', '2022-04-30 22:04:37', NULL);
+(1, 'admin', '$2y$10$7wOzYc.AXpXc1nE/b0IqLOsP2w1cK9LZXDUi6hoSyuWBDj3DoBjOK', NULL, 1, '2047-02-17', 0, '', '2022-04-30 22:04:37', NULL);
 
 --
 -- Indexes for dumped tables

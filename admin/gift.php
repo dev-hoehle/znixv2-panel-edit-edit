@@ -77,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     <div class="divide2"></div>
                                     <div class="card">
                                         <div class="card-body">
-                                            <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
+                                            <form action="<?php Util::display($_SERVER['PHP_SELF']); ?>" method="post">
 
                                                 <label>Select a user:</label><br>
                                                 <select  name="giftsub" class="form-control form-control-sm">

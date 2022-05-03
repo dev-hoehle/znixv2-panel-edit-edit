@@ -75,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
                 </nav>
                 <div class="container-fluid">
-                    <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
+                    <form method="POST" action="<?php Util::display($_SERVER['PHP_SELF']); ?>">
                         <h3 class="text-dark mb-4" data-aos="fade-down" data-aos-duration="1000">Codes</h3><button name="genInv" type="submit" class="btn btn-success" data-aos="fade-down" data-aos-duration="800" style="font-size: 12px;color: rgb(255,255,255);">Invite</button>
                         <button class="btn btn-success" data-aos="fade-down" data-aos-duration="800" name="genSub" type="submit" style="margin-left: 10px;font-size: 12px;color: rgb(255,255,255);">Subscription</button>
                         <button class="btn btn-success" data-aos="fade-down" data-aos-duration="800" name="genSub3M" type="submit" style="margin-left: 10px;font-size: 12px;color: rgb(255,255,255);">Subscription (3 Months)</button>

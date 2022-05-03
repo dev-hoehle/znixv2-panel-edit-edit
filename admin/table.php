@@ -123,7 +123,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
                                                 <td style="color: rgb(255,255,255);max-width: 100px;">
-                                                    <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
+                                                    <form method="POST" action="<?php Util::display($_SERVER['PHP_SELF']); ?>">
 
                                                         <button value="<?php Util::display($row->uid); ?>" name="resetHWID" class="btn btn-primary" type="submit" style="font-size: 11px;">
                                                             <i class="fas fa-microchip"></i>&nbsp;Reset</button>

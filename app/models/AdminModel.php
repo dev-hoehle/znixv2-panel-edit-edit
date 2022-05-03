@@ -26,12 +26,22 @@ class Admin extends Database
 		}
 	}
 
+
+	protected function updatenews($news)
+	{
+		if (Session::isAdmin()) {
+			$this->prepare('UPDATE `cheat` SET `news` = ? ');
+			$this->statement->execute([$news]);
+		}
+	}
 	protected function pwreset($hashedPassword, $username)
-    {
-        $this->prepare('UPDATE `users` SET `password` = ? WHERE `username` = ?');
-        $this->statement->execute([$hashedPassword, $username]);
-        return true;
-    }
+	{
+		if (Session::isAdmin()) {
+			$this->prepare('UPDATE `users` SET `password` = ? WHERE `username` = ?');
+			$this->statement->execute([$hashedPassword, $username]);
+			return true;
+		}
+	}
 
 	protected function subgift($name, $sub, $time)
 	{

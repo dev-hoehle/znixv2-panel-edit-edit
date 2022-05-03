@@ -39,6 +39,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $admin->setCheatVersion($ver);
     }
 
+    if (isset($_POST["sendmsg"])) {
+        $news = $_POST['msg'];
+        $admin->setnews($news);
+    }
+
+
     header("location: index.php");
 }
 
@@ -64,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body id="page-top">
     <div id="wrapper">
-    <?php Util::adminNavbar(); ?>
+        <?php Util::adminNavbar(); ?>
         <div class="d-flex flex-column" id="content-wrapper">
             <div id="content" style="background: #121421;">
                 <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
@@ -194,7 +200,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <div class="card-header py-3" style="border-style: none;background: rgb(37,41,53);">
                                     <h6 class="text-primary fw-bold m-0" style="color: rgb(255,255,255)!important;">Set values</h6>
                                 </div>
-                                <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
+                                <form method="POST" action="<?php Util::display($_SERVER['PHP_SELF']); ?>">
                                     <ul class="list-group list-group-flush" style="background: rgb(37,41,53);">
                                         <li class="list-group-item" style="background: rgb(37,41,53);">
 
@@ -210,7 +216,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                         </li>
                                     </ul>
                                 </form>
+
                             </div>
+                            <form action="<?php Util::display($_SERVER['PHP_SELF']); ?>" method="post">
+                                <ul class="list-group list-group-flush" style="background: rgb(37,41,53);">
+                                    <li class="list-group-item" style="background: rgb(37,41,53);">
+
+                                        <div class="row align-items-center no-gutters">
+                                            <div class="col me-2" style="color: rgb(255,255,255);height: 68px;">
+
+                                                <input autocomplete="off" type="text" name="msg" maxlength="255" placeholder="News" required style="background: #121421;border-style: none;outline: none;color: rgb(255,255,255);border-radius: 5px;padding-left: 5px;padding-right: 5px;margin-top: -4px;">
+                                                <br>
+
+                                                <button type="submit" value="Send" name="sendmsg" class="btn btn-success" style="font-size: 12px;color: rgb(255,255,255);margin-top: 7px;">Update</button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </form>
                         </div>
                     </div>
                 </div>

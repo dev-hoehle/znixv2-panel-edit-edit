@@ -21,7 +21,11 @@ class AdminController extends Admin {
 		return $this->subgift($name, $sub, $time);
 
 	}
-
+	//
+	public function setnews($news){
+		return $this->updatenews($news);
+	}
+	//
 	public function subcheckbyusername($name) {
 		
 		return $this->checksubbyun($name);

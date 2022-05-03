@@ -31,6 +31,10 @@ class UserController extends Users {
 
 	}
 
+	public function getusernews() {
+		return $this->getnews();
+	}
+
 
 	public function registerUser($data) {
 

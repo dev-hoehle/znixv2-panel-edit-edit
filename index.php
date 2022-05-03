@@ -147,7 +147,7 @@ Util::head($username);
                                     <li class="list-group-item" style="background: rgb(37,41,53);">
                                         <div class="row align-items-center no-gutters">
                                             <div class="col me-2" style="color: rgb(255,255,255);">
-                                                <h6 class="mb-0"><strong>Welcome to znixv2-panel-edit by anditv21!</strong></h6><span class="text-xs">04 / 30 / 2022</span>
+                                                <h6 class="mb-0"><strong><?php  Util::display( $user->getusernews())?></strong></h6>
                                             </div>
                                         </div>
                                     </li>

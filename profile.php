@@ -91,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                             <p class="text-primary m-0 fw-bold" style="/*color: var(--bs-yellow)!important;*/">Redeem subscription</p>
                                         </div>
                                         <div class="card-body" style="border-style: none;background: #252935;padding-bottom: 0px;">
-                                            <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
+                                            <form method="POST" action="<?php Util::display($_SERVER['PHP_SELF']); ?>">
                                                 <div class="row">
                                                     <div class="col">
                                                         <?php if ($suc == '1') : ?>
@@ -115,7 +115,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <div class="card-body" style="background: #252935;border-style: none;">
                                 <div class="row">
                                     <div class="col-md-6" style="width: 100%;">
-                                        <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
+                                        <form method="POST" action="<?php Util::display($_SERVER['PHP_SELF']); ?>">
                                             <div class="mb-3">
                                                 <div class="col">
                                                     <?php if (isset($error)) : ?>
