@@ -13,6 +13,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $error = $user->loginUser($_POST);
 }
 
+if(isset($_COOKIE["login_cookie"])){
+
+
+    $error = $user->tokenlogin($_COOKIE["login_cookie"]);
+}
 
 Util::head('Login');
 
