@@ -41,5 +41,5 @@ Changes
 - Download The Repository
 - Upload all files to your PHP host of choice
 - Then copy and paste db.sql into SQL import tab on phpmyadmin
-- Change https://github.com/anditv21/znixv2-panel-edit-edit/blob/main/app/core/Database#L4 to your database credentials
+- Change https://github.com/anditv21/znixv2-panel-edit-edit/blob/main/app/core/Database#L5#L8 to your database credentials
 - Rename https://github.com/anditv21/znixv2-panel-edit-edit/blob/main/app/core/Database to Database.php
