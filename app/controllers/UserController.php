@@ -16,10 +16,10 @@ class UserController extends Users
 		Session::set("login", true);
 		Session::set("uid", (int) $user->uid);
 		Session::set("username", $user->username);
-		//Session::set("hwid", $user->hwid);
 		Session::set("admin", (int) $user->admin);
 		Session::set("banned", (int) $user->banned);
 		Session::set("invitedBy", $user->invitedBy);
+		//Session::set("hwid", $user->hwid);
 		//Session::set("createdBy", $user->createdBy);
 
 	}
@@ -176,8 +176,7 @@ class UserController extends Users
 
 				$this->updaterememberToken($token, $username);
 
-				setcookie("login_cookie", $token, time() + 31556926);
-				session_start();
+				setcookie("login_cookie", $token, time() + 31556926);	
 				$_SESSION["username"] = $username;
 
 
