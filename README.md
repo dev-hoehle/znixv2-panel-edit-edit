@@ -4,7 +4,6 @@
 
 ### Original Panels:
 * Original Panel: https://github.com/znixbtw/php-panel-v2
-* Original Panel Edit: https://github.com/sxck1337/znixv2-panel-edit
 
 
 
