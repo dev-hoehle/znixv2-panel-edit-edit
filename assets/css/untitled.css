@@ -1,16 +1,12 @@
 .bg-gradient-primary {
   background-color: #252935;
-  background-image: linear-gradient(
-    180deg,
-    #252935 10%,
-    #252935 100%
-  ) !important;
+  background-image: linear-gradient(180deg, #252935 10%, #252935 100%)!important;
   background-size: cover;
 }
 
 .bg-white {
   --bs-bg-opacity: 1;
-  background-color: #252935 !important;
+  background-color: #252935!important;
 }
 
 .text-dark {
@@ -18,10 +14,9 @@
   color: #fff !important;
 }
 
-.btn-check:focus + .btn,
-.btn:focus {
+.btn-check:focus + .btn, .btn:focus {
   outline: 0;
-  box-shadow: 0 0 0 0.25rem rgba(78, 115, 223, 0);
+  box-shadow: 0 0 0 .25rem rgba(78,115,223,0);
 }
 
 *::-webkit-scrollbar {
@@ -40,18 +35,17 @@
 
 .text-primary {
   --bs-text-opacity: 1;
-  color: #fff !important;
+  color: #fff!important;
 }
 
-.dropdown-item:hover,
-.dropdown-item:focus {
-  color: #fff !important;
+.dropdown-item:hover, .dropdown-item:focus {
+  color: #fff!important;
   background-color: #121421;
 }
 
 .btn-link:hover {
-  color: #ffffff !important;
-  background-color: #ffffff !important;
+  color: #ffffff!important;
+  background-color: #ffffff!important;
 }
 
 .btn-link {
@@ -61,5 +55,6 @@
 }
 
 .topbar #sidebarToggleTop:hover {
-  background-color: rgba(227, 227, 227, 0.27);
+  background-color: rgba(227,227,227,0.27);
 }
+
