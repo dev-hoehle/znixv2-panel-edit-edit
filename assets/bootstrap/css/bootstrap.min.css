@@ -1686,7 +1686,7 @@ progress{
     font-weight:400;
     line-height:1.5;
     color:#858796;
-    background-color:#fff;
+    background-color:#121421;
     background-clip:padding-box;
     border:1px solid #d1d3e2;
     -webkit-appearance:none;
@@ -1708,10 +1708,10 @@ progress{
 }
 .form-control:focus{
     color:#858796;
-    background-color:#fff;
+    background-color:#121421;
     border-color:#a7b9ef;
     outline:0;
-    box-shadow:0 0 0 .25rem rgba(78,115,223,.25)
+    box-shadow:0 0 0 .25rem #252935
 }
 .form-control::-webkit-date-and-time-value{
     height:1.5em
@@ -2509,7 +2509,7 @@ textarea.form-control-lg{
     border-color:#858796
 }
 .btn-success{
-    color:#000;
+    color:#fff;
     background-color:#1cc88a;
     border-color:#1cc88a
 }
@@ -3823,7 +3823,7 @@ textarea.form-control-lg{
 	flex-direction: column;
 	min-width: 0;
 	word-wrap: break-word;
-	background-color: #222222;
+	background-color: #252935;
 	background-clip: border-box;
 	border: 1px solid #e3e6f0;
 	border-radius: .35rem
