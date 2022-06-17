@@ -3,52 +3,44 @@ require_once '../app/require.php';
 require_once '../app/controllers/CheatController.php';
 require_once '../app/controllers/AdminController.php';
 
-
-
-
-$user = new UserController;
-$cheat = new CheatController;
-$admin = new AdminController;
+$user = new UserController();
+$cheat = new CheatController();
+$admin = new AdminController();
 
 Session::init();
 
 Util::adminCheck();
 
-$username = Session::get("username");
-$uid = Session::get("uid");
+$username = Session::get('username');
+$uid = Session::get('uid');
 
 $sub = $user->getSubStatus();
 
 Util::banCheck();
 Util::head('Admin Panel');
 
-// if post request 
+// if post request
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-
-    if (isset($_POST["cheatStatus"])) {
+    if (isset($_POST['cheatStatus'])) {
         $admin->setCheatStatus();
     }
 
-    if (isset($_POST["cheatMaint"])) {
+    if (isset($_POST['cheatMaint'])) {
         $admin->setCheatMaint();
     }
 
-    if (isset($_POST["cheatVersion"])) {
+    if (isset($_POST['cheatVersion'])) {
         $ver = floatval($_POST['version']);
         $admin->setCheatVersion($ver);
     }
 
-    if (isset($_POST["sendmsg"])) {
+    if (isset($_POST['sendmsg'])) {
         $news = $_POST['msg'];
         $admin->setnews($news);
     }
 
-
-    header("location: index.php");
+    header('location: index.php');
 }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -80,7 +72,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <div class="shadow dropdown-list dropdown-menu dropdown-menu-end" aria-labelledby="alertsDropdown"></div>
                             </li>
                             <li class="nav-item dropdown no-arrow">
-                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><span class="d-none d-lg-inline me-2 text-gray-600 small" style="color: #ffffff !important;"><?php Util::display(Session::get("username")); ?></span><img class="border rounded-circle img-profile" src="../assets/img/avatars/Portrait_Placeholder.png" style="border-color: rgb(255,255,255)!important;"></a>
+                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><span class="d-none d-lg-inline me-2 text-gray-600 small" style="color: #ffffff !important;"><?php Util::display(
+                                    Session::get('username')
+                                ); ?></span><img class="border rounded-circle img-profile" src="../assets/img/avatars/Portrait_Placeholder.png" style="border-color: rgb(255,255,255)!important;"></a>
                                     <div class="dropdown-menu shadow dropdown-menu-end animated--grow-in" style="background: #252935;border-style: none;margin-top: 11px;box-shadow: 0px 0px 3px 2px rgba(0,0,0,0.16)!important;"><a class="dropdown-item" href="profile.php" style="color: rgb(255,255,255);"><i class="fas fa-user fa-sm fa-fw me-2 text-gray-400" style="color: rgb(255,255,255)!important;"></i>&nbsp;Profile</a><a class="dropdown-item" id="logout" href="/auth/logout.php" style="color: rgb(255,255,255);"><i class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400" style="color: rgb(255,255,255)!important;"></i>&nbsp;Logout</a></div>
                                 </div>
                             </li>
@@ -98,9 +92,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     <div class="row align-items-center no-gutters">
                                         <div class="col me-2">
                                             <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span style="color: rgb(255,255,255);">Cheat status</span></div>
-                                            <?php if ($cheat->getCheatData()->status == 'Undetected') : ?>
+                                            <?php if (
+                                                $cheat->getCheatData()
+                                                    ->status == 'Undetected'
+                                            ): ?>
                                                 <div class="text-dark fw-bold h5 mb-0"><span style="color: var(--bs-green);">Undetected</span></div>
-                                            <?php elseif ($cheat->getCheatData()->status == 'Detected') : ?>
+                                            <?php elseif (
+                                                $cheat->getCheatData()
+                                                    ->status == 'Detected'
+                                            ): ?>
                                                 <div class="text-dark fw-bold h5 mb-0"><span style="color: var(--bs-red);">Detected</span></div>
                                             <?php endif; ?>
                                         </div>
@@ -115,7 +115,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     <div class="row align-items-center no-gutters">
                                         <div class="col me-2">
                                             <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span style="color: rgb(255,255,255);">version</span></div>
-                                            <div class="text-dark fw-bold h5 mb-0"><span><?php Util::display($cheat->getCheatData()->version); ?></span></div>
+                                            <div class="text-dark fw-bold h5 mb-0"><span><?php Util::display(
+                                                $cheat->getCheatData()->version
+                                            ); ?></span></div>
                                         </div>
                                         <div class="col-auto"><i class="fas fa-hashtag fa-2x text-gray-300" style="color: rgb(200,200,200)!important;"></i></div>
                                     </div>
@@ -128,9 +130,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     <div class="row align-items-center no-gutters">
                                         <div class="col me-2">
                                             <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span style="color: rgb(255,255,255);">Maintenance</span></div>
-                                            <?php if ($cheat->getCheatData()->maintenance == '-') : ?>
+                                            <?php if (
+                                                $cheat->getCheatData()
+                                                    ->maintenance == '-'
+                                            ): ?>
                                                 <div class="text-dark fw-bold h5 mb-0"><span style="color:#fff;">No</span></div>
-                                            <?php elseif ($cheat->getCheatData()->maintenance == 'UNDER') : ?>
+                                            <?php elseif (
+                                                $cheat->getCheatData()
+                                                    ->maintenance == 'UNDER'
+                                            ): ?>
                                                 <div class="text-dark fw-bold h5 mb-0"><span style="color: var(--bs-yellow);">Yes</span></div>
                                             <?php endif; ?>
                                         </div>
@@ -147,7 +155,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     <div class="row align-items-center no-gutters">
                                         <div class="col me-2">
                                             <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span style="color: rgb(255,255,255);">Total users</span></div>
-                                            <div class="text-dark fw-bold h5 mb-0"><span style="color: rgb(255,255,255);"><?php Util::display($user->getUserCount()); ?></span></div>
+                                            <div class="text-dark fw-bold h5 mb-0"><span style="color: rgb(255,255,255);"><?php Util::display(
+                                                $user->getUserCount()
+                                            ); ?></span></div>
                                         </div>
                                         <div class="col-auto"><i class="fas fa-user-friends fa-2x text-gray-300" style="color: rgb(200,200,200)!important;"></i></div>
                                     </div>
@@ -160,7 +170,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     <div class="row align-items-center no-gutters">
                                         <div class="col me-2">
                                             <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span style="color: rgb(255,255,255);">Active subs</span></div>
-                                            <div class="text-dark fw-bold h5 mb-0"><span><?php Util::display($user->getActiveUserCount()); ?></span></div>
+                                            <div class="text-dark fw-bold h5 mb-0"><span><?php Util::display(
+                                                $user->getActiveUserCount()
+                                            ); ?></span></div>
                                         </div>
                                         <div class="col-auto"><i class="fas fa-file-invoice-dollar fa-2x text-gray-300" style="color: rgb(200,200,200)!important;"></i></div>
                                     </div>
@@ -173,7 +185,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     <div class="row align-items-center no-gutters">
                                         <div class="col me-2">
                                             <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span style="color: rgb(255,255,255);">banned users</span></div>
-                                            <div class="text-dark fw-bold h5 mb-0"><span style="color: rgb(255,255,255);"><?php Util::display($user->getBannedUserCount()); ?></span></div>
+                                            <div class="text-dark fw-bold h5 mb-0"><span style="color: rgb(255,255,255);"><?php Util::display(
+                                                $user->getBannedUserCount()
+                                            ); ?></span></div>
                                         </div>
                                         <div class="col-auto"><i class="fas fa-ban fa-2x text-gray-300" style="color: rgb(200,200,200)!important;"></i></div>
                                     </div>
@@ -186,7 +200,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     <div class="row align-items-center no-gutters">
                                         <div class="col me-2">
                                             <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span style="color: rgb(255,255,255);">latest user</span></div>
-                                            <div class="text-dark fw-bold h5 mb-0"><span style="color: rgb(255,255,255);"><?php Util::display($user->getNewUser()); ?></span></div>
+                                            <div class="text-dark fw-bold h5 mb-0"><span style="color: rgb(255,255,255);"><?php Util::display(
+                                                $user->getNewUser()
+                                            ); ?></span></div>
                                         </div>
                                         <div class="col-auto"><i class="fas fa-clock fa-2x text-gray-300" style="color: rgb(200,200,200)!important;"></i></div>
                                     </div>
@@ -200,7 +216,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <div class="card-header py-3" style="border-style: none;background: rgb(37,41,53);">
                                     <h6 class="text-primary fw-bold m-0" style="color: rgb(255,255,255)!important;">Set values</h6>
                                 </div>
-                                <form method="POST" action="<?php Util::display($_SERVER['PHP_SELF']); ?>">
+                                <form method="POST" action="<?php Util::display(
+                                    $_SERVER['PHP_SELF']
+                                ); ?>">
                                     <ul class="list-group list-group-flush" style="background: rgb(37,41,53);">
                                         <li class="list-group-item" style="background: rgb(37,41,53);">
 
@@ -218,7 +236,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 </form>
 
                             </div>
-                            <form action="<?php Util::display($_SERVER['PHP_SELF']); ?>" method="post">
+                            <form action="<?php Util::display(
+                                $_SERVER['PHP_SELF']
+                            ); ?>" method="post">
                                 <ul class="list-group list-group-flush" style="background: rgb(37,41,53);">
                                     <li class="list-group-item" style="background: rgb(37,41,53);">
 

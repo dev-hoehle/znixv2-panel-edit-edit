@@ -2,14 +2,14 @@
 require_once '../app/require.php';
 require_once '../app/controllers/AdminController.php';
 
-$user = new UserController;
-$admin = new AdminController;
+$user = new UserController();
+$admin = new AdminController();
 
 Session::init();
 
 $userList = $admin->getUserArray();
-$username = Session::get("username");
-$uid = Session::get("uid");
+$username = Session::get('username');
+$uid = Session::get('uid');
 
 $userList = $admin->getUserArray();
 
@@ -18,26 +18,23 @@ Util::banCheck();
 Util::head('Admin Panel');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-    if (isset($_POST["resetHWID"])) {
+    if (isset($_POST['resetHWID'])) {
         $rowUID = $_POST['resetHWID'];
         $admin->resetHWID($rowUID);
     }
 
-    if (isset($_POST["setBanned"])) {
+    if (isset($_POST['setBanned'])) {
         $rowUID = $_POST['setBanned'];
         $admin->setBanned($rowUID);
     }
 
-    if (isset($_POST["setAdmin"])) {
+    if (isset($_POST['setAdmin'])) {
         $rowUID = $_POST['setAdmin'];
         $admin->setAdmin($rowUID);
     }
 
-    header("location: table.php");
+    header('location: table.php');
 }
-
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -58,17 +55,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body id="page-top">
     <div id="wrapper">
-    <?php Util::adminNavbar(); ?>
+        <?php Util::adminNavbar(); ?>
         <div class="d-flex flex-column" id="content-wrapper">
             <div id="content" style="background: #121421;">
-            <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
+                <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
                     <div class="container-fluid"><button class="btn d-md-none rounded-circle me-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars" style="color: rgb(255,255,255);"></i></button>
                         <ul class="navbar-nav flex-nowrap ms-auto">
                             <li class="nav-item dropdown no-arrow mx-1">
                                 <div class="shadow dropdown-list dropdown-menu dropdown-menu-end" aria-labelledby="alertsDropdown"></div>
                             </li>
                             <li class="nav-item dropdown no-arrow">
-                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><span class="d-none d-lg-inline me-2 text-gray-600 small" style="color: #ffffff !important;"><?php Util::display(Session::get("username")); ?></span><img class="border rounded-circle img-profile" src="../assets/img/avatars/Portrait_Placeholder.png" style="border-color: rgb(255,255,255)!important;"></a>
+                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><span class="d-none d-lg-inline me-2 text-gray-600 small" style="color: #ffffff !important;"><?php Util::display(
+                                    Session::get('username')
+                                ); ?></span><img class="border rounded-circle img-profile" src="../assets/img/avatars/Portrait_Placeholder.png" style="border-color: rgb(255,255,255)!important;"></a>
                                     <div class="dropdown-menu shadow dropdown-menu-end animated--grow-in" style="background: #252935;border-style: none;margin-top: 11px;box-shadow: 0px 0px 3px 2px rgba(0,0,0,0.16)!important;"><a class="dropdown-item" href="profile.php" style="color: rgb(255,255,255);"><i class="fas fa-user fa-sm fa-fw me-2 text-gray-400" style="color: rgb(255,255,255)!important;"></i>&nbsp;Profile</a><a class="dropdown-item" id="logout" href="/auth/logout.php" style="color: rgb(255,255,255);"><i class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400" style="color: rgb(255,255,255)!important;"></i>&nbsp;Logout</a></div>
                                 </div>
                             </li>
@@ -95,44 +94,62 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php foreach ($userList as $row) : ?>
+                                        <?php foreach ($userList as $row): ?>
                                             <tr>
 
 
-                                                <td style="color: rgb(255,255,255);"><?php Util::display($row->username); ?></td>
-                                                <td style="color: rgb(255,255,255);"><?php Util::display($row->uid); ?></td>
+                                                <td style="color: rgb(255,255,255);"><?php Util::display(
+                                                    $row->username
+                                                ); ?></td>
+                                                <td style="color: rgb(255,255,255);"><?php Util::display(
+                                                    $row->uid
+                                                ); ?></td>
                                                 <td style="color: rgb(255,255,255);">
-                                                    <?php if ($row->admin == 1) : ?>
+                                                    <?php if (
+                                                        $row->admin == 1
+                                                    ): ?>
                                                         <i class="fa fa-check"></i>
-                                                    <?php else : ?>
+                                                    <?php else: ?>
                                                         <i class="fa fa-times"></i>
                                                     <?php endif; ?>
                                                 </td>
 
                                                 <td style="color: rgb(255,255,255);">
-                                                    <?php if ($row->banned == 1) : ?>
+                                                    <?php if (
+                                                        $row->banned == 1
+                                                    ): ?>
                                                         <i class="fas fa-check"></i>
-                                                    <?php else : ?>
+                                                    <?php else: ?>
                                                         <i class="fa fa-times"></i>
                                                     <?php endif; ?>
                                                 </td>
 
                                                 <td title="Click to copy" data-toggle="tooltip" data-placement="top" onclick="setClipboard('<?php echo $row->lastIP; ?>')" style="color: rgb(255,255,255);">
-                                                    <?php Util::display($row->lastIP); ?>
+                                                    <?php Util::display(
+                                                        $row->lastIP
+                                                    ); ?>
                                                 </td>
 
 
                                                 <td style="color: rgb(255,255,255);max-width: 100px;">
-                                                    <form method="POST" action="<?php Util::display($_SERVER['PHP_SELF']); ?>">
+                                                    <form method="POST" action="<?php Util::display(
+                                                        $_SERVER['PHP_SELF']
+                                                    ); ?>">
 
-                                                        <button value="<?php Util::display($row->uid); ?>" name="resetHWID" class="btn btn-primary" type="submit" style="font-size: 11px;">
+                                                        <button value="<?php Util::display(
+                                                            $row->uid
+                                                        ); ?>" name="resetHWID" class="btn btn-primary" type="submit" style="font-size: 11px;">
                                                             <i class="fas fa-microchip"></i>&nbsp;Reset</button>
 
 
-                                                        <button value="<?php Util::display($row->uid); ?>" name="setBanned" class="btn btn-danger" type="submit" style="font-size: 11px;margin-left: 10px;">
+                                                        <button value="<?php Util::display(
+                                                            $row->uid
+                                                        ); ?>" name="setBanned" class="btn btn-danger" type="submit" style="font-size: 11px;margin-left: 10px;">
                                                             <i class="fas fa-ban"></i>&nbsp;Ban</button>
 
-                                                        <button value="<?php Util::display($row->uid); ?>" name="setAdmin" class="btn btn-success" type="submit" style="font-size: 11px;margin-left: 10px;color: rgb(255,255,255);">
+                                                        <button value="<?php Util::display(
+                                                            $row->uid
+                                                        ); ?>" name="setAdmin" class="btn btn-success" type="submit" style="font-size: 11px;margin-left: 10px;color: rgb(255,255,255);">
                                                             <i class="fas fa-key"></i>&nbsp;Admin</button>
 
                                                     </form>

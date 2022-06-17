@@ -2,8 +2,8 @@
 require_once 'app/require.php';
 require_once 'app/controllers/CheatController.php';
 
-$user = new UserController;
-$cheat = new CheatController;
+$user = new UserController();
+$cheat = new CheatController();
 
 Session::init();
 
@@ -11,8 +11,8 @@ if (!Session::isLogged()) {
     Util::redirect('auth/login.php');
 }
 
-$username = Session::get("username");
-$uid = Session::get("uid");
+$username = Session::get('username');
+$uid = Session::get('uid');
 
 $suc = @$_GET['suc'];
 
@@ -22,19 +22,16 @@ Util::banCheck();
 Util::head($username);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-    if (isset($_POST["updatePassword"])) {
+    if (isset($_POST['updatePassword'])) {
         $error = $user->updateUserPass($_POST);
     }
-    if (isset($_POST["activateSub"])) {
+    if (isset($_POST['activateSub'])) {
         $error = $user->activateSub($_POST);
-        header("location: profile.php?suc=1");
+        header('location: profile.php?suc=1');
     } else {
-        header("location: profile.php?suc=2");
+        header('location: profile.php?suc=2');
     }
 }
-
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -65,7 +62,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <div class="shadow dropdown-list dropdown-menu dropdown-menu-end" aria-labelledby="alertsDropdown"></div>
                             </li>
                             <li class="nav-item dropdown no-arrow">
-                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><span class="d-none d-lg-inline me-2 text-gray-600 small" style="color: #ffffff !important;"><?php Util::display(Session::get("username")); ?></span><img class="border rounded-circle img-profile" src="assets/img/avatars/Portrait_Placeholder.png" style="border-color: rgb(255,255,255)!important;"></a>
+                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><span class="d-none d-lg-inline me-2 text-gray-600 small" style="color: #ffffff !important;"><?php Util::display(
+                                    Session::get('username')
+                                ); ?></span><img class="border rounded-circle img-profile" src="assets/img/avatars/Portrait_Placeholder.png" style="border-color: rgb(255,255,255)!important;"></a>
                                     <div class="dropdown-menu shadow dropdown-menu-end animated--grow-in" style="background: #252935;border-style: none;margin-top: 11px;box-shadow: 0px 0px 3px 2px rgba(0,0,0,0.16)!important;"><a class="dropdown-item" href="profile.php" style="color: rgb(255,255,255);"><i class="fas fa-user fa-sm fa-fw me-2 text-gray-400" style="color: rgb(255,255,255)!important;"></i>&nbsp;Profile</a><a class="dropdown-item" id="logout" href="/auth/logout.php" style="color: rgb(255,255,255);"><i class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400" style="color: rgb(255,255,255)!important;"></i>&nbsp;Logout</a></div>
                                 </div>
                             </li>
@@ -78,7 +77,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <div class="col-lg-4">
                             <div class="card mb-3" style="background: #252935;border-style: none;">
                                 <div class="card-body text-center shadow" style="background: #252935;border-style: none;"><img class="rounded-circle mb-3 mt-4" src="assets/img/avatars/Portrait_Placeholder.png" width="160" height="160">
-                                    <h3 class="text-dark mb-4" style="text-align: center;margin-top: 16px;margin-bottom: 18px;font-weight: bold;"><?php Util::display(Session::get("username")); ?></h3>
+                                    <h3 class="text-dark mb-4" style="text-align: center;margin-top: 16px;margin-bottom: 18px;font-weight: bold;"><?php Util::display(
+                                        Session::get('username')
+                                    ); ?></h3>
                                 </div>
                             </div>
                         </div>
@@ -91,14 +92,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                             <p class="text-primary m-0 fw-bold" style="/*color: var(--bs-yellow)!important;*/">Redeem subscription</p>
                                         </div>
                                         <div class="card-body" style="border-style: none;background: #252935;padding-bottom: 0px;">
-                                            <form method="POST" action="<?php Util::display($_SERVER['PHP_SELF']); ?>">
+                                            <form method="POST" action="<?php Util::display(
+                                                $_SERVER['PHP_SELF']
+                                            ); ?>">
                                                 <div class="row">
                                                     <div class="col">
-                                                        <?php if ($suc == '1') : ?>
+                                                        <?php if (
+                                                            $suc == '1'
+                                                        ): ?>
                                                             <span style="color: rgb(255,255,255); margin-bottom: 20px;">Activated if key was actually valid.</span>
                                                         <?php endif; ?>
-                                                        <?php if (isset($error)) : ?>
-                                                            <span style="color: rgb(255,255,255);"><?php Util::display($error); ?></span>
+                                                        <?php if (
+                                                            isset($error)
+                                                        ): ?>
+                                                            <span style="color: rgb(255,255,255);"><?php Util::display(
+                                                                $error
+                                                            ); ?></span>
                                                         <?php endif; ?>
                                                         <div class="mb-3"><span style="color: rgb(255,255,255);">Your code</span><input class="form-control" type="text" name="subCode" autocapitalize="off" autocomplete="off" placeholder="XXX-XXX-XXX-XXX" style="background: #121421;border-style: none;margin-top: 11px;"></div>
                                                     </div>
@@ -115,11 +124,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <div class="card-body" style="background: #252935;border-style: none;">
                                 <div class="row">
                                     <div class="col-md-6" style="width: 100%;">
-                                        <form method="POST" action="<?php Util::display($_SERVER['PHP_SELF']); ?>">
+                                        <form method="POST" action="<?php Util::display(
+                                            $_SERVER['PHP_SELF']
+                                        ); ?>">
                                             <div class="mb-3">
                                                 <div class="col">
-                                                    <?php if (isset($error)) : ?>
-                                                        <span style="color: rgb(255,255,255); margin-bottom: 20px;"><?php Util::display($error); ?></span>
+                                                    <?php if (isset($error)): ?>
+                                                        <span style="color: rgb(255,255,255); margin-bottom: 20px;"><?php Util::display(
+                                                            $error
+                                                        ); ?></span>
                                                     <?php endif; ?>
                                                     <div class="mb-3"><span style="color: rgb(255,255,255);">Current password</span><input class="form-control" name="currentPassword" type="password" id="username-1" placeholder="********" name="username" style="background: #121421;border-style: none;margin-top: 11px;"></div>
                                                     <div class="mb-3"><span style="color: rgb(255,255,255);">New password</span><input class="form-control" name="newPassword" type="password" id="username-3" placeholder="********" name="username" style="background: #121421;border-style: none;margin-top: 11px;"></div>
