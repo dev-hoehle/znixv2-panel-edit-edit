@@ -19,7 +19,7 @@
 
 Changes
 
-##### GENERAL
+###### GENERAL
 * Added banned page
 * Bug fixes
 * some visual changes
