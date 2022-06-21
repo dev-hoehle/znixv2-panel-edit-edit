@@ -4,6 +4,7 @@
 
 ### Original Panels:
 * Original Panel: https://github.com/znixbtw/php-panel-v2
+* Panel Edit: DELETED
 
 
 
@@ -17,6 +18,12 @@
 
 
 Changes
+
+##### GENERAL
+* Added banned page
+* Bug fixes
+* some visual changes
+
 ###### AUTH
 * Added remember Login
 
@@ -42,3 +49,4 @@ Changes
 - Then copy and paste db.sql into SQL import tab on phpmyadmin
 - Change https://github.com/anditv21/znixv2-panel-edit-edit/blob/main/app/core/Database#L5#L8 to your database credentials
 - Rename https://github.com/anditv21/znixv2-panel-edit-edit/blob/main/app/core/Database to Database.php
+- Put your Loader in the main directory of the panel. (x.exe)
