@@ -77,9 +77,40 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <div class="col-lg-4">
                             <div class="card mb-3" style="background: #252935;border-style: none;">
                                 <div class="card-body text-center shadow" style="background: #252935;border-style: none;"><img class="rounded-circle mb-3 mt-4" src="assets/img/avatars/Portrait_Placeholder.png" width="160" height="160">
-                                    <h3 class="text-dark mb-4" style="text-align: center;margin-top: 16px;margin-bottom: 18px;font-weight: bold;"><?php Util::display(
-                                        Session::get('username')
-                                    ); ?></h3>
+                                    <h3 class="text-dark mb-4" style="text-align: center;margin-top: 16px;margin-bottom: 18px;font-weight: bold;">
+                                    
+                                    <?php
+                                    Util::display("UID: ");  Util::display(Session::get("uid")); 
+                                    echo "<br>";
+                                    Util::display("Username: ");
+                                    Util::display(
+                                        Session::get('username')); 
+                                    echo "<br>";
+
+                                    Util::display("Subscription: ");
+                                    if ($sub > 1000)
+                                    {
+                                        Util::display("Lifetime");
+                                    }
+                                    else
+                                    {
+                                        if ($sub >= 0)
+                                        {
+                                            Util::display("$sub days");
+                                        }
+                                        else
+                                        {
+                                           Util::display('none'); 
+                                        }
+                                    }
+                                    echo "<br>";
+      
+                                    
+                                    
+                                    
+                                    ?></h3>
+
+                                    
                                 </div>
                             </div>
                         </div>
