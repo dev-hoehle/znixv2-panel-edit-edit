@@ -6,7 +6,7 @@
 * Original Panel: https://github.com/znixbtw/php-panel-v2
 * Panel Edit: DELETED
 
-
+> Feature list: https://github.com/znixbtw/php-panel-v2/blob/main/README.md
 
 > Default login: `admin`:`admin`
 
@@ -42,7 +42,7 @@ Changes
 * Password Reset
 * Set News
 
-## Setup ##
+## Basic Setup ##
 
 - Download The Repository
 - Upload all files to your PHP host of choice
