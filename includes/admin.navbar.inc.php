@@ -16,6 +16,7 @@
                         <li class="nav-item"><a class="nav-link active" href="codes.php" style="text-align: center;"><i class="fas fa-long-arrow-alt-right"></i><span>Codes</span></a></li>
                         <li class="nav-item"><a class="nav-link active" href="gift.php" style="text-align: center;"><i class="fas fa-long-arrow-alt-right"></i><span>Sub-Gift</span></a></li>
                         <li class="nav-item"><a class="nav-link active" href="password.php" style="text-align: center;"><i class="fas fa-long-arrow-alt-right"></i><span>Password-Reset</span></a></li>
+                        <li class="nav-item"><a class="nav-link active" href="bans.php" style="text-align: center;"><i class="fas fa-long-arrow-alt-right"></i><span>Ban-Manager</span></a></li>
                     <?php endif; ?>
 
 
