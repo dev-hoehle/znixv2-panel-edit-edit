@@ -41,6 +41,7 @@ Changes
 * View a users last known IP address
 * Password Reset
 * Set News
+* Added Ban-Management panel
 
 ## Basic Setup ##
 

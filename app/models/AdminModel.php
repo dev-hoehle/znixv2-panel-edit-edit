@@ -22,7 +22,18 @@ class Admin extends Database
             return $result;
         }
     }
+    protected function bannedArray()
+    {
+        if (Session::isAdmin() or Session::issupp()) {
+            $this->prepare(
+                'SELECT * FROM `users` where banned = 1 ORDER BY uid ASC'
+            );
+            $this->statement->execute();
 
+            $result = $this->statement->fetchAll();
+            return $result;
+        }
+    }
     protected function updatenews($news)
     {
         if (Session::isAdmin()) {
@@ -39,6 +50,13 @@ class Admin extends Database
             $this->statement->execute([$hashedPassword, $username]);
             return true;
         }
+    }
+
+    protected function bannreason($reason, $uid)
+    {
+        $this->prepare('UPDATE `users` SET `banreason` = ? WHERE `uid` = ?');
+        $this->statement->execute([$reason, $uid]);
+        return true;
     }
 
     protected function subgift($name, $sub, $time)

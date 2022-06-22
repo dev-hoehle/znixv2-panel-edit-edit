@@ -30,6 +30,12 @@ class AdminController extends Admin
     }
 
     //
+    public function getbannedArray()
+    {
+        return $this->bannedArray();
+    }
+
+    //
     public function getInvCodeArray()
     {
         return $this->invCodeArray();
@@ -77,6 +83,12 @@ class AdminController extends Admin
     public function resetHWID($uid)
     {
         return $this->HWID($uid);
+    }
+
+    //
+    public function setBannreason($reason, $uid)
+    {
+        return $this->bannreason($reason, $uid);
     }
 
     //
