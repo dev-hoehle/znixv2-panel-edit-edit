@@ -20,7 +20,7 @@
 Changes
 
 ###### GENERAL
-* Added banned page (Screenshot: https://i.ibb.co/Vg7Gjw3/opera-Acyz-IB4-Kx-I.png)
+* Added banned page (Screenshot: https://bit.ly/39USjsR)
 * Bug fixes
 * some visual changes
 
@@ -32,7 +32,7 @@ Changes
 * Activate Trail subscription´s with code (3 days)
 ###### ADMIN PANEL
 * Cleaned up
-* Added Gift user subscription (Screenshot: https://i.ibb.co/h83b0g1/opera-Yp-LPlnu-Gab.png)
+* Added Gift user subscription (Screenshot:https://bit.ly/3nerQcQ)
   * Input options:
     * `LT for Lifetime`
     * `T for a trail subscription (3 days)`
@@ -41,7 +41,7 @@ Changes
 * View a users last known IP address 
 * Password Reset
 * Set News
-* Added Ban-Management panel (Screenshot: https://i.ibb.co/n3Zj4tq/opera-Yxs-BU6i-XMh.png / https://i.ibb.co/x56tBjm/opera-f-Ca-R54n-Fbe.png)
+* Added Ban-Management panel (Screenshot: https://bit.ly/3Nk9jXf / https://bit.ly/3Oxznis)
 
 ## Basic Setup ##
 
