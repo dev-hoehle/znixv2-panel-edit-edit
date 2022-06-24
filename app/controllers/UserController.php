@@ -28,6 +28,11 @@ class UserController extends Users
         $_SESSION = [];
         session_destroy();
     }
+	public function banreason($username)
+	{
+
+		return $this->getbanreason($username);
+	}
 
     public function getusernews()
     {

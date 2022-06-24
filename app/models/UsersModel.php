@@ -43,6 +43,15 @@ class Users extends Database
         return $result->news;
     }
 
+    protected function getbanreason($username)
+    {
+        $this->prepare('SELECT * FROM `users` WHERE `username` = ?');
+        $this->statement->execute([$username]);
+        $result = $this->statement->fetch();
+        $reason = $result->banreason;
+        return $reason;
+    }
+
     // Check if sub code is valid
     protected function subCodeCheck($subCode)
     {

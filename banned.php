@@ -4,8 +4,10 @@
    $user = new UserController;
    
    Session::init();
+
+   $username = Session::get("username");
    
-   if (!Session::isLogged()) { Util::redirect('/login.php'); }
+   if (!Session::isLogged()) { Util::redirect('/auth/login.php'); }
    ?>
 <head>
    <meta charset="utf-8">
@@ -26,6 +28,8 @@
    <center>
       <div  style='max-width: 500px;    margin-bottom: -7px;' class='alert alert-primary' role='alert'>
          You have been permanently banned. 
+         <br>
+         Reason: <?php echo $user->banreason($username)?>
       </div>
       <br>
    </center>
