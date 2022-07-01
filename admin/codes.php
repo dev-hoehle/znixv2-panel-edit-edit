@@ -178,12 +178,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                             <tr>
                                                 <td style="color: rgb(255,255,255);max-width: 100px;">
                                                     <?php Util::display(
-                                                $row->code
-                                            ); ?></td>
+    $row->code
+); ?></td>
                                                 <td style="color: rgb(255,255,255);max-width: 30px;">
                                                     <?php Util::display(
-                        $row->createdBy
-                    ); ?></td>
+                                                $row->createdBy
+                                            ); ?></td>
                                                 <td style="color: rgb(255,255,255);max-width: 30px;"><input
                                                         class="btn btn-outline-primary btn-sm" type="submit"
                                                         value="Copy code" id="cop"
