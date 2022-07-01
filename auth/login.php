@@ -2,7 +2,7 @@
 include '../app/require.php';
 
 
-$user = new UserController;
+$user = new UserController();
 
 Session::init();
 
@@ -13,9 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $error = $user->loginUser($_POST);
 }
 
-if(isset($_COOKIE["login_cookie"])){
-
-
+if (isset($_COOKIE["login_cookie"])) {
     $error = $user->tokenlogin($_COOKIE["login_cookie"]);
 }
 
