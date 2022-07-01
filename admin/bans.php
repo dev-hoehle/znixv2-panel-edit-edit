@@ -155,14 +155,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                             <td style="color: rgb(255,255,255);">
                                 <?php if ($row->sub > 1000) {
-            Util::display('Lifetime');
-        } else {
-            if ($row->sub >= 0) {
-                Util::display("$row->sub days");
-            } else {
-                Util::display('none');
-            }
-        } ?>
+           Util::display('Lifetime');
+       } else {
+           if ($row->sub >= 0) {
+               Util::display("$row->sub days");
+           } else {
+               Util::display('none');
+           }
+       } ?>
 </td>
 
 <td style="color: rgb(255,255,255);">

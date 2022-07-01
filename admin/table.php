@@ -125,8 +125,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $row->username
 ); ?></td>
                                                 <td style="color: rgb(255,255,255);"><?php Util::display(
-                                    $row->uid
-                                ); ?></td>
+    $row->uid
+); ?></td>
                                                 <td style="color: rgb(255,255,255);">
                                                     <?php if (
                                                         $row->admin == 1
@@ -171,8 +171,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                             <i class="fas fa-ban"></i>&nbsp;Ban</button>
 
                                                         <button value="<?php Util::display(
-                                                            $row->uid
-                                                        ); ?>" name="setAdmin" class="btn btn-success" type="submit" style="font-size: 11px;margin-left: 10px;color: rgb(255,255,255);">
+                                                        $row->uid
+                                                    ); ?>" name="setAdmin" class="btn btn-success" type="submit" style="font-size: 11px;margin-left: 10px;color: rgb(255,255,255);">
                                                             <i class="fas fa-key"></i>&nbsp;Admin</button>
 
                                                     </form>
