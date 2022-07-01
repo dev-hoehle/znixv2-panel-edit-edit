@@ -1,58 +1,77 @@
-# User Management Panel
+<h1 align="center">:zap: User Management Panel</h1>
+<p>
+</p>
 
 
 
-### Original Panels:
 * Original Panel: https://github.com/znixbtw/php-panel-v2
 * Panel Edit: DELETED
-
-> Feature list: https://github.com/znixbtw/php-panel-v2/blob/main/README.md
-
-> Default login: `admin`:`admin`
+> Default login: `admin`:`admin` <br />
+---
 
 ### Overview
 <p align="center">
   <img src="https://i.imgur.com/VB2ial8.png" />
 </p>
-<hr>
 
-
-Changes
-
-###### GENERAL
-* Added banned page (Screenshot: https://bit.ly/39USjsR)
-* Bug fixes
-* some visual changes
-
+### Features
 ###### AUTH
-* Added remember Login
-
+* Login (Remember Login)
+* Register (Invite only)
+* Banned Page (Screenshot: https://bit.ly/39USjsR)
 ###### USER
+* Change password
 * Activate multiple subscription´s with code (30/90 days)
 * Activate Trail subscription´s with code (3 days)
-
+* Download loader (Needs a sub)
 ###### ADMIN PANEL
-* Cleaned up
-* Added Gift user subscription (Screenshot: https://bit.ly/3nerQcQ)
+* Gift user subscription (Screenshot: https://bit.ly/3nerQcQ)
   * Input options:
     * `LT for Lifetime`
     * `T for a trail subscription (3 days)`
     * `- to remove a users subscription`
     * `Intager for custom amount in days`
-* Added User-Ranges with buttons to User Table (Screenshot: https://bit.ly/3yxHiHD)
+* User-Ranges with buttons in User Table (Screenshot: https://bit.ly/3yxHiHD)
   * ALL
-  * 1-10
-  *  10-20
-  * 20-30
-  * 30-40
-  * 40-50
+  * 1-10 10-20 20-30 30-40 40-50
   * custom
 * View a users last known IP address 
 * Password Reset
 * Set News
 * Added Ban-Management panel (Screenshot: https://bit.ly/3Nk9jXf / https://bit.ly/3Oxznis)
+* Generate invite code
+* Generate subscription code
+* Ban/unban user
+* Make user admin/non-admin
+* Reset HWID
+* Set cheat detected/undetected
+* Set maintenance/non-maintenance
+* Set cheat version
 
-<hr>
+###### API
+###### Note: User pass and hwid has to be sent in base64 format.
+* Sends user data in JSON format on call
+	* Usage: `api.php?user={username}&pass={password}&hwid={hwid}&key={key}`
+	* Example: `api.php?user=admin&pass=YWRtaW4=&hwid=aHdpZA==&key=dmyeXILqwHb4X5r1x7O2wUgsrP9yF1`
+
+---
+
+
+## Authors
+
+👤 **anditv21**
+
+* Website: [anditv.it](https://anditv.it)
+* Github: [@anditv21](https://github.com/anditv21)
+
+👤 **znixbtw**
+
+* Website: [znix.me](https://znix.me)
+* Github: [@znixbtw](https://github.com/znixbtw)
+
+👤 **sxck1337**
+
+* Github: [@sxck1337](https://github.com/sxck1337))
 
 ## Setup ##
 
@@ -67,3 +86,10 @@ Changes
 - Set https://github.com/anditv21/znixv2-panel-edit-edit/blob/main/app/core/Config.php#L8 to your Website name
 - Set a website description in https://github.com/anditv21/znixv2-panel-edit-edit/blob/main/app/core/Config.php#L11
 - Change https://github.com/anditv21/znixv2-panel-edit-edit/blob/main/app/core/Config.php#L26 to a secure API key
+
+---
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/anditv21/znixv2-panel-edit-edit/issues). 
+
