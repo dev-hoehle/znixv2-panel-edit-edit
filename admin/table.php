@@ -76,6 +76,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </nav>
                 <div class="container-fluid">
                     <h3 class="text-dark mb-4" data-aos="fade-down" data-aos-duration="800">Users</h3>
+                    <br>
+					
+                    <button onclick="window.location.href = 'table.php?min=1&max=99999';" class="btn btn-primary" style="font-size: 11px;"> &nbsp;All</button>
+                    <button onclick="window.location.href = 'table.php?min=1&max=10';" class="btn btn-primary" style="font-size: 11px;"> &nbsp;1-10</button>
+                    <button onclick="window.location.href = 'table.php?min=10&max=20';" class="btn btn-primary" style="font-size: 11px;"> &nbsp;10-20</button>
+                    <button onclick="window.location.href = 'table.php?min=20&max=30';" class="btn btn-primary" style="font-size: 11px;"> &nbsp;20-30</button>
+                    <button onclick="window.location.href = 'table.php?min=30&max=40';" class="btn btn-primary" style="font-size: 11px;"> &nbsp;30-40</button>
+                    <button onclick="window.location.href = 'table.php?min=40&max=50';" class="btn btn-primary" style="font-size: 11px;"> &nbsp;40-50</button>
+				 <br>
+				 <br>
+				 <input autocomplete="off" type="text" id="min" name="min"  maxlength="255" placeholder="10" required style="background: #151515;border-style: none;outline: none;color: rgb(255,255,255);border-radius: 5px;padding-left: 5px;padding-right: 5px;margin-top: -4px;">
+				 -
+				 <input autocomplete="off" type="text" id="max" name="max"  maxlength="255" placeholder="20" required style="background: #151515;border-style: none;outline: none;color: rgb(255,255,255);border-radius: 5px;padding-left: 5px;padding-right: 5px;margin-top: -4px;">
+				 <p onclick="redirect()"  class="btn btn-primary"  style="font-size: 11px;">
+                 &nbsp;Submit custom range</p>
                     <div class="card shadow" data-aos="fade-down" data-aos-duration="600" style="background: #252935;border-style: none;">
                         <div class="card-header py-3" style="color: rgb(133, 135, 150);background: #252935;border-style: none;">
                             <p class="text-primary m-0 fw-bold">User information</p>
@@ -95,6 +110,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     </thead>
                                     <tbody>
                                         <?php foreach ($userList as $row): ?>
+                                            <?php if (
+                                                !isset($_GET['max']) ||
+                                                !isset($_GET['min'])
+                                            ) {
+                                                $_GET['min'] = 1;
+                                                $_GET['max'] = 10;
+                                            } ?>
+										<?php if ($row->uid <= $_GET['max'] && $row->uid >= $_GET['min']): ?>
                                             <tr>
 
 
@@ -156,8 +179,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                 </td>
 
                                             </tr>
-                                        <?php endforeach; ?>
+                                            <?php endif; ?>
 
+                                        <?php endforeach; ?>
 
 
 
@@ -190,6 +214,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $(document).ready(function() {
             $('[data-toggle="tooltip"]').tooltip();
         });
+        function redirect() {
+						var min = document.getElementById("min");
+						min = min.value;
+						var max = document.getElementById("max");
+						max = max.value;
+						window.location.href = 'table.php?min=' + min + '&max=' + max;
+
+					}
     </script>
 </body>
 
