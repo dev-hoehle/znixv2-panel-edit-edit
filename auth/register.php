@@ -33,13 +33,13 @@ Util::head('Register');
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Login - Brand</title>
     <link rel="icon" type="image/png" href="../favicon.png">
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
-    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="../assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/fonts/fontawesome5-overrides.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-    <link rel="stylesheet" href="assets/css/untitled.css">
+    <link rel="stylesheet" href="../assets/css/untitled.css">
 </head>
 
 <body class="bg-gradient-primary" style="background: #121421;width: 100%;height: 100%;">
@@ -51,7 +51,7 @@ Util::head('Register');
                         <div class="row" style="border-style: none;">
                             <div class="col-lg-6" style="width: 100%;border-style: none;border-color: rgba(133,135,150,0);background: #252935;">
                                 <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
-                                    <div class="p-5" style="background: #252935;border-style: none;text-align: center;"><img style="text-align: center;width: 118px;margin-bottom: 33px;" src="assets/img/gey.gif">
+                                    <div class="p-5" style="background: #252935;border-style: none;text-align: center;"><img style="text-align: center;width: 118px;margin-bottom: 33px;" src="../assets/img/gey.gif">
                                         <div class="text-center"></div>
                                         <form class="user">
                                             <div class="mb-3"><input class="form-control form-control-user" type="text" id="username" aria-describedby="username" autocomplete="off" placeholder="Username" name="username" style="border-radius: 5px;color: rgb(255,255,255);background: #121421;border-style: none;text-align: center;"></div>
@@ -73,10 +73,10 @@ Util::head('Register');
             </div>
         </div>
     </div>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/bs-init.js"></script>
+    <script src="..//bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/js/bs-init.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script src="assets/js/theme.js"></script>
+    <script src="../assets/js/theme.js"></script>
 </body>
 
 </html>
