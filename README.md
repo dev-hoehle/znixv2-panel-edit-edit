@@ -14,7 +14,7 @@
 <p align="center">
   <img src="https://i.imgur.com/VB2ial8.png" />
 </p>
-
+<hr>
 
 
 Changes
@@ -51,6 +51,8 @@ Changes
 * Password Reset
 * Set News
 * Added Ban-Management panel (Screenshot: https://bit.ly/3Nk9jXf / https://bit.ly/3Oxznis)
+
+<hr>
 
 ## Setup ##
 
