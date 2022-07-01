@@ -30,6 +30,7 @@ Changes
 ###### USER
 * Activate multiple subscription´s with code (30/90 days)
 * Activate Trail subscription´s with code (3 days)
+
 ###### ADMIN PANEL
 * Cleaned up
 * Added Gift user subscription (Screenshot: https://bit.ly/3nerQcQ)
@@ -38,6 +39,14 @@ Changes
     * `T for a trail subscription (3 days)`
     * `- to remove a users subscription`
     * `Intager for custom amount in days`
+* Added User-Ranges with buttons to User Table (Screenshot: https://bit.ly/3yxHiHD)
+  * ALL
+  * 1-10
+  *  10-20
+  * 20-30
+  * 30-40
+  * 40-50
+  * custom
 * View a users last known IP address 
 * Password Reset
 * Set News
