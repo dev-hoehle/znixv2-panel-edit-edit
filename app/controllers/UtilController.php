@@ -58,7 +58,7 @@ class Util
         if (Session::isBanned()) {
             // Prevents infinite redirect loop
             if (basename($_SERVER['PHP_SELF']) != 'banned.php') {
-                header('location: banned.php' );
+                header('location: banned.php');
             }
         }
     }

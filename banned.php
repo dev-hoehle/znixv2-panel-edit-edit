@@ -1,13 +1,15 @@
 <?php
    require_once 'app/require.php';
-   
-   $user = new UserController;
-   
+
+   $user = new UserController();
+
    Session::init();
 
    $username = Session::get("username");
-   
-   if (!Session::isLogged()) { Util::redirect('/auth/login.php'); }
+
+   if (!Session::isLogged()) {
+       Util::redirect('/auth/login.php');
+   }
    ?>
 <head>
    <meta charset="utf-8">

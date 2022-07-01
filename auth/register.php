@@ -2,7 +2,7 @@
 include '../app/require.php';
 
 
-$user = new UserController;
+$user = new UserController();
 
 Session::init();
 
