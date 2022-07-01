@@ -114,19 +114,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                 !isset($_GET['max']) ||
                                                 !isset($_GET['min'])
                                             ) {
-                                    $_GET['min'] = 1;
-                                    $_GET['max'] = 10;
-                                } ?>
+    $_GET['min'] = 1;
+    $_GET['max'] = 10;
+} ?>
 										<?php if ($row->uid <= $_GET['max'] && $row->uid >= $_GET['min']): ?>
                                             <tr>
 
 
                                                 <td style="color: rgb(255,255,255);"><?php Util::display(
-                                    $row->username
-                                ); ?></td>
+    $row->username
+); ?></td>
                                                 <td style="color: rgb(255,255,255);"><?php Util::display(
-                                                    $row->uid
-                                                ); ?></td>
+                                    $row->uid
+                                ); ?></td>
                                                 <td style="color: rgb(255,255,255);">
                                                     <?php if (
                                                         $row->admin == 1
@@ -166,8 +166,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
                                                         <button value="<?php Util::display(
-                                                            $row->uid
-                                                        ); ?>" name="setBanned" class="btn btn-danger" type="submit" style="font-size: 11px;margin-left: 10px;">
+                                                        $row->uid
+                                                    ); ?>" name="setBanned" class="btn btn-danger" type="submit" style="font-size: 11px;margin-left: 10px;">
                                                             <i class="fas fa-ban"></i>&nbsp;Ban</button>
 
                                                         <button value="<?php Util::display(

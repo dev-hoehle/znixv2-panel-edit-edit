@@ -67,8 +67,8 @@ Util::head('Admin Panel');
                                     <div class="card">
                                         <div class="card-body">
                                             <form action="<?php Util::display(
-                                    $_SERVER['PHP_SELF']
-                                ); ?>" method="post">
+    $_SERVER['PHP_SELF']
+); ?>" method="post">
 
                                                 <label>Select a user:</label><br>
                                                 <select name="passwordreset" class="form-control form-control-sm">
