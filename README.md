@@ -73,7 +73,7 @@ Screenshot: https://bit.ly/3ukTjh6
 
 👤 **sxck1337**
 
-* Github: [@sxck1337](https://github.com/sxck1337))
+* Github: [@sxck1337](https://github.com/sxck1337)
 
 ## Setup ##
 
