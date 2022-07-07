@@ -147,7 +147,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                     <?php endif; ?>
                                                 </td>
 
-                                                <td title="Click to copy" data-toggle="tooltip" data-placement="top" onclick="setClipboard('<?php Util::display( $row->lastIP); ?>')" style="color: rgb(255,255,255);">
+                                                <td title="Click to copy" data-toggle="tooltip" data-placement="top" onclick="setClipboard('<?php Util::display($row->lastIP); ?>')" style="color: rgb(255,255,255);">
                                                     <?php Util::display(
                                                         $row->lastIP
                                                     ); ?>
