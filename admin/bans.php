@@ -90,7 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <select  class="form-control form-control-sm"id="u" name="u">
    <br>
    <?php foreach ($userList as $row): ?>
-   <?php Util::display( "<option value='$row->uid'>" .
+   <?php Util::display("<option value='$row->uid'>" .
        $row->username .
        ' ' .
        "($row->uid)" .
