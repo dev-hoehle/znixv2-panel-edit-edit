@@ -77,8 +77,8 @@ Util::head('Admin Panel');
                                                         $userList
                                                         as $row
                                                     ): ?>
-                                                        <?php echo "<option value='$row->username'>" .
-                                                            "$row->username  ($row->uid)</option>"; ?>
+                                                        <?php Util::display("<option value='$row->username'>" .
+                                                            "$row->username  ($row->uid)</option>"); ?>
 
 
                                                     <?php endforeach; ?>
@@ -117,17 +117,12 @@ Util::head('Admin Panel');
                                                                 header('location: password.php');
                                                             } ?>
                                 <?php if (isset($text)) {
-                                                                echo $text;
+                                                                Util::display($text);
                                                             } ?>
                                 <?php if (isset($unhashedpassword)); ?>
-                                <p title="Click to copy" data-toggle="tooltip" data-placement="top" onclick="setClipboard('<?php if (
-                                    isset($unhashedpassword)
-                                ) {
-                                                                echo $unhashedpassword;
-                                                            } ?>')" class='spoiler' title='Click to copy password' data-toggle='tooltip' data-placement='top'><?php if (
+                                <p title="Click to copy" data-toggle="tooltip" data-placement="top" onclick="setClipboard('<?php if (isset($unhashedpassword)) {Util::Display($unhashedpassword);} ?>'" class='spoiler' title='Click to copy password' data-toggle='tooltip' data-placement='top'><?php if (
     isset($unhashedpassword)
-) {
-                                                                echo $unhashedpassword;
+) {Util::display($unhashedpassword);
                                                             } ?></p>
 
                     </center>
