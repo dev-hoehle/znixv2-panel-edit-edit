@@ -82,8 +82,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     <select name="giftsub" class="form-control form-control-sm">
                                        <br>
                                        <?php foreach ($userList as $row): ?>
-                                          <?php echo "<option value='$row->username'>" .
-                                              "$row->username  ($row->uid)</option>"; ?>
+                                          <?php Util::display("<option value='$row->username'>" .
+                                              "$row->username  ($row->uid)</option>"); ?>
                                        <?php endforeach; ?>
                                     </select>
                                     <br>

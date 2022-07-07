@@ -118,7 +118,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     aria-describedby="dataTable_info">
                                     <table class="table my-0" id="dataTable">
                                         <thead>
-                                            <tr>
+                                            <tr>    
                                                 <th style="color: rgb(255,255,255);">Code</th>
                                                 <th style="color: rgb(255,255,255);max-width: 30px;">Created by</th>
                                                 <th style="color: rgb(255,255,255);">Copy</th>
@@ -141,7 +141,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                 <td style="color: rgb(255,255,255);max-width: 30px;"><input
                                                         class="btn btn-outline-primary btn-sm" type="submit"
                                                         value="Copy code" id="cop"
-                                                        onclick="setClipboard('<?php echo $row->code; ?>')"></td>
+                                                        onclick="setClipboard('<?php Util::display( $row->code); ?>')"></td>
 
                                             </tr>
                                             <?php endforeach; ?>
@@ -187,7 +187,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                 <td style="color: rgb(255,255,255);max-width: 30px;"><input
                                                         class="btn btn-outline-primary btn-sm" type="submit"
                                                         value="Copy code" id="cop"
-                                                        onclick="setClipboard('<?php echo $row->code; ?>')"></td>
+                                                        onclick="setClipboard('<?php Util::display( $row->code); ?>')"></td>
 
 
                                             </tr>

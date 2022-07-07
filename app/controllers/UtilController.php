@@ -33,7 +33,7 @@ class Util
 
     public static function display($string)
     {
-        echo htmlspecialchars($string);
+        echo $string;
     }
 
     // Returns random string

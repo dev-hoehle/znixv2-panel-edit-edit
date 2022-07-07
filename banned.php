@@ -31,7 +31,7 @@
       <div  style='max-width: 500px;    margin-bottom: -7px;' class='alert alert-primary' role='alert'>
          You have been permanently banned. 
          <br>
-         Reason: <?php echo $user->banreason($username)?>
+         Reason: <?php Util::Display($user->banreason($username)); ?>
       </div>
       <br>
    </center>

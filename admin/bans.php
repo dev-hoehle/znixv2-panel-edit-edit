@@ -90,11 +90,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <select  class="form-control form-control-sm"id="u" name="u">
    <br>
    <?php foreach ($userList as $row): ?>
-   <?php echo "<option value='$row->uid'>" .
+   <?php Util::display( "<option value='$row->uid'>" .
        $row->username .
        ' ' .
        "($row->uid)" .
-       '</option>'; ?>
+       '</option>'); ?>
 
   
     <?php endforeach; ?>
@@ -166,7 +166,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </td>
 
 <td style="color: rgb(255,255,255);">
-    <?php echo $row->banreason; ?>
+    <?php Util::display($row->banreason); ?>
     
 </td>
     </tr>

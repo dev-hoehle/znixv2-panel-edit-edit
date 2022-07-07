@@ -81,12 +81,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     
                                     <?php
                                     Util::display("UID: ");  Util::display(Session::get("uid"));
-                                    echo "<br>";
+                                    Util::display("<br>");
                                     Util::display("Username: ");
                                     Util::display(
                                         Session::get('username')
                                     );
-                                    echo "<br>";
+                                    Util::display("<br>");
 
                                     Util::display("Subscription: ");
                                     if ($sub > 1000) {
@@ -98,7 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                             Util::display('none');
                                         }
                                     }
-                                    echo "<br>";
+                                    Util::display("<br>");
 
 
 
