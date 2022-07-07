@@ -77,8 +77,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             </li>
                             <li class="nav-item dropdown no-arrow">
                                 <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><span class="d-none d-lg-inline me-2 text-gray-600 small" style="color: #ffffff !important;"><?php Util::display(
-                                    Session::get('username')
-                                ); ?></span><img class="border rounded-circle img-profile" src="../assets/img/avatars/Portrait_Placeholder.png" style="border-color: rgb(255,255,255)!important;"></a>
+    Session::get('username')
+); ?></span><img class="border rounded-circle img-profile" src="../assets/img/avatars/Portrait_Placeholder.png" style="border-color: rgb(255,255,255)!important;"></a>
                                     <div class="dropdown-menu shadow dropdown-menu-end animated--grow-in" style="background: #252935;border-style: none;margin-top: 11px;box-shadow: 0px 0px 3px 2px rgba(0,0,0,0.16)!important;"><a class="dropdown-item" href="profile.php" style="color: rgb(255,255,255);"><i class="fas fa-user fa-sm fa-fw me-2 text-gray-400" style="color: rgb(255,255,255)!important;"></i>&nbsp;Profile</a><a class="dropdown-item" id="logout" href="/auth/logout.php" style="color: rgb(255,255,255);"><i class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400" style="color: rgb(255,255,255)!important;"></i>&nbsp;Logout</a></div>
                                 </div>
                             </li>
@@ -234,8 +234,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     <h6 class="text-primary fw-bold m-0" style="color: rgb(255,255,255)!important;">Set values</h6>
                                 </div>
                                 <form method="POST" action="<?php Util::display(
-                                    $_SERVER['PHP_SELF']
-                                ); ?>">
+                                                $_SERVER['PHP_SELF']
+                                            ); ?>">
                                     <ul class="list-group list-group-flush" style="background: rgb(37,41,53);">
                                         <li class="list-group-item" style="background: rgb(37,41,53);">
 
@@ -257,8 +257,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                             </div>
                             <form action="<?php Util::display(
-                                $_SERVER['PHP_SELF']
-                            ); ?>" method="post">
+                                                $_SERVER['PHP_SELF']
+                                            ); ?>" method="post">
                                 <ul class="list-group list-group-flush" style="background: rgb(37,41,53);">
                                     <li class="list-group-item" style="background: rgb(37,41,53);">
 
