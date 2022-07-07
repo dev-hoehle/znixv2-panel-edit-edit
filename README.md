@@ -16,10 +16,11 @@
 
 ### Features
 ###### AUTH
-* Login (Remember Login)
-* Register (Invite only)
+* Login (Remember Login) (Screenshot: https://bit.ly/3OYBJqT)
+* Register (Invite only) (Screenshot: https://bit.ly/3NTukIN)
 * Banned Page (Screenshot: https://bit.ly/39USjsR)
 ###### USER
+Screenshot: https://bit.ly/3ukTjh6
 * Change password
 * Activate multiple subscription´s with code (30/90 days)
 * Activate Trail subscription´s with code (3 days)
@@ -32,13 +33,14 @@
     * `- to remove a users subscription`
     * `Intager for custom amount in days`
 * User-Ranges with buttons in User Table (Screenshot: https://bit.ly/3yxHiHD)
-  * ALL
-  * 1-10 10-20 20-30 30-40 40-50
-  * custom
+  * Input options:
+	  * 1-10 10-20 20-30 30-40 40-50
+	  * custom
+	  * ALL
 * View a users last known IP address 
 * Password Reset
 * Set News
-* Added Ban-Management panel (Screenshot: https://bit.ly/3Nk9jXf / https://bit.ly/3Oxznis)
+* Ban-Management panel (Screenshot: https://bit.ly/3Nk9jXf / https://bit.ly/3Oxznis)
 * Generate invite code
 * Generate subscription code
 * Ban/unban user
@@ -71,7 +73,7 @@
 
 👤 **sxck1337**
 
-* Github: [@sxck1337](https://github.com/sxck1337))
+* Github: [@sxck1337](https://github.com/sxck1337)
 
 ## Setup ##
 
