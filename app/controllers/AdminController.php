@@ -120,4 +120,10 @@ class AdminController extends Admin
     {
         return $this->cheatVersion($data);
     }
+
+    //
+    public function setCheatfreeze()
+    {
+        return $this->cheatfreeze();
+    }
 }

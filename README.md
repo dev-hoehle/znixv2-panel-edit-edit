@@ -26,6 +26,7 @@ Screenshot: https://bit.ly/3ukTjh6
 * Activate Trail subscription´s with code (3 days)
 * Download loader (Needs a sub)
 ###### ADMIN PANEL
+* Freeze all subscriptions (needs to be cleaned up)
 * Gift user subscription (Screenshot: https://bit.ly/3nerQcQ)
   * Input options:
     * `LT for Lifetime`

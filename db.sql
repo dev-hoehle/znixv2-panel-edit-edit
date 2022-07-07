@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4deb2
+-- version 5.1.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 22, 2022 at 05:01 AM
--- Server version: 10.5.15-MariaDB-0+deb11u1
--- PHP Version: 7.4.28
+-- Generation Time: Jul 07, 2022 at 10:18 AM
+-- Server version: 10.1.48-MariaDB-0+deb9u2
+-- PHP Version: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,18 +28,20 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `cheat` (
-  `status` int(1) NOT NULL DEFAULT 0,
-  `version` float NOT NULL DEFAULT 0,
+  `status` int(1) NOT NULL DEFAULT '0',
+  `version` float NOT NULL DEFAULT '0',
   `news` varchar(255) NOT NULL DEFAULT '0',
-  `maintenance` int(1) NOT NULL DEFAULT 0
+  `maintenance` int(1) NOT NULL DEFAULT '0',
+  `frozen` int(1) NOT NULL DEFAULT '0',
+  `freezingtime` int(13) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `cheat`
 --
 
-INSERT INTO `cheat` (`status`, `version`, `news`, `maintenance`) VALUES
-(0, 1, 'Welcome to znixv2-panel-edit-edit by anditv21!', 0);
+INSERT INTO `cheat` (`status`, `version`, `news`, `maintenance`, `frozen`, `freezingtime`) VALUES
+(0, 1, 'Welcome to znixv2-panel-edit-edit by anditv21!', 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -50,7 +52,7 @@ INSERT INTO `cheat` (`status`, `version`, `news`, `maintenance`) VALUES
 CREATE TABLE `invites` (
   `code` varchar(255) NOT NULL,
   `createdBy` varchar(255) NOT NULL,
-  `createdAt` timestamp NULL DEFAULT current_timestamp()
+  `createdAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -62,7 +64,7 @@ CREATE TABLE `invites` (
 CREATE TABLE `subscription` (
   `code` varchar(255) NOT NULL,
   `createdBy` varchar(255) NOT NULL,
-  `createdAt` timestamp NULL DEFAULT current_timestamp()
+  `createdAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -76,11 +78,12 @@ CREATE TABLE `users` (
   `username` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
   `hwid` varchar(255) DEFAULT NULL,
-  `admin` int(1) NOT NULL DEFAULT 0,
+  `admin` int(1) NOT NULL DEFAULT '0',
   `sub` date DEFAULT NULL,
-  `banned` int(1) NOT NULL DEFAULT 0,
+  `frozen` int(1) NOT NULL,
+  `banned` int(1) NOT NULL DEFAULT '0',
   `invitedBy` varchar(255) NOT NULL,
-  `createdAt` timestamp NULL DEFAULT current_timestamp(),
+  `createdAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `lastIP` varchar(255) DEFAULT NULL,
   `remembertoken` varchar(50) DEFAULT NULL,
   `banreason` varchar(255) DEFAULT NULL
@@ -90,8 +93,8 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`uid`, `username`, `password`, `hwid`, `admin`, `sub`, `banned`, `invitedBy`, `createdAt`, `lastIP`, `remembertoken`, `banreason`) VALUES
-(1, 'admin', '$2y$10$7wOzYc.AXpXc1nE/b0IqLOsP2w1cK9LZXDUi6hoSyuWBDj3DoBjOK', NULL, 1, '2047-02-17', 0, '', '2022-04-30 22:04:37', NULL, NULL, NULL);
+INSERT INTO `users` (`uid`, `username`, `password`, `hwid`, `admin`, `sub`, `frozen`, `banned`, `invitedBy`, `createdAt`, `lastIP`, `remembertoken`, `banreason`) VALUES
+(1, 'admin', '$2y$10$7wOzYc.AXpXc1nE/b0IqLOsP2w1cK9LZXDUi6hoSyuWBDj3DoBjOK', NULL, 1, '2047-02-26', 0, 0, '', '2022-04-30 22:04:37', NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables

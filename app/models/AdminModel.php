@@ -269,4 +269,101 @@ class Admin extends Database
             $this->statement->execute([$ver]);
         }
     }
+
+    //
+    protected function cheatfreeze()
+    {
+        if (Session::isAdmin()) {
+            $this->prepare('SELECT `frozen` FROM `cheat`');
+            $this->statement->execute();
+            $result = $this->statement->fetch();
+
+            if ((int) $result->frozen === 0) {
+                $this->prepare('UPDATE `cheat` SET `frozen` = 1');
+                $this->statement->execute();
+
+                $this->prepare(
+                    'UPDATE `cheat` SET `freezingtime` = UNIX_TIMESTAMP()'
+                );
+                $this->statement->execute();
+
+                $this->prepare('SELECT * FROM `users`');
+                $this->statement->execute();
+
+                $userarray = $this->statement->fetchAll();
+
+                foreach ($userarray as $row) {
+                    $date = new DateTime(); // Get current date
+                    $currentDate = $date->format('Y-m-d'); // Format Year-Month-Day
+                    $date1 = date_create($currentDate); // Convert String to date format
+                    $date2 = date_create($row->sub); // Convert String to date format
+                    $diff = date_diff($date1, $date2);
+                    $sub = intval($diff->format('%R%a'));
+
+                    if ($sub >= 1) {
+                        $this->prepare(
+                            'UPDATE `users` SET `frozen` = 1 where `username` = ? '
+                        );
+                        $this->statement->execute([$row->username]);
+                    }
+                }
+            } else {
+                $this->prepare('SELECT * FROM `users`');
+                $this->statement->execute();
+
+                $userarray = $this->statement->fetchAll();
+
+                foreach ($userarray as $row) {
+                    if ($row->frozen != 0) {
+                        $this->prepare(
+                            'UPDATE `users` SET `frozen` = 0 where `username` = ? '
+                        );
+                        $this->statement->execute([$row->username]);
+
+                        $this->prepare('SELECT * FROM `cheat`');
+                        $this->statement->execute();
+                        $result = $this->statement->fetch();
+                        $freezingtime = $result->freezingtime;
+                        $freezingtime = gmdate('Y-m-d', $freezingtime);
+
+                        $timenow = gmdate('Y-m-d', time());
+
+                        $date1 = date_create($freezingtime); // Convert String to date format
+                        $date2 = date_create($timenow); // Convert String to date format
+                        $diff = date_diff($date1, $date2);
+                        $diff = intval($diff->format('%R%a'));
+
+                        $days = 'P' . $diff . 'D';
+
+
+                        $this->prepare(
+                            'SELECT `sub` FROM `users` WHERE `username` = ?'
+                        );
+                        $this->statement->execute([$row->username]);
+                        $currentsub  = $this->statement->fetch();
+                        $currentsub = date_create($currentsub->sub);
+
+                        $currentsub->add(new DateInterval($days));
+                        $subTime = $currentsub->format('Y-m-d'); // Format Year-Month-Day
+
+
+
+
+
+                        $this->prepare(
+                            'UPDATE `users` SET `sub` = ? WHERE  `username` = ?'
+                        );
+                        $this->statement->execute([$subTime, $row->username]);
+                    }
+                }
+
+                $this->prepare('UPDATE `cheat` SET `frozen` = 0');
+                $this->statement->execute();
+
+                $this->prepare('UPDATE `cheat` SET `freezingtime` = 0');
+                $this->statement->execute();
+
+            }
+        }
+    }
 }
