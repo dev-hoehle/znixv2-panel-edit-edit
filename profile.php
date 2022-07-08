@@ -88,16 +88,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     Util::display('<br>');
 
                                     Util::display('Subscription: ');
-                                    if ($sub > 8000) {
-                                        Util::display('Lifetime');
-                                    } else {
-                                        if ($sub >= 0) {
-                                            Util::display("$sub days");
+
+                                    if($cheat->getCheatData()->frozen != 0)
+                                    {
+                                        Util::display("Frozen");
+                                    }
+                                    else
+                                    {
+                                        if ($sub > 8000) {
+                                            Util::display('Lifetime');
                                         } else {
-                                            Util::display('none');
+                                            if ($sub >= 0) {
+                                                Util::display("$sub days");
+                                            } else {
+                                                Util::display('<i class="fa fa-times"></i>');
+                                            }
                                         }
                                     }
+                                    
                                     Util::display('<br>');
+                                    
                                     ?></h3>
 
                                     
