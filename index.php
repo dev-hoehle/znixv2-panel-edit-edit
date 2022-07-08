@@ -131,13 +131,10 @@ Util::head($username);
                                         <div class="col me-2">
                                             <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span style="color: rgb(255,255,255);">subscription</span></div>
                                             <div class="text-dark fw-bold h5 mb-0"><span style="color: rgb(255,255,255);">
-                                                    <?php 
-                                                    if($cheat->getCheatData()->frozen != 0)
-                                                    {
+                                                    <?php
+                                                    if ($cheat->getCheatData()->frozen != 0) {
                                                         Util::display("Frozen");
-                                                    }
-                                                    else
-                                                    {
+                                                    } else {
                                                         if ($sub > 0) {
                                                             if (
                                                                         $sub > 8000
@@ -154,9 +151,9 @@ Util::head($username);
                                                             Util::display('<i class="fa fa-times"></i>');
                                                         }
                                                     }
-                                                    
 
-                                                    
+
+
                                                     ?></span></div>
                                         </div>
                                         <div class="col-auto"><i class="fas fa-calendar-alt fa-2x text-gray-300" style="color: rgb(200,200,200)!important;"></i></div>
@@ -177,8 +174,8 @@ Util::head($username);
                                         <div class="row align-items-center no-gutters">
                                             <div class="col me-2" style="color: rgb(255,255,255);">
                                                 <h6 class="mb-0"><strong><?php Util::display(
-                                                $user->getusernews()
-                                            ); ?></strong></h6>
+                                                        $user->getusernews()
+                                                    ); ?></strong></h6>
                                             </div>
                                         </div>
                                     </li>
