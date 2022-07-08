@@ -200,5 +200,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    </script>
    </div>
 </body>
-
+<?php Util::footer(); ?>
 </html>

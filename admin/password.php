@@ -169,5 +169,5 @@ Util::head('Admin Panel');
     </script>
     </div>
 </body>
-
+<?php Util::footer(); ?>
 </html>

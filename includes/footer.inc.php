@@ -1,6 +1,6 @@
 <footer class="fixed-bottom text-right pb-3 pr-5">
 	<small>
-		<span class="align-middle text-decoration-none">Made with <i class="fas fa-heart"></i> by <a href="https://twitter.com/znixbtw">znix</a></span>
+		<span class="align-middle text-decoration-none">&nbsp&nbsp&nbsp View this project on <a href="https://github.com/anditv21/znixv2-panel-edit-edit" target="_blank">Github</a></span>
 	</small>
 </footer>
 
