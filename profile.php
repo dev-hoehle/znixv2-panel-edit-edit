@@ -88,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     Util::display('<br>');
 
                                     Util::display('Subscription: ');
-                                    if ($sub > 1000) {
+                                    if ($sub > 8000) {
                                         Util::display('Lifetime');
                                     } else {
                                         if ($sub >= 0) {

@@ -133,8 +133,7 @@ Util::head($username);
                                             <div class="text-dark fw-bold h5 mb-0"><span style="color: rgb(255,255,255);">
                                                     <?php if ($sub > 0) {
                                                 if (
-                                                            $sub > 0 &&
-                                                            $sub > 1000
+                                                            $sub > 8000
                                                         ) {
                                                     Util::display(
                                                         'Lifetime'

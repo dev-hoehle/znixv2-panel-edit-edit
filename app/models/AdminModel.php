@@ -64,7 +64,7 @@ class Admin extends Database
         if (Session::isAdmin()) {
             if ($sub <= 0) {
                 if ($time === 'LT') {
-                    $time = '9000';
+                    $time = '24000';
                 }
                 if ($time === 'T') {
                     $time = '3';
@@ -90,7 +90,7 @@ class Admin extends Database
                     $this->statement->execute([$name]);
                 } else {
                     if ($time === 'LT') {
-                        $time = '9000';
+                        $time = '24000';
                     }
                     if ($time === 'T') {
                         $time = '3';
@@ -362,6 +362,7 @@ class Admin extends Database
 
                 $this->prepare('UPDATE `cheat` SET `freezingtime` = 0');
                 $this->statement->execute();
+
             }
         }
     }
