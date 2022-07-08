@@ -89,12 +89,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                                     Util::display('Subscription: ');
 
-                                    if($cheat->getCheatData()->frozen != 0)
-                                    {
+                                    if ($cheat->getCheatData()->frozen != 0) {
                                         Util::display("Frozen");
-                                    }
-                                    else
-                                    {
+                                    } else {
                                         if ($sub > 8000) {
                                             Util::display('Lifetime');
                                         } else {
@@ -105,9 +102,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                             }
                                         }
                                     }
-                                    
+
                                     Util::display('<br>');
-                                    
+
                                     ?></h3>
 
                                     
