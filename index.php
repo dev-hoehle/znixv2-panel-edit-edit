@@ -95,7 +95,7 @@ Util::head($username);
                                                 $cheat->getCheatData()->version
                                             ); ?></span></div>
                                         </div>
-                                        <div class="col-auto"><i class="fas fa-hashtag fa-2x text-gray-300" style="color: rgb(200,200,200)!important;"></i></div>
+                                        <div class="col-auto"><i class="fas fa-code-branch fa-2x text-gray-300" style="color: rgb(200,200,200)!important;"></i></div>
                                     </div>
                                 </div>
                             </div>
@@ -148,7 +148,7 @@ Util::head($username);
                                                 Util::display('0 days');
                                             } ?></span></div>
                                         </div>
-                                        <div class="col-auto"><i class="fas fa-database fa-2x text-gray-300" style="color: rgb(200,200,200)!important;"></i></div>
+                                        <div class="col-auto"><i class="fas fa-calendar-alt fa-2x text-gray-300" style="color: rgb(200,200,200)!important;"></i></div>
                                     </div>
                                 </div>
                             </div>
