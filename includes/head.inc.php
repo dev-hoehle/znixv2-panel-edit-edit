@@ -19,4 +19,6 @@
 	<meta property="twitter:title" content="<?php echo($title); ?>" />
 
 	<title><?= ($title . ' &ndash; ' . SITE_NAME); ?></title>
+
+	<script src="https://kit.fontawesome.com/1ec9c88c94.js" crossorigin="anonymous"></script>
 </head>
