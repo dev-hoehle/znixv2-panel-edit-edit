@@ -16,6 +16,7 @@
                         <li class="nav-item"><a class="nav-link active" href=<?php echo SITE_URL.SUB_DIR . "/admin/codes.php" ?> style="text-align: center;"><i class="fas fa-long-arrow-alt-right"></i><span>Codes</span></a></li>
                         <li class="nav-item"><a class="nav-link active" href=<?php echo SITE_URL.SUB_DIR . "/admin/gift.php" ?> style="text-align: center;"><i class="fas fa-long-arrow-alt-right"></i><span>Sub-Gift</span></a></li>
                         <li class="nav-item"><a class="nav-link active" href=<?php echo SITE_URL.SUB_DIR . "/admin/password.php" ?> style="text-align: center;"><i class="fas fa-long-arrow-alt-right"></i><span>Reset-Password</span></a></li>
+                        <li class="nav-item"><a class="nav-link active" href=<?php echo SITE_URL.SUB_DIR . "/admin/bans.php" ?>  style="text-align: center;"><i class="fas fa-long-arrow-alt-right"></i><span>Ban-Manager</span></a></li>
                     <?php endif; ?>
 
 
