@@ -1,8 +1,9 @@
 <?php
 include '../app/require.php';
-
+require_once '../app/controllers/CheatController.php';
 
 $user = new UserController();
+$cheat = new CheatController();
 
 Session::init();
 
@@ -57,7 +58,10 @@ Util::head('Register');
                                             <div class="mb-3"><input class="form-control form-control-user" type="text" id="username" aria-describedby="username" autocomplete="off" placeholder="Username" name="username" style="border-radius: 5px;color: rgb(255,255,255);background: #121421;border-style: none;text-align: center;"></div>
                                             <div class="mb-3"><input class="form-control form-control-user" type="password" id="exampleInputPassword" placeholder="Password" name="password" style="border-radius: 5px;color: rgb(255,255,255);border-style: none;background: #121421;text-align: center;">
                                                 <input class="form-control form-control-user" type="password" id="exampleInputPassword-1" placeholder="Confirm Password" name="confirmPassword" style="border-radius: 5px;color: rgb(255,255,255);border-style: none;background: #121421;text-align: center;margin-top: 17px;">
+                                            <?php if ($cheat->getCheatData()->invites == 1): ?>
                                                 <input class="form-control form-control-user" type="text" id="exampleInputPassword-2" placeholder="Invite" name="invCode" type="text" style="border-radius: 5px;color: rgb(255,255,255);border-style: none;background: #121421;text-align: center;margin-top: 17px;">
+                                               
+                                                <?php endif; ?>
                                             </div>
                                             <div class="mb-3">
                                                 <div class="custom-control custom-checkbox small"></div>

@@ -7,4 +7,4 @@ Session::init();
 $user = new UserController();
 $user->logoutUser();
 
-Util::redirect('../auth/login.php');
+Util::redirect('/auth/login.php');

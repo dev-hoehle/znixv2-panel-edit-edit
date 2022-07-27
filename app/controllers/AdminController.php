@@ -126,4 +126,10 @@ class AdminController extends Admin
     {
         return $this->cheatfreeze();
     }
+
+    //
+    public function setinvite()
+    {
+        return $this->cheatinvite();
+    }
 }

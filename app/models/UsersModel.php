@@ -138,11 +138,22 @@ class Users extends Database
     // Register - Sends data to DB
     protected function register($username, $hashedPassword, $invCode)
     {
-        // Get inviter's username
-        $this->prepare('SELECT `createdBy` FROM `invites` WHERE `code` = ?');
-        $this->statement->execute([$invCode]);
-        $row = $this->statement->fetch();
-        $inviter = $row->createdBy;
+
+        $this->prepare('SELECT * FROM `cheat`');
+        $this->statement->execute();
+        $result = $this->statement->fetch();
+        if ($result->invites == True)
+        {
+            // Get inviter's username
+            $this->prepare('SELECT `createdBy` FROM `invites` WHERE `code` = ?');
+            $this->statement->execute([$invCode]);
+            $row = $this->statement->fetch();
+            $inviter = $row->createdBy;
+        }
+        else
+        {
+            $inviter = 'System';
+        }
 
         // Sending the query - Register user
         $this->prepare(
@@ -342,5 +353,13 @@ class Users extends Database
         $this->statement->execute();
         $result = $this->statement->fetch();
         return $result->username;
+    }
+
+    public function cheatData()
+    {
+        $this->prepare('SELECT * FROM `cheat`');
+        $this->statement->execute();
+        $result = $this->statement->fetch();
+        return $result;
     }
 }

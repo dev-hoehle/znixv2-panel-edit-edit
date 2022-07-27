@@ -80,18 +80,21 @@ class UserController extends Users
             return $passError = 'Passwords do not match, please try again.';
         }
 
-        // Validate invCode
-        if (empty($invCode)) {
-            return $invCodeError = 'Please enter an invite code.';
-        } else {
-            // Check if invite code is valid
-            $invCodeExists = $this->invCodeCheck($invCode);
+        if ($this->cheatData()->invites == True) {
+            // Validate invCode
+            if (empty($invCode)) {
+                return $invCodeError = 'Please enter an invite code.';
+            } else {
+                // Check if invite code is valid
+                $invCodeExists = $this->invCodeCheck($invCode);
 
-            if (!$invCodeExists) {
-                return $invCodeError =
-                    'Invite code is invalid or already used.';
+                if (!$invCodeExists) {
+                    return $invCodeError =
+                        'Invite code is invalid or already used.';
+                }
             }
         }
+
 
         // Check if all errors are empty
         if (
@@ -108,7 +111,7 @@ class UserController extends Users
 
             // Session start
             if ($result) {
-                Util::redirect('auth/login.php');
+                Util::redirect('/auth/login.php');
             } else {
                 return 'Something went wrong.';
             }
@@ -171,7 +174,7 @@ class UserController extends Users
             // Session start
 
             $this->createUserSession($result);
-            Util::redirect('index.php');
+            Util::redirect('/index.php');
         }
     }
 

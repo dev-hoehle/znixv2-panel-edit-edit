@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 07, 2022 at 10:18 AM
+-- Generation Time: Jul 28, 2022 at 12:58 AM
 -- Server version: 10.1.48-MariaDB-0+deb9u2
 -- PHP Version: 7.4.29
 
@@ -33,15 +33,16 @@ CREATE TABLE `cheat` (
   `news` varchar(255) NOT NULL DEFAULT '0',
   `maintenance` int(1) NOT NULL DEFAULT '0',
   `frozen` int(1) NOT NULL DEFAULT '0',
-  `freezingtime` int(13) NOT NULL
+  `freezingtime` int(13) NOT NULL,
+  `invites` int(1) NOT NULL DEFAULT '1'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `cheat`
 --
 
-INSERT INTO `cheat` (`status`, `version`, `news`, `maintenance`, `frozen`, `freezingtime`) VALUES
-(0, 1, 'Welcome to znixv2-panel-edit-edit by anditv21!', 0, 0, 0);
+INSERT INTO `cheat` (`status`, `version`, `news`, `maintenance`, `frozen`, `freezingtime`, `invites`) VALUES
+(0, 1, 'Welcome to znixv2-panel-edit-edit by anditv21!', 0, 1, 1657294066, 0);
 
 -- --------------------------------------------------------
 
@@ -54,6 +55,18 @@ CREATE TABLE `invites` (
   `createdBy` varchar(255) NOT NULL,
   `createdAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `logs`
+--
+
+CREATE TABLE `logs` (
+  `username` varchar(255) NOT NULL,
+  `date` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+  `action` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -94,7 +107,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`uid`, `username`, `password`, `hwid`, `admin`, `sub`, `frozen`, `banned`, `invitedBy`, `createdAt`, `lastIP`, `remembertoken`, `banreason`) VALUES
-(1, 'admin', '$2y$10$7wOzYc.AXpXc1nE/b0IqLOsP2w1cK9LZXDUi6hoSyuWBDj3DoBjOK', NULL, 1, '2047-02-26', 0, 0, '', '2022-04-30 22:04:37', NULL, NULL, NULL);
+(1, 'admin', '$2y$10$7wOzYc.AXpXc1nE/b0IqLOsP2w1cK9LZXDUi6hoSyuWBDj3DoBjOK', NULL, 1, '2088-03-23', 1, 0, '', '2022-07-05 22:04:37', '', '', NULL);
 
 --
 -- Indexes for dumped tables
@@ -105,6 +118,12 @@ INSERT INTO `users` (`uid`, `username`, `password`, `hwid`, `admin`, `sub`, `fro
 --
 ALTER TABLE `invites`
   ADD UNIQUE KEY `code` (`code`);
+
+--
+-- Indexes for table `logs`
+--
+ALTER TABLE `logs`
+  ADD UNIQUE KEY `date` (`date`);
 
 --
 -- Indexes for table `subscription`

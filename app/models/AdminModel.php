@@ -366,4 +366,23 @@ class Admin extends Database
             }
         }
     }
+
+    //
+    protected function cheatinvite()
+    {
+        if (Session::isAdmin()) {
+            $this->prepare('SELECT `invites` FROM `cheat`');
+            $this->statement->execute();
+            $result = $this->statement->fetch();
+
+            if ((int) $result->invites === 0) {
+                $this->prepare('UPDATE `cheat` SET `invites` = 1');
+                $this->statement->execute();
+            } else {
+                $this->prepare('UPDATE `cheat` SET `invites` = 0');
+                $this->statement->execute();
+            }
+        }
+    }
+
 }
