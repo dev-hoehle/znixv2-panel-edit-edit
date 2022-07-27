@@ -78,10 +78,10 @@ class Util
         }
     }
 
-    public static function getjoin()
+    public static function getjoin ()
     {
         $joindate = Session::get("createdAt");
-        $now = time();
+        $now = time(); 
         $date = strtotime($joindate);
         $datediff = $now - $date;
 

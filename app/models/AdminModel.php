@@ -362,6 +362,7 @@ class Admin extends Database
 
                 $this->prepare('UPDATE `cheat` SET `freezingtime` = 0');
                 $this->statement->execute();
+
             }
         }
     }
