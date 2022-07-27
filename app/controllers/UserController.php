@@ -157,7 +157,7 @@ class UserController extends Users
                 setcookie('login_cookie', $token, time() + 31556926);
                 $_SESSION['username'] = $username;
 
-                Util::redirect('./index.php');
+                Util::redirect('index.php');
             } else {
                 return 'Username/Password is wrong.';
             }

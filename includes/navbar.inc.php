@@ -11,11 +11,11 @@
                     <li class="nav-item"><a class="nav-link active" href="profile.php" style="text-align: center;"><i class="fas fa-long-arrow-alt-right"></i><span>Profile</span></a></li>
 
                     <?php if (Session::isAdmin() == true) : ?>
-                        <li class="nav-item"><a class="nav-link active" href="/admin/index.php" style="text-align: center;"><i class="fas fa-long-arrow-alt-right"></i><span>Admin-Dashboard</span></a></li>
-                        <li class="nav-item"><a class="nav-link active" href="/admin/table.php" style="text-align: center;"><i class="fas fa-long-arrow-alt-right"></i><span>Users</span></a></li>
-                        <li class="nav-item"><a class="nav-link active" href="/admin/codes.php" style="text-align: center;"><i class="fas fa-long-arrow-alt-right"></i><span>Codes</span></a></li>
-                        <li class="nav-item"><a class="nav-link active" href="/admin/gift.php" style="text-align: center;"><i class="fas fa-long-arrow-alt-right"></i><span>Sub-Gift</span></a></li>
-                        <li class="nav-item"><a class="nav-link active" href="/admin/password.php" style="text-align: center;"><i class="fas fa-long-arrow-alt-right"></i><span>Reset-Password</span></a></li>
+                        <li class="nav-item"><a class="nav-link active" href=<?php echo SITE_URL.SUB_DIR . "/admin/index.php" ?> style="text-align: center;"><i class="fas fa-long-arrow-alt-right"></i><span>Admin-Dashboard</span></a></li>
+                        <li class="nav-item"><a class="nav-link active" href=<?php echo SITE_URL.SUB_DIR . "/admin/table.php" ?> style="text-align: center;"><i class="fas fa-long-arrow-alt-right"></i><span>Users</span></a></li>
+                        <li class="nav-item"><a class="nav-link active" href=<?php echo SITE_URL.SUB_DIR . "/admin/codes.php" ?> style="text-align: center;"><i class="fas fa-long-arrow-alt-right"></i><span>Codes</span></a></li>
+                        <li class="nav-item"><a class="nav-link active" href=<?php echo SITE_URL.SUB_DIR . "/admin/gift.php" ?> style="text-align: center;"><i class="fas fa-long-arrow-alt-right"></i><span>Sub-Gift</span></a></li>
+                        <li class="nav-item"><a class="nav-link active" href=<?php echo SITE_URL.SUB_DIR . "/admin/password.php" ?> style="text-align: center;"><i class="fas fa-long-arrow-alt-right"></i><span>Reset-Password</span></a></li>
                     <?php endif; ?>
 
 
