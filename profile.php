@@ -168,8 +168,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                 <div class="col">
                                                     <?php if (isset($error)): ?>
                                                         <span style="color: rgb(255,255,255); margin-bottom: 20px;"><?php Util::display(
-                                                                $error
-                                                            ); ?></span>
+                                                            $error
+                                                        ); ?></span>
                                                     <?php endif; ?>
                                                     <div class="mb-3"><span style="color: rgb(255,255,255);">Current password</span><input class="form-control" name="currentPassword" type="password" id="username-1" placeholder="********" name="username" style="background: #121421;border-style: none;margin-top: 11px;"></div>
                                                     <div class="mb-3"><span style="color: rgb(255,255,255);">New password</span><input class="form-control" name="newPassword" type="password" id="username-3" placeholder="********" name="username" style="background: #121421;border-style: none;margin-top: 11px;"></div>
