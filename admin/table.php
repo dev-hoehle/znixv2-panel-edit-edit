@@ -127,8 +127,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                       $row->username
                                   ); ?></td>
                                                 <td style="color: rgb(255,255,255);"><?php Util::display(
-    $row->uid
-); ?></td>
+                                      $row->uid
+                                  ); ?></td>
                                                 <td style="color: rgb(255,255,255);">
                                                     <?php if (
                                                         $row->admin == 1
