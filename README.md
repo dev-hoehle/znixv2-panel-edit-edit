@@ -17,15 +17,17 @@
 ### Features
 ###### AUTH
 * Login (Remember Login) (Screenshot: https://bit.ly/3OYBJqT)
-* Register (Invite only) (Screenshot: https://bit.ly/3NTukIN)
+* Register (Invite only / can be deactivated) (Screenshot: https://bit.ly/3NTukIN)
 * Banned Page (Screenshot: https://bit.ly/39USjsR)
 ###### USER
-Screenshot: https://bit.ly/3ukTjh6
+Screenshot: https://bit.ly/3Bl5AX2
 * Change password
 * Activate multiple subscription´s with code (30/90 days)
 * Activate Trail subscription´s with code (3 days)
 * Download loader (Needs a sub)
 ###### ADMIN PANEL
+Screenshot: https://bit.ly/3cMWNTq
+* Disable Invite System
 * Freeze all subscriptions (experimental)
 * Gift user subscription (Screenshot: https://bit.ly/3nerQcQ)
   * Input options:
