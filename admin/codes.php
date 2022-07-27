@@ -65,8 +65,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             </li>
                             <li class="nav-item dropdown no-arrow">
                                 <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><span class="d-none d-lg-inline me-2 text-gray-600 small" style="color: #ffffff !important;"><?php Util::display(
-                                    Session::get('username')
-                                ); ?></span><img class="border rounded-circle img-profile" src="../assets/img/avatars/Portrait_Placeholder.png" style="border-color: rgb(255,255,255)!important;"></a>
+    Session::get('username')
+); ?></span><img class="border rounded-circle img-profile" src="../assets/img/avatars/Portrait_Placeholder.png" style="border-color: rgb(255,255,255)!important;"></a>
                                     <div class="dropdown-menu shadow dropdown-menu-end animated--grow-in" style="background: #252935;border-style: none;margin-top: 11px;box-shadow: 0px 0px 3px 2px rgba(0,0,0,0.16)!important;"><a class="dropdown-item" href="profile.php" style="color: rgb(255,255,255);"><i class="fas fa-user fa-sm fa-fw me-2 text-gray-400" style="color: rgb(255,255,255)!important;"></i>&nbsp;Profile</a><a class="dropdown-item" id="logout" href=<?php echo SITE_URL .
                                   SUB_DIR .
                                   '/auth/logout.php'; ?> style="color: rgb(255,255,255);"><i class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400" style="color: rgb(255,255,255)!important;"></i>&nbsp;Logout</a></div>
@@ -77,8 +77,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </nav>
                 <div class="container-fluid">
                     <form method="POST" action="<?php Util::display(
-    $_SERVER['PHP_SELF']
-); ?>">
+                                      $_SERVER['PHP_SELF']
+                                  ); ?>">
                         <h3 class="text-dark mb-4" data-aos="fade-down" data-aos-duration="1000">Codes</h3><button
                             name="genInv" type="submit" class="btn btn-success" data-aos="fade-down"
                             data-aos-duration="800" style="font-size: 12px;color: rgb(255,255,255);">Invite</button>
@@ -117,13 +117,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                                                 <td style="color: rgb(255,255,255);max-width: 100px;">
                                                     <?php Util::display(
-    $row->code
-); ?></td>
+                                      $row->code
+                                  ); ?></td>
 
                                                 <td style="color: rgb(255,255,255);max-width: 30px;">
                                                     <?php Util::display(
-    $row->createdBy
-); ?></td>
+                                      $row->createdBy
+                                  ); ?></td>
                                                 <td style="color: rgb(255,255,255);max-width: 30px;"><input
                                                         class="btn btn-outline-primary btn-sm" type="submit"
                                                         value="Copy code" id="cop"
@@ -164,8 +164,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                             <tr>
                                                 <td style="color: rgb(255,255,255);max-width: 100px;">
                                                     <?php Util::display(
-    $row->code
-); ?></td>
+                                      $row->code
+                                  ); ?></td>
                                                 <td style="color: rgb(255,255,255);max-width: 30px;">
                                                     <?php Util::display(
     $row->createdBy
