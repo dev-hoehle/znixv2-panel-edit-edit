@@ -17,8 +17,7 @@ class UserController extends Users
         Session::set('admin', (int) $user->admin);
         Session::set('banned', (int) $user->banned);
         Session::set('invitedBy', $user->invitedBy);
-        //Session::set("hwid", $user->hwid);
-        //Session::set("createdBy", $user->createdBy);
+        Session::set('createdAt', $user->createdAt);
     }
 
     public function logoutUser()
@@ -172,7 +171,7 @@ class UserController extends Users
             // Session start
 
             $this->createUserSession($result);
-            Util::redirect('./index.php');
+            Util::redirect('index.php');
         }
     }
 

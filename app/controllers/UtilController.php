@@ -77,4 +77,14 @@ class Util
             Util::redirect('/index.php');
         }
     }
+
+    public static function getjoin ()
+    {
+        $joindate = Session::get("createdAt");
+        $now = time(); 
+        $date = strtotime($joindate);
+        $datediff = $now - $date;
+
+        return round($datediff / (60 * 60 * 24));
+    }
 }
