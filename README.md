@@ -88,7 +88,8 @@ Screenshot: https://bit.ly/3cMWNTq
 - Put your Loader in the main directory of the panel. (x.exe)
 - Login with the default credentials
 - Change the default password to a secure one
-- Set https://github.com/anditv21/znixv2-panel-edit-edit/blob/main/app/core/Config.php#L8 to your Website name
+- Rename https://github.com/anditv21/znixv2-panel-edit-edit/blob/main/app/core/Config to Config.php
+- Set https://github.com/anditv21/znixv2-panel-edit-edit/blob/main/app/core/Config#L8 to your Website name
 - Set a website description in https://github.com/anditv21/znixv2-panel-edit-edit/blob/main/app/core/Config.php#L11
 - Change https://github.com/anditv21/znixv2-panel-edit-edit/blob/main/app/core/Config.php#L26 to a secure API key
 
