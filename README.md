@@ -5,7 +5,6 @@
 
 
 * Original Panel: https://github.com/znixbtw/php-panel-v2
-* Panel Edit: DELETED
 > Default login: `admin`:`admin` <br />
 ---
 
@@ -37,9 +36,9 @@ Screenshot: https://bit.ly/3cMWNTq
     * `Intager for custom amount in days`
 * User-Ranges with buttons in User Table (Screenshot: https://bit.ly/3yxHiHD)
   * Input options:
-	  * 1-10 10-20 20-30 30-40 40-50
-	  * custom
-	  * ALL
+	  * `1-10 10-20 20-30 30-40 40-50`
+	  * `custom`
+	  * `ALL`
 * View a users last known IP address 
 * Password Reset
 * Set News
