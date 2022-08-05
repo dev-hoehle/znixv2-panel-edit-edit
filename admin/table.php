@@ -186,7 +186,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                     ); ?>" name="resetHWID" class="btn btn-primary" type="submit" style="font-size: 11px;">
                                                             <i class="fas fa-microchip"></i>&nbsp;Reset</button>
 
-                                                            <?php if(Session::isAdmin()): ?>
+                                                            <?php if (Session::isAdmin()): ?>
                                                         <button value="<?php Util::display(
                                                         $row->uid
                                                     ); ?>" name="setBanned" class="btn btn-danger" type="submit" style="font-size: 11px;margin-left: 10px;">

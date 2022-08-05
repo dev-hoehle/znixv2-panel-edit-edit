@@ -33,7 +33,7 @@ class Session
 
     public static function isSupp()
     {
-        return isset($_SESSION['login'])  && $_SESSION['supp'] === 1 
+        return isset($_SESSION['login'])  && $_SESSION['supp'] === 1
          ? true : false;
     }
 

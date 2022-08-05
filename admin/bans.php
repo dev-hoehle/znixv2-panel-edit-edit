@@ -19,7 +19,6 @@ Util::banCheck();
 Util::head('Admin Panel');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
     if (isset($_POST['u'])) {
         Util::adminCheck();
         $uid = $_POST['u'];
@@ -76,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         </ul>
                     </div>
                 </nav>
-                <?php if(Session::isAdmin()): ?>
+                <?php if (Session::isAdmin()): ?>
             <div class="container-fluid">
             <center>
                   <div class="col-xl-3 col-lg-4 col-md-5 col-sm-7 col-xs-12 my-3">
