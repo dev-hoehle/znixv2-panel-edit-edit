@@ -31,6 +31,12 @@ class Session
             : false;
     }
 
+    public static function isSupp()
+    {
+        return isset($_SESSION['login'])  && $_SESSION['supp'] === 1 
+         ? true : false;
+    }
+
     public static function isBanned()
     {
         return isset($_SESSION['login']) &&

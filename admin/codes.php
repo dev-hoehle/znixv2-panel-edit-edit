@@ -13,21 +13,26 @@ $invList = $admin->getInvCodeArray();
 $username = Session::get('username');
 $uid = Session::get('uid');
 
-Util::adminCheck();
+Util::suppCheck();
 Util::banCheck();
 Util::head('Admin Panel');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
     if (isset($_POST['genSub'])) {
+        Util::adminCheck();
         $admin->getSubCodeGen($username);
     }
     if (isset($_POST['genSub3M'])) {
+        Util::adminCheck();
         $admin->getSubCodeGen3M($username);
     }
     if (isset($_POST['genSubtrail'])) {
+        Util::adminCheck();
         $admin->getSubCodeGentrail($username);
     }
     if (isset($_POST['genInv'])) {
+        Util::suppCheck();
         $admin->getInvCodeGen($username);
     }
 
@@ -82,6 +87,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <h3 class="text-dark mb-4" data-aos="fade-down" data-aos-duration="1000">Codes</h3><button
                             name="genInv" type="submit" class="btn btn-success" data-aos="fade-down"
                             data-aos-duration="800" style="font-size: 12px;color: rgb(255,255,255);">Invite</button>
+
+                            <?php if(Session::isAdmin()): ?>   
                         <button class="btn btn-success" data-aos="fade-down" data-aos-duration="800" name="genSub"
                             type="submit"
                             style="margin-left: 10px;font-size: 12px;color: rgb(255,255,255);">Subscription</button>
@@ -93,12 +100,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             type="submit"
                             style="margin-left: 10px;font-size: 12px;color: rgb(255,255,255);">Subscription
                             (Trail)</button>
+                            <?php if(Session::isAdmin()): ?>
                         <div class="card shadow" data-aos="fade-down" data-aos-duration="600"
                             style="background: #252935;border-style: none;margin-top: 20px;">
                             <div class="card-header py-3"
                                 style="color: rgb(133, 135, 150);background: #252935;border-style: none;">
                                 <p class="text-primary m-0 fw-bold">Subscriptions</p>
                             </div>
+                            <?php endif; ?>
+
                             <div class="card-body">
                                 <div class="table-responsive table mt-2" id="dataTable" role="grid"
                                     aria-describedby="dataTable_info">
@@ -141,6 +151,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 </div>
                             </div>
                         </div>
+                        <?php endif; ?>
                         <div class="card shadow" data-aos="fade-down" data-aos-duration="400"
                             style="background: #252935;border-style: none;margin-top: 26px;">
                             <div class="card-header py-3"

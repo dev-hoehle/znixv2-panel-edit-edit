@@ -104,6 +104,12 @@ class AdminController extends Admin
     }
 
     //
+    public function setsupp($uid)
+    {
+        return $this->supporter($uid);
+    }
+
+    //
     public function setCheatStatus()
     {
         return $this->cheatStatus();

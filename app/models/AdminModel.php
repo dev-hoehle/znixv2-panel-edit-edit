@@ -14,7 +14,7 @@ class Admin extends Database
     // - includes hashed passwords too.
     protected function UserArray()
     {
-        if (Session::isAdmin()) {
+        if (Session::isAdmin() or Session::isSupp()) {
             $this->prepare('SELECT * FROM `users` ORDER BY uid ASC');
             $this->statement->execute();
 
@@ -24,7 +24,7 @@ class Admin extends Database
     }
     protected function bannedArray()
     {
-        if (Session::isAdmin() or Session::issupp()) {
+        if (Session::isAdmin() or Session::isSupp()) {
             $this->prepare(
                 'SELECT * FROM `users` where banned = 1 ORDER BY uid ASC'
             );
@@ -129,7 +129,7 @@ class Admin extends Database
     // Get array of all invite codes
     protected function invCodeArray()
     {
-        if (Session::isAdmin()) {
+        if (Session::isAdmin() or Session::isSupp()) {
             $this->prepare('SELECT * FROM `invites`');
             $this->statement->execute();
 
@@ -141,7 +141,7 @@ class Admin extends Database
     // Create invite code
     protected function invCodeGen($code, $createdBy)
     {
-        if (Session::isAdmin()) {
+        if (Session::isAdmin() or Session::isSupp()) {
             $this->prepare(
                 'INSERT INTO `invites` (`code`, `createdBy`) VALUES (?, ?)'
             );
@@ -175,7 +175,7 @@ class Admin extends Database
     // Resets HWID
     protected function HWID($uid)
     {
-        if (Session::isAdmin()) {
+        if (Session::isAdmin() or Session::isSupp()) {
             $this->prepare('UPDATE `users` SET `hwid` = NULL WHERE `uid` = ?');
             $this->statement->execute([$uid]);
         }
@@ -216,9 +216,42 @@ class Admin extends Database
                     'UPDATE `users` SET `admin` = 1 WHERE `uid` = ?'
                 );
                 $this->statement->execute([$uid]);
+                $this->prepare(
+                    'UPDATE `users` SET `supp` = 1 WHERE `uid` = ?'
+                );
+                $this->statement->execute([$uid]);
             } else {
                 $this->prepare(
                     'UPDATE `users` SET `admin` = 0 WHERE `uid` = ?'
+                );
+                $this->statement->execute([$uid]);
+                $this->prepare(
+                    'UPDATE `users` SET `supp` = 0 WHERE `uid` = ?'
+                );
+                $this->statement->execute([$uid]);
+            }
+        }
+    }
+
+
+
+
+    // Set user supp / non supp
+    protected function supporter($uid)
+    {
+        if (Session::isAdmin()) {
+            $this->prepare('SELECT `supp` FROM `users` WHERE `uid` = ?');
+            $this->statement->execute([$uid]);
+            $result = $this->statement->fetch();
+
+            if ((int) $result->supp === 0) {
+                $this->prepare(
+                    'UPDATE `users` SET `supp` = 1 WHERE `uid` = ?'
+                );
+                $this->statement->execute([$uid]);
+            } else {
+                $this->prepare(
+                    'UPDATE `users` SET `supp` = 0 WHERE `uid` = ?'
                 );
                 $this->statement->execute([$uid]);
             }

@@ -9,41 +9,47 @@ $admin = new AdminController();
 
 Session::init();
 
-Util::adminCheck();
+
 
 $username = Session::get('username');
 $uid = Session::get('uid');
 
 $sub = $user->getSubStatus();
-
+Util::suppCheck();
 Util::banCheck();
 Util::head('Admin Panel');
 
 // if post request
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['cheatStatus'])) {
+        Util::adminCheck();
         $admin->setCheatStatus();
     }
 
     if (isset($_POST['cheatMaint'])) {
+        Util::adminCheck();
         $admin->setCheatMaint();
     }
 
     if (isset($_POST['cheatVersion'])) {
+        Util::adminCheck();
         $ver = floatval($_POST['version']);
         $admin->setCheatVersion($ver);
     }
 
     if (isset($_POST['sendmsg'])) {
+        Util::adminCheck();
         $news = $_POST['msg'];
         $admin->setnews($news);
     }
 
     if (isset($_POST['cheatfreeze'])) {
+        Util::adminCheck();
         $admin->setCheatfreeze();
     }
 
     if (isset($_POST['invite'])) {
+        Util::adminCheck();
         $admin->setinvite();
     }
 
@@ -256,6 +262,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             </div>
                         </div>
                     </div>
+                    <?php if(Session::isadmin()): ?>
                     <div class="row" data-aos="fade-down" data-aos-duration="400">
                         <div class="col-lg-6 mb-4">
                             <div class="card shadow mb-4" style="border-style: none;background: rgb(37,41,53);">
@@ -286,6 +293,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 </form>
 
                             </div>
+                            <?php endif; ?>
                             <form action="<?php Util::display(
                                                 $_SERVER['PHP_SELF']
                                             ); ?>" method="post">

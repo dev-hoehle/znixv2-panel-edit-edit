@@ -78,6 +78,14 @@ class Util
         }
     }
 
+    // supp check
+    public static function suppCheck()
+    {
+        if (!Session::isSupp()) {
+            Util::redirect('/index.php');
+        }
+    }
+
     public static function getjoin()
     {
         $joindate = Session::get("createdAt");

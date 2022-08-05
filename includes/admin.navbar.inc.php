@@ -10,12 +10,20 @@
                     <li class="nav-item"><a class="nav-link active" href="../index.php" style="text-align: center;"><i class="fas fa-long-arrow-alt-right"></i><span>Dashboard</span></a></li>
                     <li class="nav-item"><a class="nav-link active" href="../profile.php" style="text-align: center;"><i class="fas fa-long-arrow-alt-right"></i><span>Profile</span></a></li>
 
-                    <?php if (Session::isAdmin() == true) : ?>
+                    <?php if (Session::isAdmin()) : ?>
                         <li class="nav-item"><a class="nav-link active" href="index.php" style="text-align: center;"><i class="fas fa-long-arrow-alt-right"></i><span>Admin-Dashboard</span></a></li>
                         <li class="nav-item"><a class="nav-link active" href="table.php" style="text-align: center;"><i class="fas fa-long-arrow-alt-right"></i><span>Users</span></a></li>
                         <li class="nav-item"><a class="nav-link active" href="codes.php" style="text-align: center;"><i class="fas fa-long-arrow-alt-right"></i><span>Codes</span></a></li>
                         <li class="nav-item"><a class="nav-link active" href="gift.php" style="text-align: center;"><i class="fas fa-long-arrow-alt-right"></i><span>Sub-Gift</span></a></li>
                         <li class="nav-item"><a class="nav-link active" href="password.php" style="text-align: center;"><i class="fas fa-long-arrow-alt-right"></i><span>Reset-Password</span></a></li>
+                        <li class="nav-item"><a class="nav-link active" href="bans.php" style="text-align: center;"><i class="fas fa-long-arrow-alt-right"></i><span>Ban-Manager</span></a></li>
+                    <?php endif; ?>
+
+
+                    <?php if (Session::isSupp() && !Session::isAdmin()) : ?>
+                        <li class="nav-item"><a class="nav-link active" href="index.php" style="text-align: center;"><i class="fas fa-long-arrow-alt-right"></i><span>Admin-Dashboard</span></a></li>
+                        <li class="nav-item"><a class="nav-link active" href="table.php" style="text-align: center;"><i class="fas fa-long-arrow-alt-right"></i><span>Users</span></a></li>
+                        <li class="nav-item"><a class="nav-link active" href="codes.php" style="text-align: center;"><i class="fas fa-long-arrow-alt-right"></i><span>Codes</span></a></li>
                         <li class="nav-item"><a class="nav-link active" href="bans.php" style="text-align: center;"><i class="fas fa-long-arrow-alt-right"></i><span>Ban-Manager</span></a></li>
                     <?php endif; ?>
 

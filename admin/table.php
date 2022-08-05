@@ -13,7 +13,7 @@ $uid = Session::get('uid');
 
 $userList = $admin->getUserArray();
 
-Util::adminCheck();
+Util::suppCheck();
 Util::banCheck();
 Util::head('Admin Panel');
 
@@ -24,11 +24,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (isset($_POST['setBanned'])) {
+        Util::adminCheck();
         $rowUID = $_POST['setBanned'];
         $admin->setBanned($rowUID);
     }
 
+    if (isset($_POST['setsupp'])) {
+        Util::adminCheck();
+        $rowUID = $_POST['setsupp'];
+        $admin->setsupp($rowUID);
+    }
+
     if (isset($_POST['setAdmin'])) {
+        Util::adminCheck();
         $rowUID = $_POST['setAdmin'];
         $admin->setAdmin($rowUID);
     }
@@ -105,6 +113,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                             <th style="color: rgb(255,255,255);">Username</th>
                                             <th style="color: rgb(255,255,255);">UID</th>
                                             <th style="color: rgb(255,255,255);">Admin</th>
+                                            <th style="color: rgb(255,255,255);">Supporter</th>
                                             <th style="color: rgb(255,255,255);">Banned</th>
                                             <th style="color: rgb(255,255,255);">Last-IP</th>
                                             <th style="color: rgb(255,255,255);">Actions</th>
@@ -141,6 +150,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                                                 <td style="color: rgb(255,255,255);">
                                                     <?php if (
+                                                        $row->supp == 1
+                                                    ): ?>
+                                                        <i class="fa fa-check"></i>
+                                                    <?php else: ?>
+                                                        <i class="fa fa-times"></i>
+                                                    <?php endif; ?>
+                                                </td>
+
+                                                <td style="color: rgb(255,255,255);">
+                                                    <?php if (
                                                         $row->banned == 1
                                                     ): ?>
                                                         <i class="fas fa-check"></i>
@@ -161,12 +180,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                         $_SERVER['PHP_SELF']
                                                     ); ?>">
 
+                                                        
                                                         <button value="<?php Util::display(
                                                         $row->uid
                                                     ); ?>" name="resetHWID" class="btn btn-primary" type="submit" style="font-size: 11px;">
                                                             <i class="fas fa-microchip"></i>&nbsp;Reset</button>
 
-
+                                                            <?php if(Session::isAdmin()): ?>
                                                         <button value="<?php Util::display(
                                                         $row->uid
                                                     ); ?>" name="setBanned" class="btn btn-danger" type="submit" style="font-size: 11px;margin-left: 10px;">
@@ -177,6 +197,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                     ); ?>" name="setAdmin" class="btn btn-success" type="submit" style="font-size: 11px;margin-left: 10px;color: rgb(255,255,255);">
                                                             <i class="fas fa-key"></i>&nbsp;Admin</button>
 
+
+                                                            <button value="<?php Util::display(
+                                                        $row->uid
+                                                    ); ?>" name="setsupp" class="btn btn-success" type="submit" style="font-size: 11px;margin-left: 10px;color: rgb(255,255,255);">
+                                                            <i class="fas fa-key"></i>&nbsp;Supp</button>
+                                                        <?php endif; ?>
                                                     </form>
                                                 </td>
 

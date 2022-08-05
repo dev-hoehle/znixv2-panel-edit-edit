@@ -14,12 +14,14 @@ $uid = Session::get('uid');
 
 $userList = $admin->getUserArray();
 
-Util::adminCheck();
+Util::suppCheck();
 Util::banCheck();
 Util::head('Admin Panel');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
     if (isset($_POST['u'])) {
+        Util::adminCheck();
         $uid = $_POST['u'];
 
         $reason = $_POST['r'];
@@ -74,6 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         </ul>
                     </div>
                 </nav>
+                <?php if(Session::isAdmin()): ?>
             <div class="container-fluid">
             <center>
                   <div class="col-xl-3 col-lg-4 col-md-5 col-sm-7 col-xs-12 my-3">
@@ -120,7 +123,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 </center>
-
+<?php endif ?>
 <h3 class="text-dark mb-4" data-aos="fade-down" data-aos-duration="800">Users</h3>
                     <div class="card shadow" data-aos="fade-down" data-aos-duration="600" style="background: #252935;border-style: none;">
                         <div class="card-header py-3" style="color: rgb(133, 135, 150);background: #252935;border-style: none;">
