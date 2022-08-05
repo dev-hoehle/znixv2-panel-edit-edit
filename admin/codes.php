@@ -18,7 +18,6 @@ Util::banCheck();
 Util::head('Admin Panel');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
     if (isset($_POST['genSub'])) {
         Util::adminCheck();
         $admin->getSubCodeGen($username);
@@ -88,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             name="genInv" type="submit" class="btn btn-success" data-aos="fade-down"
                             data-aos-duration="800" style="font-size: 12px;color: rgb(255,255,255);">Invite</button>
 
-                            <?php if(Session::isAdmin()): ?>   
+                            <?php if (Session::isAdmin()): ?>   
                         <button class="btn btn-success" data-aos="fade-down" data-aos-duration="800" name="genSub"
                             type="submit"
                             style="margin-left: 10px;font-size: 12px;color: rgb(255,255,255);">Subscription</button>
@@ -100,7 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             type="submit"
                             style="margin-left: 10px;font-size: 12px;color: rgb(255,255,255);">Subscription
                             (Trail)</button>
-                            <?php if(Session::isAdmin()): ?>
+                            <?php if (Session::isAdmin()): ?>
                         <div class="card shadow" data-aos="fade-down" data-aos-duration="600"
                             style="background: #252935;border-style: none;margin-top: 20px;">
                             <div class="card-header py-3"

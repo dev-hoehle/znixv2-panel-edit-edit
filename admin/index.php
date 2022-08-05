@@ -262,7 +262,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             </div>
                         </div>
                     </div>
-                    <?php if(Session::isadmin()): ?>
+                    <?php if (Session::isadmin()): ?>
                     <div class="row" data-aos="fade-down" data-aos-duration="400">
                         <div class="col-lg-6 mb-4">
                             <div class="card shadow mb-4" style="border-style: none;background: rgb(37,41,53);">
