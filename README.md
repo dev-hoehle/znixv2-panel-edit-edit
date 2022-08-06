@@ -24,11 +24,11 @@ Screenshot: https://bit.ly/3Bl5AX2
 * Activate multiple subscription´s with code (30/90 days)
 * Activate Trail subscription´s with code (3 days)
 * Download loader (Needs a sub)
-###### ADMIN PANEL
+### SUPPORTER/ADMINISTRATOR PANEL
 Screenshot: https://bit.ly/3cMWNTq
-* Disable Invite System
-* Freeze all subscriptions (experimental)
-* Gift user subscription (Screenshot: https://bit.ly/3nerQcQ)
+* Disable Invite System (Admin only)
+* Freeze all subscriptions (experimental) (Admin only)
+* Gift user subscription (Admin only) (Screenshot: https://bit.ly/3nerQcQ) 
   * Input options:
     * `LT for Lifetime`
     * `T for a trail subscription (3 days)`
@@ -40,17 +40,17 @@ Screenshot: https://bit.ly/3cMWNTq
 	  * `custom`
 	  * `ALL`
 * View a users last known IP address 
-* Password Reset
+* Password Reset (Admin only)
 * Set News
-* Ban-Management panel (Screenshot: https://bit.ly/3Nk9jXf / https://bit.ly/3Oxznis)
+* Ban-Management panel (Admin only) (Screenshot: https://bit.ly/3Nk9jXf / https://bit.ly/3Oxznis)
 * Generate invite code
-* Generate subscription code
-* Ban/unban user
-* Make user admin/non-admin
+* Generate subscription code (Admin only)
+* Ban/unban user (Admin only)
+* Make user admin/non-admin 
+* Make user supporter/non-supp 
 * Reset HWID
-* Set cheat detected/undetected
-* Set maintenance/non-maintenance
-* Set cheat version
+* Set cheat detected/undetected/version/maintenance/non-maintenance  (Admin only)
+
 
 ###### API
 ###### Note: User pass and hwid has to be sent in base64 format.
