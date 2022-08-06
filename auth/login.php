@@ -7,7 +7,7 @@ $user = new UserController();
 Session::init();
 
 if (Session::isLogged()) {
-    Util::redirect('../index.php');
+    Util::redirect('/index.php');
 }
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $error = $user->loginUser($_POST);

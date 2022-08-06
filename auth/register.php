@@ -8,7 +8,7 @@ $cheat = new CheatController();
 Session::init();
 
 if (Session::isLogged()) {
-    Util::redirect('../index.php');
+    Util::redirect('/index.php');
 }
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $error = $user->registerUser($_POST);
