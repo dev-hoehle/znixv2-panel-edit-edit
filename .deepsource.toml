@@ -1,10 +1,6 @@
 version = 1
 
 [[analyzers]]
-name = "sql"
-enabled = true
-
-[[analyzers]]
 name = "php"
 enabled = true
 
