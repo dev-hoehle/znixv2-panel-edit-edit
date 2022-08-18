@@ -207,8 +207,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                             <i class="fas fa-ban"></i>&nbsp;Ban</button>
 
                                                         <button value="<?php Util::display(
-                                                        $row->uid
-                                                    ); ?>" name="setAdmin" class="btn btn-success" type="submit" style="font-size: 11px;margin-left: 10px;color: rgb(255,255,255);">
+                                                            $row->uid
+                                                        ); ?>" name="setAdmin" class="btn btn-success" type="submit" style="font-size: 11px;margin-left: 10px;color: rgb(255,255,255);">
                                                             <i class="fas fa-key"></i>&nbsp;Admin</button>
 
 
