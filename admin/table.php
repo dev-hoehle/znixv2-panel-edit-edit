@@ -213,8 +213,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
                                                             <button value="<?php Util::display(
-                                                        $row->uid
-                                                    ); ?>" name="setsupp" class="btn btn-success" type="submit" style="font-size: 11px;margin-left: 10px;color: rgb(255,255,255);">
+                                                            $row->uid
+                                                        ); ?>" name="setsupp" class="btn btn-success" type="submit" style="font-size: 11px;margin-left: 10px;color: rgb(255,255,255);">
                                                             <i class="fas fa-key"></i>&nbsp;Supp</button>
                                                         <?php endif; ?>
                                                     </form>
