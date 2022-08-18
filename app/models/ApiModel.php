@@ -10,7 +10,7 @@ class API extends Database
 {
     protected function userAPI($username, $password, $hwid)
     {
-        
+
         // fetch username
         $this->prepare('SELECT * FROM `users` WHERE `username` = ?');
         $this->statement->execute([$username]);
@@ -29,18 +29,18 @@ class API extends Database
                     $this->statement->execute([$hwid, $username]);
                 }
 
-                    $uid = $row->uid;
-                    $path = IMG_DIR . $uid;
-                    if (@getimagesize($path . ".png")) {
-                        $avatarurl = IMG_URL . $uid. ".png";
-                    } elseif (@getimagesize($path . ".jpg")) {
-                        $avatarurl = IMG_URL . $uid . ".jpg";
-                    } elseif (@getimagesize($path . ".gif")) {
-                        $avatarurl = IMG_URL . $uid . ".gif";
-                    } else {
-                        $avatarurl = SITE_URL . SUB_DIR ."/assets/img/avatars/Portrait_Placeholder.png";
-                    }
-                
+                $uid = $row->uid;
+                $path = IMG_DIR . $uid;
+                if (@getimagesize($path . ".png")) {
+                    $avatarurl = IMG_URL . $uid. ".png";
+                } elseif (@getimagesize($path . ".jpg")) {
+                    $avatarurl = IMG_URL . $uid . ".jpg";
+                } elseif (@getimagesize($path . ".gif")) {
+                    $avatarurl = IMG_URL . $uid . ".gif";
+                } else {
+                    $avatarurl = SITE_URL . SUB_DIR ."/assets/img/avatars/Portrait_Placeholder.png";
+                }
+
                 $response = [
                     'status' => 'success',
                     'uid' => $row->uid,
