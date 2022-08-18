@@ -182,14 +182,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                     <?php endif; ?>
                                                 </td>
 
-                                                <td title="Click to copy" data-toggle="tooltip" data-placement="top" onclick="setClipboard('<?php Util::display($row->lastIP); ?>')" style="color: rgb(255,255,255);">
-                                                    <?php Util::display(
-                                                        $row->lastIP
-                                                    ); ?>
+                                                <td  title="Click to copy" data-toggle="tooltip" data-placement="top" onclick="setClipboard('<?php Util::display($row->lastIP); ?>')" style="color: rgb(255,255,255);">
+                                                    <?php Util::display("<p class='spoiler' style='maxwith: 100%;'>".
+                                                        $row->lastIP.
+                                                        "</p>"); ?>
                                                 </td>
 
 
-                                                <td style="color: rgb(255,255,255);max-width: 100px;">
+                                                <td style="color: rgb(255,255,255); ">
                                                     <form method="POST" action="<?php Util::display(
                                                         $_SERVER['PHP_SELF']
                                                     ); ?>">
@@ -239,6 +239,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
         </div>
     </div>
+    <style>
+        .spoiler:hover {
+            color: white;
+        }
+
+        .spoiler {
+            color: black;
+            background-color: black;
+        }
+        p
+        {
+            max-width: fit-content;
+        }
+    </style>
     <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="../assets/js/bs-init.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
