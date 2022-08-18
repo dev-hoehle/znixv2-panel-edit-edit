@@ -89,7 +89,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 <img width="160" height="160" class="border rounded-circle img-profile" src="assets/img/avatars/Portrait_Placeholder.png" style="border-color: rgb(255,255,255)!important;">
 
                                 <?php else: ?>
-                                <img width="160" height="160" class="rounded-circle img-profile" src="<?php echo Util::getavatar($uid); ?>" style="border-color: rgb(255,255,255)!important;">
+                                    <?php
+                                    $ext = pathinfo(Util::getavatar($uid), PATHINFO_EXTENSION);
+                                    $name = $uid . "." . $ext;
+                                    ?>
+                                <a href="<?php Util::display(Util::getavatar($uid));?>" download="<?php Util::display($name);  ?>">
+                                <img width="160" height="160" class="rounded-circle img-profile" src="<?php Util::display(Util::getavatar($uid)); ?>" style="border-color: rgb(255,255,255)!important;"></a>
                                 <?php endif; ?> 
                                     <h3 class="text-dark mb-4" style="text-align: center;margin-top: 16px;margin-bottom: 18px;font-weight: bold;">
                                     

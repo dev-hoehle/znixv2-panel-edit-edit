@@ -140,11 +140,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 										<?php if ($row->uid <= $_GET['max'] && $row->uid >= $_GET['min']): ?>
                                             <tr>
 
-                                            <td style="color: rgb(255,255,255);">                                <?php if (Util::getavatar($row->uid) == false): ?>
+                                            <td title="Click to download" data-toggle="tooltip" data-placement="top" style="color: rgb(255,255,255);">                                <?php if (Util::getavatar($row->uid) == false): ?>
                                 <img class="border rounded-circle img-profile" src="assets/img/avatars/Portrait_Placeholder.png" style="border-color: rgb(255,255,255)!important;">
 
                                 <?php else: ?>
-                                <img class="rounded-circle img-profile" width="45" height="45" src="<?php echo Util::getavatar($uid); ?>" style="border-color: rgb(255,255,255)!important;">
+                                    <?php
+                                    $ext = pathinfo(Util::getavatar($uid), PATHINFO_EXTENSION);
+                                    $name = $uid . "." . $ext;
+                                    ?>
+                                <a href="<?php Util::display(Util::getavatar($uid));?>" download="<?php Util::display($name);  ?>">
+                                <img class="rounded-circle img-profile" width="45" height="45" src="<?php Util::display(Util::getavatar($uid)); ?>" style="border-color: rgb(255,255,255)!important;"></a>
+
+
+                              
                                 <?php endif; ?></td>
                                                 <td style="color: rgb(255,255,255);"><?php Util::display(
                                           $row->username
