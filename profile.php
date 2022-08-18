@@ -1,7 +1,6 @@
 <?php
 require_once "app/require.php";
 require_once "app/controllers/CheatController.php";
-require_once "app/controllers/UserController.php";
 $user = new UserController();
 $cheat = new CheatController();
 
