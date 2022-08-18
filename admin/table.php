@@ -118,6 +118,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <table class="table my-0" id="dataTable">
                                     <thead>
                                         <tr>
+                                        <th style="color: rgb(255,255,255);">Picture</th>
                                             <th style="color: rgb(255,255,255);">Username</th>
                                             <th style="color: rgb(255,255,255);">UID</th>
                                             <th style="color: rgb(255,255,255);">Admin</th>
@@ -139,7 +140,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 										<?php if ($row->uid <= $_GET['max'] && $row->uid >= $_GET['min']): ?>
                                             <tr>
 
+                                            <td style="color: rgb(255,255,255);">                                <?php if(Util::getavatar($row->uid) == False): ?>
+                                <img class="border rounded-circle img-profile" src="assets/img/avatars/Portrait_Placeholder.png" style="border-color: rgb(255,255,255)!important;">
 
+                                <?php else: ?>
+                                <img class="img-profile" width="50" height="50" src="<?php echo Util::getavatar($uid); ?>" style="border-color: rgb(255,255,255)!important;">
+                                <?php endif; ?></td>
                                                 <td style="color: rgb(255,255,255);"><?php Util::display(
                                       $row->username
                                   ); ?></td>
