@@ -26,7 +26,7 @@ Screenshot: https://bit.ly/3Bl5AX2
 * Download loader (Needs a sub)
 * Set a Profile Picture
 ### SUPPORTER/ADMINISTRATOR PANEL
-Screenshot: https://bit.ly/3cMWNTq / https://bit.ly/3QOaArN
+Screenshot: https://bit.ly/3cMWNTq / https://bit.ly/3PAtCAR
 * Disable Invite System (Admin only)
 * Freeze all subscriptions (experimental) (Admin only)
 * Gift user subscription (Admin only) (Screenshot: https://bit.ly/3nerQcQ) 
