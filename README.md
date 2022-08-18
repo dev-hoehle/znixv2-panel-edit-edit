@@ -25,7 +25,7 @@ Screenshot: https://bit.ly/3Bl5AX2
 * Activate Trail subscription´s with code (3 days)
 * Download loader (Needs a sub)
 ### SUPPORTER/ADMINISTRATOR PANEL
-Screenshot: https://bit.ly/3cMWNTq
+Screenshot: https://bit.ly/3cMWNTq / https://bit.ly/3QOaArN
 * Disable Invite System (Admin only)
 * Freeze all subscriptions (experimental) (Admin only)
 * Gift user subscription (Admin only) (Screenshot: https://bit.ly/3nerQcQ) 
@@ -87,8 +87,7 @@ Screenshot: https://bit.ly/3cMWNTq
 - Put your Loader in the main directory of the panel. (x.exe)
 - Login with the default credentials
 - Change the default password to a secure one
-- Rename https://github.com/anditv21/znixv2-panel-edit-edit/blob/main/app/core/Config to Config.php
-- Set https://github.com/anditv21/znixv2-panel-edit-edit/blob/main/app/core/Config#L8 to your Website name
+- Set https://github.com/anditv21/znixv2-panel-edit-edit/blob/main/app/core/Config.php#L8 to your Website name
 - Set a website description in https://github.com/anditv21/znixv2-panel-edit-edit/blob/main/app/core/Config.php#L11
 - Change https://github.com/anditv21/znixv2-panel-edit-edit/blob/main/app/core/Config.php#L26 to a secure API key
 
