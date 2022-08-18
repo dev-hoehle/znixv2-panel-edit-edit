@@ -144,7 +144,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <img class="border rounded-circle img-profile" src="assets/img/avatars/Portrait_Placeholder.png" style="border-color: rgb(255,255,255)!important;">
 
                                 <?php else: ?>
-                                <img class="img-profile" width="50" height="50" src="<?php echo Util::getavatar($uid); ?>" style="border-color: rgb(255,255,255)!important;">
+                                <img class="rounded-circle img-profile" width="45" height="45" src="<?php echo Util::getavatar($uid); ?>" style="border-color: rgb(255,255,255)!important;">
                                 <?php endif; ?></td>
                                                 <td style="color: rgb(255,255,255);"><?php Util::display(
                                           $row->username
