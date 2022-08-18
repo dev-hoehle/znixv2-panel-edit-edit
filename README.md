@@ -43,7 +43,7 @@ Screenshot: https://bit.ly/3cMWNTq / https://bit.ly/3QOaArN
 * View a users last known IP address 
 * Password Reset (Admin only)
 * Set News
-* Ban-Management panel (Admin only) (Screenshot: https://bit.ly/3Nk9jXf / https://bit.ly/3Oxznis)
+* Ban-Management panel (Admin only) (Screenshot: https://bit.ly/3Nk9jXf / https://bit.ly/3PAtCAR)
 * Generate invite code
 * Generate subscription code (Admin only)
 * Ban/unban user (Admin only)
