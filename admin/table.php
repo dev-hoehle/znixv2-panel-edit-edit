@@ -196,8 +196,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                                                         
                                                         <button value="<?php Util::display(
-                                                        $row->uid
-                                                    ); ?>" name="resetHWID" class="btn btn-primary" type="submit" style="font-size: 11px;">
+                                                            $row->uid
+                                                        ); ?>" name="resetHWID" class="btn btn-primary" type="submit" style="font-size: 11px;">
                                                             <i class="fas fa-microchip"></i>&nbsp;Reset</button>
 
                                                             <?php if (Session::isAdmin()): ?>
