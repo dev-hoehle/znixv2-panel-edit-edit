@@ -24,6 +24,7 @@ Screenshot: https://bit.ly/3Bl5AX2
 * Activate multiple subscription´s with code (30/90 days)
 * Activate Trail subscription´s with code (3 days)
 * Download loader (Needs a sub)
+* Set a Profile Picture
 ### SUPPORTER/ADMINISTRATOR PANEL
 Screenshot: https://bit.ly/3cMWNTq / https://bit.ly/3QOaArN
 * Disable Invite System (Admin only)
