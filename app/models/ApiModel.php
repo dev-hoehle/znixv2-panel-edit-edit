@@ -47,6 +47,7 @@ class API extends Database
                     'username' => $row->username,
                     'hwid' => $row->hwid,
                     'admin' => $row->admin,
+                    'supp' => $row->supp,
                     'sub' => $row->sub,
                     'banned' => $row->banned,
                     'invitedBy' => $row->invitedBy,
