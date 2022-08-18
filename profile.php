@@ -86,7 +86,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     <div class="row mb-3" data-aos="fade-down" data-aos-duration="600">
                         <div class="col-lg-4">
                             <div class="card mb-3" style="background: #252935;border-style: none;">
-                                <div class="card-body text-center shadow" style="background: #252935;border-style: none;"><img class="rounded-circle mb-3 mt-4" src="assets/img/avatars/Portrait_Placeholder.png" width="160" height="160">
+                                <div class="card-body text-center shadow" style="background: #252935;border-style: none;">                                <?php if(Util::getavatar($uid) == False): ?>
+                                <img width="160" height="160" class="border rounded-circle img-profile" src="assets/img/avatars/Portrait_Placeholder.png" style="border-color: rgb(255,255,255)!important;">
+
+                                <?php else: ?>
+                                <img width="160" height="160" class="rounded-circle img-profile" src="<?php echo Util::getavatar($uid); ?>" style="border-color: rgb(255,255,255)!important;">
+                                <?php endif; ?> 
                                     <h3 class="text-dark mb-4" style="text-align: center;margin-top: 16px;margin-bottom: 18px;font-weight: bold;">
                                     
                                     <?php
