@@ -191,30 +191,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                                                 <td style="color: rgb(255,255,255); ">
                                                     <form method="POST" action="<?php Util::display(
-                                                        $_SERVER['PHP_SELF']
-                                                    ); ?>">
+                                                            $_SERVER['PHP_SELF']
+                                                        ); ?>">
 
                                                         
                                                         <button value="<?php Util::display(
-                                                        $row->uid
-                                                    ); ?>" name="resetHWID" class="btn btn-primary" type="submit" style="font-size: 11px;">
+                                                            $row->uid
+                                                        ); ?>" name="resetHWID" class="btn btn-primary" type="submit" style="font-size: 11px;">
                                                             <i class="fas fa-microchip"></i>&nbsp;Reset</button>
 
                                                             <?php if (Session::isAdmin()): ?>
                                                         <button value="<?php Util::display(
-                                                        $row->uid
-                                                    ); ?>" name="setBanned" class="btn btn-danger" type="submit" style="font-size: 11px;margin-left: 10px;">
+                                                            $row->uid
+                                                        ); ?>" name="setBanned" class="btn btn-danger" type="submit" style="font-size: 11px;margin-left: 10px;">
                                                             <i class="fas fa-ban"></i>&nbsp;Ban</button>
 
                                                         <button value="<?php Util::display(
-                                                        $row->uid
-                                                    ); ?>" name="setAdmin" class="btn btn-success" type="submit" style="font-size: 11px;margin-left: 10px;color: rgb(255,255,255);">
+                                                            $row->uid
+                                                        ); ?>" name="setAdmin" class="btn btn-success" type="submit" style="font-size: 11px;margin-left: 10px;color: rgb(255,255,255);">
                                                             <i class="fas fa-key"></i>&nbsp;Admin</button>
 
 
                                                             <button value="<?php Util::display(
-                                                        $row->uid
-                                                    ); ?>" name="setsupp" class="btn btn-success" type="submit" style="font-size: 11px;margin-left: 10px;color: rgb(255,255,255);">
+                                                            $row->uid
+                                                        ); ?>" name="setsupp" class="btn btn-success" type="submit" style="font-size: 11px;margin-left: 10px;color: rgb(255,255,255);">
                                                             <i class="fas fa-key"></i>&nbsp;Supp</button>
                                                         <?php endif; ?>
                                                     </form>
