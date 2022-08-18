@@ -191,8 +191,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                                                 <td style="color: rgb(255,255,255); ">
                                                     <form method="POST" action="<?php Util::display(
-                                                        $_SERVER['PHP_SELF']
-                                                    ); ?>">
+                                                            $_SERVER['PHP_SELF']
+                                                        ); ?>">
 
                                                         
                                                         <button value="<?php Util::display(
