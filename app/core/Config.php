@@ -17,7 +17,11 @@ define('SITE_DESC', 'anditv21`s Panel edit');
  * keep '' empty without a "/" (slash)
  * example: define('SUB_DIR', '');
  */
-define('SUB_DIR', '/');
+define('SUB_DIR', '/panel');
+
+
+define('IMG_DIR', SITE_ROOT . "/usercontent/avatar/");
+
 
 // Loader link // From Root folder
 define('LOADER_URL', SITE_ROOT . '/x.exe');

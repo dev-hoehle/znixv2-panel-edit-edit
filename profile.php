@@ -1,36 +1,36 @@
 <?php
-require_once 'app/require.php';
-require_once 'app/controllers/CheatController.php';
-
+require_once "app/require.php";
+require_once "app/controllers/CheatController.php";
+require_once "app/controllers/UserController.php";
 $user = new UserController();
 $cheat = new CheatController();
 
 Session::init();
 
 if (!Session::isLogged()) {
-    Util::redirect('auth/login.php');
+  Util::redirect("auth/login.php");
 }
 
-$username = Session::get('username');
-$uid = Session::get('uid');
+$username = Session::get("username");
+$uid = Session::get("uid");
 
-$suc = @$_GET['suc'];
+$suc = @$_GET["suc"];
 
 $sub = $user->getSubStatus();
 
 Util::banCheck();
 Util::head($username);
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['updatePassword'])) {
-        $error = $user->updateUserPass($_POST);
-    }
-    if (isset($_POST['activateSub'])) {
-        $error = $user->activateSub($_POST);
-        header('location: profile.php?suc=1');
-    } else {
-        header('location: profile.php?suc=2');
-    }
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+  if (isset($_POST["updatePassword"])) {
+    $error = $user->updateUserPass($_POST);
+  }
+  if (isset($_POST["activateSub"])) {
+    $error = $user->activateSub($_POST);
+    header("location: profile.php?suc=1");
+  } else {
+    header("location: profile.php?suc=2");
+  }
 }
 ?>
 <!DOCTYPE html>
@@ -63,11 +63,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             </li>
                             <li class="nav-item dropdown no-arrow">
                                 <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><span class="d-none d-lg-inline me-2 text-gray-600 small" style="color: #ffffff !important;"><?php Util::display(
-    Session::get('username')
-); ?></span><img class="border rounded-circle img-profile" src="assets/img/avatars/Portrait_Placeholder.png" style="border-color: rgb(255,255,255)!important;"></a>
+                                  Session::get("username")
+                                ); ?></span><img class="border rounded-circle img-profile" src="assets/img/avatars/Portrait_Placeholder.png" style="border-color: rgb(255,255,255)!important;"></a>
                                     <div class="dropdown-menu shadow dropdown-menu-end animated--grow-in" style="background: #252935;border-style: none;margin-top: 11px;box-shadow: 0px 0px 3px 2px rgba(0,0,0,0.16)!important;"><a class="dropdown-item" href="profile.php" style="color: rgb(255,255,255);"><i class="fas fa-user fa-sm fa-fw me-2 text-gray-400" style="color: rgb(255,255,255)!important;"></i>&nbsp;Profile</a><a class="dropdown-item" id="logout" href=<?php echo SITE_URL .
-                                  SUB_DIR .
-                                  '/auth/logout.php'; ?> style="color: rgb(255,255,255);"><i class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400" style="color: rgb(255,255,255)!important;"></i>&nbsp;Logout</a></div>
+                                      SUB_DIR .
+                                      "/auth/logout.php"; ?> style="color: rgb(255,255,255);"><i class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400" style="color: rgb(255,255,255)!important;"></i>&nbsp;Logout</a></div>
                                 </div>
                             </li>
                         </ul>
@@ -82,39 +82,104 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     <h3 class="text-dark mb-4" style="text-align: center;margin-top: 16px;margin-bottom: 18px;font-weight: bold;">
                                     
                                     <?php
-                                    Util::display('UID: ');
-                                    Util::display(Session::get('uid'));
-                                    Util::display('<br>');
-                                    Util::display('Username: ');
-                                    Util::display(Session::get('username'));
-                                    Util::display('<br>');
+                                    Util::display("UID: ");
+                                    Util::display(Session::get("uid"));
+                                    Util::display("<br>");
+                                    Util::display("Username: ");
+                                    Util::display(Session::get("username"));
+                                    Util::display("<br>");
 
-                                    Util::display('Subscription: ');
+                                    Util::display("Subscription: ");
 
                                     if ($cheat->getCheatData()->frozen != 0) {
-                                        Util::display("Frozen");
+                                      Util::display("Frozen");
                                     } else {
-                                        if ($sub > 8000) {
-                                            Util::display('Lifetime');
+                                      if ($sub > 8000) {
+                                        Util::display("Lifetime");
+                                      } else {
+                                        if ($sub >= 0) {
+                                          Util::display("$sub days");
                                         } else {
-                                            if ($sub >= 0) {
-                                                Util::display("$sub days");
-                                            } else {
-                                                Util::display('<i class="fa fa-times"></i>');
-                                            }
+                                          Util::display(
+                                            '<i class="fa fa-times"></i>'
+                                          );
                                         }
+                                      }
                                     }
 
-                                    Util::display('<br>');
-
+                                    Util::display("<br>");
 
                                     $days = Util::getjoin();
                                     Util::display("Joined: $days days ago");
-
                                     ?></h3>
 
                                     
                                 </div>
+
+                                
+
+                                <form method="POST" enctype="multipart/form-data">
+                              <center>
+                                 <div class="mb-3"><input class="btn btn-success btn-sm" type="button" id="loadFileXml" style="color: rgb(255,255,255);" value="Select Image" onclick="document.getElementById('file').click();" /></div>
+                                 <input type="file" name='file_up' style="display:none;" id="file" >					 
+                                 <button  onclick="return confirm('WARNING: Your existing profile picture will be overridden!');" class="btn btn-success btn-sm" type="submit" style="color: rgb(255,255,255);">Upload Profile Picture</button>
+                              <br>
+                              </center>
+                              <br>
+                           </form>
+                           <?php
+                           
+                           # most of the upload script from -> https://www.plus2net.com/php_tutorial/php_file_upload.php
+                           if (isset($_FILES["file_up"]["tmp_name"])) {
+                             $file_upload_flag = "true";
+                             $file_up_size = $_FILES["file_up"]["size"];
+                             if ($_FILES["file_up"]["size"] > 3000000) {
+                               echo '<script>alert("Your uploaded file size is more than 3MB")</script>';
+                               $file_upload_flag = "false";
+                             }
+                             if (
+                               !(
+                                 $_FILES["file_up"]["type"] == "image/jpeg" or
+                                 $_FILES["file_up"]["type"] == "image/gif" or
+                                 $_FILES["file_up"]["type"] == "image/png"
+                               )
+                             ) {
+                               echo '<script>alert("Your uploaded file must be of JPG PNG or GIF.")</script>';
+                               $file_upload_flag = "false";
+                             }
+                             $ext = pathinfo(
+                               $_FILES["file_up"]["name"],
+                               PATHINFO_EXTENSION
+                             );
+                             $file_name = $_FILES["file_up"]["name"];
+                             $path = IMG_DIR . $uid;
+                             if ($file_upload_flag == "true") {
+                                if (@getimagesize($path . ".png"))
+                                {
+                                    unlink($path . ".png");
+                                }
+                                elseif (@getimagesize($path . ".jpg"))
+                                {
+                                    unlink($path . ".jpg");
+                                }
+                                elseif (@getimagesize($path . ".gif"))
+                                {
+                                    unlink($path . ".gif");
+                                }
+                               if (
+                                 move_uploaded_file(
+                                   $_FILES["file_up"]["tmp_name"],
+                                   $path . "." . $ext
+                                 )
+                               ) {
+                                 echo '<script>alert("File successfully uploaded")</script>';
+                               } else {
+                                 echo '<script>alert("Failed to to move the file.")</script>';
+                               }
+                             } else {
+                               echo '<script>alert("Failed to upload file.")</script>';
+                             }
+                           } ?>
                             </div>
                         </div>
                         <div class="col-lg-8">
@@ -127,26 +192,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                         </div>
                                         <div class="card-body" style="border-style: none;background: #252935;padding-bottom: 0px;">
                                             <form method="POST" action="<?php Util::display(
-                                        $_SERVER['PHP_SELF']
-                                    ); ?>">
+                                              $_SERVER["PHP_SELF"]
+                                            ); ?>">
                                                 <div class="row">
                                                     <div class="col">
                                                         <?php if (
-                                                            $suc == '1'
+                                                          $suc == "1"
                                                         ): ?>
                                                             <span style="color: rgb(255,255,255); margin-bottom: 20px;">Activated if key was actually valid.</span>
                                                         <?php endif; ?>
                                                         <?php if (
-                                                            isset($error)
+                                                          isset($error)
                                                         ): ?>
                                                             <span style="color: rgb(255,255,255);"><?php Util::display(
-                                                            $error
-                                                        ); ?></span>
+                                                              $error
+                                                            ); ?></span>
                                                         <?php endif; ?>
                                                         <div class="mb-3"><span style="color: rgb(255,255,255);">Your code</span><input class="form-control" type="text" name="subCode" autocapitalize="off" autocomplete="off" placeholder="XXX-XXX-XXX-XXX" style="background: #121421;border-style: none;margin-top: 11px;"></div>
                                                     </div>
                                                 </div>
-                                                <?php if ($cheat->getCheatData()->frozen != 1): ?>
+                                                <?php if (
+                                                  $cheat->getCheatData()
+                                                    ->frozen != 1
+                                                ): ?>
                                                     <div class="mb-3"><button name="activateSub" type="submit" value="submit" class="btn btn-success btn-sm" style="color: rgb(255,255,255);margin-top: 13px;">Redeem key</button></div>
                                             <?php else: ?>
                                                 <div class="mb-3"><button disabled="disabled" name="activateSub" type="submit" value="submit" class="btn btn-success btn-sm" style="color: rgb(255,255,255);margin-top: 13px;">Redeem key</button></div>
@@ -164,13 +232,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <div class="row">
                                     <div class="col-md-6" style="width: 100%;">
                                         <form method="POST" action="<?php Util::display(
-                                                            $_SERVER['PHP_SELF']
-                                                        ); ?>">
+                                          $_SERVER["PHP_SELF"]
+                                        ); ?>">
                                             <div class="mb-3">
                                                 <div class="col">
                                                     <?php if (isset($error)): ?>
                                                         <span style="color: rgb(255,255,255); margin-bottom: 20px;"><?php Util::display(
-                                                            $error
+                                                          $error
                                                         ); ?></span>
                                                     <?php endif; ?>
                                                     <div class="mb-3"><span style="color: rgb(255,255,255);">Current password</span><input class="form-control" name="currentPassword" type="password" id="username-1" placeholder="********" name="username" style="background: #121421;border-style: none;margin-top: 11px;"></div>
