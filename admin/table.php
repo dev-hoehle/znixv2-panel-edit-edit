@@ -202,8 +202,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                                                             <?php if (Session::isAdmin()): ?>
                                                         <button value="<?php Util::display(
-                                                        $row->uid
-                                                    ); ?>" name="setBanned" class="btn btn-danger" type="submit" style="font-size: 11px;margin-left: 10px;">
+                                                            $row->uid
+                                                        ); ?>" name="setBanned" class="btn btn-danger" type="submit" style="font-size: 11px;margin-left: 10px;">
                                                             <i class="fas fa-ban"></i>&nbsp;Ban</button>
 
                                                         <button value="<?php Util::display(
