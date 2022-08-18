@@ -65,9 +65,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             </li>
                             <li class="nav-item dropdown no-arrow">
                                 <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><span class="d-none d-lg-inline me-2 text-gray-600 small" style="color: #ffffff !important;"><?php Util::display(
-                                  Session::get("username")
-                                ); ?></span>
-                                <?php if(Util::getavatar($uid) == False): ?>
+    Session::get("username")
+); ?></span>
+                                <?php if (Util::getavatar($uid) == false): ?>
                                 <img class="border rounded-circle img-profile" src="assets/img/avatars/Portrait_Placeholder.png" style="border-color: rgb(255,255,255)!important;">
 
                                 <?php else: ?>
@@ -93,8 +93,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                            <div class="card">
                               <div class="card-body">
                   <form action="<?php Util::display(
-                                      $_SERVER['PHP_SELF']
-                                  ); ?>" method="post">
+                                          $_SERVER['PHP_SELF']
+                                      ); ?>" method="post">
 
 <label for="u">Select a user:</label><br>
 <select  class="form-control form-control-sm"id="u" name="u">

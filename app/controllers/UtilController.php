@@ -100,21 +100,14 @@ class Util
     public static function getavatar($uid)
     {
         $path = IMG_DIR . $uid;
-        if (@getimagesize($path . ".png"))
-        {
-           return IMG_URL . $uid. ".png";
-        }
-        elseif (@getimagesize($path . ".jpg"))
-        {
+        if (@getimagesize($path . ".png")) {
+            return IMG_URL . $uid. ".png";
+        } elseif (@getimagesize($path . ".jpg")) {
             return IMG_URL . $uid . ".jpg";
-        }
-        elseif (@getimagesize($path . ".gif"))
-        {
+        } elseif (@getimagesize($path . ".gif")) {
             return IMG_URL . $uid . ".gif";
-        }
-        else
-        {
-            return False;
+        } else {
+            return false;
         }
     }
 }
