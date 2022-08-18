@@ -69,9 +69,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             </li>
                             <li class="nav-item dropdown no-arrow">
                                 <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><span class="d-none d-lg-inline me-2 text-gray-600 small" style="color: #ffffff !important;"><?php Util::display(
-                                  Session::get("username")
-                                ); ?></span>
-                                <?php if(Util::getavatar($uid) == False): ?>
+    Session::get("username")
+); ?></span>
+                                <?php if (Util::getavatar($uid) == false): ?>
                                 <img class="border rounded-circle img-profile" src="assets/img/avatars/Portrait_Placeholder.png" style="border-color: rgb(255,255,255)!important;">
 
                                 <?php else: ?>
@@ -89,8 +89,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </nav>
                 <div class="container-fluid">
                     <form method="POST" action="<?php Util::display(
-                                      $_SERVER['PHP_SELF']
-                                  ); ?>">
+                                          $_SERVER['PHP_SELF']
+                                      ); ?>">
                         <h3 class="text-dark mb-4" data-aos="fade-down" data-aos-duration="1000">Codes</h3><button
                             name="genInv" type="submit" class="btn btn-success" data-aos="fade-down"
                             data-aos-duration="800" style="font-size: 12px;color: rgb(255,255,255);">Invite</button>
