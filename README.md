@@ -19,7 +19,7 @@
 * Register (Invite only / can be deactivated) (Screenshot: https://bit.ly/3NTukIN)
 * Banned Page (Screenshot: https://bit.ly/39USjsR)
 ###### USER
-Screenshot: https://bit.ly/3Bl5AX2 / https://bit.ly/3PFTWcL
+Screenshot: https://bit.ly/3Bl5AX2 / https://bit.ly/3dB9GQY
 * Change password
 * Activate multiple subscription´s with code (30/90 days)
 * Activate Trail subscription´s with code (3 days)
