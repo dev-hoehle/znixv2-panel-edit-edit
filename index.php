@@ -1,9 +1,11 @@
 <?php
 require_once 'app/require.php';
 require_once 'app/controllers/CheatController.php';
+require_once 'app/controllers/ShoutBoxController.php';
 
 $user = new UserController();
 $cheat = new CheatController();
+$shoutbox = new ShoutBoxController();
 
 Session::init();
 
@@ -17,6 +19,16 @@ $sub = $user->getSubStatus();
 
 Util::banCheck();
 Util::head($username);
+
+
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    if (isset($_POST["sendmsg"])) {
+        $msg = trim($_POST["msg"]);
+        $shoutbox->postmsg($username, $msg);
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -210,6 +222,44 @@ Util::head($username);
                             </div>
                         <?php endif; ?>
 
+                        <div class="col-lg-6 mb-4">
+                        
+                        <form action="<?php Util::display(
+                          $_SERVER["PHP_SELF"]
+                        ); ?>" method="POST">
+                                <ul class="list-group list-group-flush" style="background: rgb(37,41,53);">
+                                <ul class="list-group list-group-flush" style="background: rgb(37,41,53);">
+                                    <li class="list-group-item" style="background: rgb(37,41,53);">
+                                        <div class="row align-items-center no-gutters">
+                                            <div class="col me-2" style="color: rgb(255,255,255);">
+<div id="shoutbox">
+
+</div>
+<li class="list-group-item" style="background: rgb(37,41,53);">
+
+<div class="row align-items-center no-gutters">
+    <div class="col me-2" style="color: rgb(255,255,255);height: 68px;">
+
+        <input autocomplete="off" maxlength="255" type="text" name="msg" maxlength="255" placeholder="What`s on your mind?" required style="background: #121421;border-style: none;outline: none;color: rgb(255,255,255);border-radius: 5px;padding-left: 5px;padding-right: 5px;margin-top: -4px;">
+        <br>
+
+        <button type="submit" name="sendmsg" class="btn btn-success" style="font-size: 12px;color: rgb(255,255,255);margin-top: 7px;">Send!</button>
+    </div>
+</div>
+</li>
+</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <br>
+                                <br>
+
+                                </ul>
+                            </form>
+
+                            </div>
+                        </div>
                     </div>
 
                 </div>
@@ -217,7 +267,29 @@ Util::head($username);
         </div>
 
     </div>
+<style>
+    .chat
+    {
+        padding-top: 2%;
+        padding-left: 2%;
+        background-color: #121421;
+    }
+    img
+    {
+        margin-bottom: 1%;
+    }
+</style>
+<script>        setInterval("reload();", 500);</script>
+    <script>
+        function reload()
+        {
+            $(document).ready(function() {
+                $("#shoutbox").load("shoutbox.php");
+    });
 
+        }
+
+    </script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>

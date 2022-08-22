@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Aug 05, 2022 at 04:02 PM
+-- Generation Time: Aug 22, 2022 at 02:24 AM
 -- Server version: 10.1.48-MariaDB-0+deb9u2
 -- PHP Version: 7.4.29
 
@@ -42,7 +42,7 @@ CREATE TABLE `cheat` (
 --
 
 INSERT INTO `cheat` (`status`, `version`, `news`, `maintenance`, `frozen`, `freezingtime`, `invites`) VALUES
-(0, 1, 'Welcome to znixv2-panel-edit-edit by anditv21!', 0, 1, 1657294066, 1);
+(0, 1, 'Welcome to znixv2-panel-edit by anditv21!', 0, 1, 1657294066, 0);
 
 -- --------------------------------------------------------
 
@@ -67,6 +67,26 @@ CREATE TABLE `logs` (
   `date` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
   `action` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `shoutbox`
+--
+
+CREATE TABLE `shoutbox` (
+  `id` int(255) NOT NULL,
+  `user` varchar(255) NOT NULL,
+  `msg` varchar(255) NOT NULL,
+  `time` datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `shoutbox`
+--
+
+INSERT INTO `shoutbox` (`id`, `user`, `msg`, `time`) VALUES
+(1, 'System', 'Hi', '2022-08-22 02:24:14.863472');
 
 -- --------------------------------------------------------
 
@@ -108,7 +128,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`uid`, `username`, `password`, `hwid`, `admin`, `supp`, `sub`, `frozen`, `banned`, `invitedBy`, `createdAt`, `lastIP`, `remembertoken`, `banreason`) VALUES
-(1, 'admin', '$2y$10$7wOzYc.AXpXc1nE/b0IqLOsP2w1cK9LZXDUi6hoSyuWBDj3DoBjOK', NULL, 0, 1, '2088-03-23', 1, 0, '', '2022-07-05 22:04:37', NULL, NULL, NULL);
+(1, 'admin', '$2y$10$7wOzYc.AXpXc1nE/b0IqLOsP2w1cK9LZXDUi6hoSyuWBDj3DoBjOK', 'hwid', 1, 1, '2088-03-23', 1, 0, '', '2022-07-05 22:04:37', '', '', NULL);
 
 --
 -- Indexes for dumped tables
@@ -125,6 +145,12 @@ ALTER TABLE `invites`
 --
 ALTER TABLE `logs`
   ADD UNIQUE KEY `date` (`date`);
+
+--
+-- Indexes for table `shoutbox`
+--
+ALTER TABLE `shoutbox`
+  ADD UNIQUE KEY `id` (`id`);
 
 --
 -- Indexes for table `subscription`
@@ -144,6 +170,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `shoutbox`
+--
+ALTER TABLE `shoutbox`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`

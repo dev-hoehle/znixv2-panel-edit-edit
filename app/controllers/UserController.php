@@ -275,4 +275,9 @@ class UserController extends Users
         $username = Session::get("username");
         return $this->subActiveCheck($username);
     }
+    
+    public function getavatarname ($username)
+    {
+        return $this->avatarname($username);
+    }
 }
