@@ -223,7 +223,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         <?php endif; ?>
 
                         <div class="col-lg-6 mb-4">
-                        
+                        <div class="card shadow mb-4" style="border-style: none;background: rgb(37,41,53);max-width: 664px;">
+                                    <div class="card-header py-3" style="border-style: none;background: rgb(37,41,53);">
+                                        <h6 class="text-primary fw-bold m-0" style="color: rgb(255,255,255)!important;">ShoutBox</h6>
+                                    </div>
                         <form action="<?php Util::display(
                           $_SERVER["PHP_SELF"]
                         ); ?>" method="POST">
@@ -234,6 +237,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             <div class="col me-2" style="color: rgb(255,255,255);">
 <div id="shoutbox">
 
+</div>
+</div>
 </div>
 <li class="list-group-item" style="background: rgb(37,41,53);">
 
