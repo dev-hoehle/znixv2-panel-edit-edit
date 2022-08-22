@@ -225,8 +225,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         <div class="col-lg-6 mb-4">
                         
                         <form action="<?php Util::display(
-                          $_SERVER["PHP_SELF"]
-                        ); ?>" method="POST">
+                                                        $_SERVER["PHP_SELF"]
+                                                    ); ?>" method="POST">
                                 <ul class="list-group list-group-flush" style="background: rgb(37,41,53);">
                                 <ul class="list-group list-group-flush" style="background: rgb(37,41,53);">
                                     <li class="list-group-item" style="background: rgb(37,41,53);">
