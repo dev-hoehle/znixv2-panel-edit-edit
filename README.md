@@ -25,8 +25,10 @@ Screenshot: https://bit.ly/3Bl5AX2 / https://bit.ly/3dB9GQY
 * Activate Trail subscription´s with code (3 days)
 * Download loader (Needs a sub)
 * Set a Profile Picture
+* Shoutbox
+  * View user profiles
 ### SUPPORTER/ADMINISTRATOR PANEL
-Screenshot: https://bit.ly/3cMWNTq / https://bit.ly/3PAtCAR
+Screenshot: https://bit.ly/3cMWNTq / https://bit.ly/3pFFqr2
 * Disable Invite System (Admin only)
 * Freeze all subscriptions (experimental) (Admin only)
 * Gift user subscription (Admin only) (Screenshot: https://bit.ly/3nerQcQ) 

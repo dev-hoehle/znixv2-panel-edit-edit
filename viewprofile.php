@@ -7,7 +7,7 @@ $cheat = new CheatController();
 Session::init();
 
 if (!Session::isLogged()) {
-  Util::redirect("auth/login.php");
+    Util::redirect("auth/login.php");
 }
 
 $suc = @$_GET["suc"];
@@ -17,13 +17,13 @@ $uid = Session::get("uid");
 Util::banCheck();
 
 if ($_SERVER["REQUEST_METHOD"] === "GET") {
-  if (isset($_GET["uid"])) {
-    $getuid = $_GET["uid"];
-    $userbyid = $user->getuserbyuid($getuid);
-    $username = $userbyid->username;
-  } else {
-    Util::display("<script>window.history.back();</script>");
-  }
+    if (isset($_GET["uid"])) {
+        $getuid = $_GET["uid"];
+        $userbyid = $user->getuserbyuid($getuid);
+        $username = $userbyid->username;
+    } else {
+        Util::display("<script>window.history.back();</script>");
+    }
 }
 Util::head($username);
 $sub = $user->getSubStatus($username);
@@ -58,15 +58,15 @@ $sub = $user->getSubStatus($username);
                             </li>
                             <li class="nav-item dropdown no-arrow">
                                 <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><span class="d-none d-lg-inline me-2 text-gray-600 small" style="color: #ffffff !important;"><?php Util::display(
-                                  Session::get("username")
-                                ); ?></span>
+    Session::get("username")
+); ?></span>
                                 <?php if (Util::getavatar($uid) == false): ?>
                                 <img class="border rounded-circle img-profile" src="assets/img/avatars/Portrait_Placeholder.png" style="border-color: rgb(255,255,255)!important;">
 
                                 <?php else: ?>
                                 <img class="rounded-circle img-profile" src="<?php echo Util::getavatar(
-                                  $uid
-                                ); ?>" style="border-color: rgb(255,255,255)!important;">
+    $uid
+); ?>" style="border-color: rgb(255,255,255)!important;">
                                 <?php endif; ?>
 
                               </a>
@@ -80,8 +80,8 @@ $sub = $user->getSubStatus($username);
                 </nav>
                 <div class="container-fluid">
                     <h3 class="text-dark mb-4" data-aos="fade-down" data-aos-duration="800">Profile of <?php Util::Display(
-                      $userbyid->username
-                    ); ?></h3>
+                                          $userbyid->username
+                                      ); ?></h3>
                     <div class="row mb-3" data-aos="fade-down" data-aos-duration="600">
                         <div class="col-lg-4">
                             <div class="card mb-3" style="background: #252935;border-style: none;">
@@ -93,19 +93,19 @@ $sub = $user->getSubStatus($username);
                                 <?php else: ?>
                                     <?php
                                     $ext = pathinfo(
-                                      Util::getavatar($userbyid->uid),
-                                      PATHINFO_EXTENSION
-                                    );
+                                    Util::getavatar($userbyid->uid),
+                                    PATHINFO_EXTENSION
+                                );
                                     $name = $userbyid->uid . "." . $ext;
                                     ?>
                                 <a href="<?php Util::display(
-                                  Util::getavatar($userbyid->uid)
-                                ); ?>" download="<?php Util::display(
-  $name
-); ?>">
+                                        Util::getavatar($userbyid->uid)
+                                    ); ?>" download="<?php Util::display(
+                                        $name
+                                    ); ?>">
                                 <img width="160" height="160" class="rounded-circle img-profile" src="<?php Util::display(
-                                  Util::getavatar($userbyid->uid)
-                                ); ?>" style="border-color: rgb(255,255,255)!important;"></a>
+                                        Util::getavatar($userbyid->uid)
+                                    ); ?>" style="border-color: rgb(255,255,255)!important;"></a>
                                 <?php endif; ?> 
                                     <h3 class="text-dark mb-4" style="text-align: center;margin-top: 16px;margin-bottom: 18px;font-weight: bold;">
                                     
@@ -120,45 +120,45 @@ $sub = $user->getSubStatus($username);
                                     Util::display("Subscription: ");
 
                                     if ($cheat->getCheatData()->frozen != 0) {
-                                      Util::display("Frozen <i class='fas fa-snowflake fa-sm' ></i>");
+                                        Util::display("Frozen <i class='fas fa-snowflake fa-sm' ></i>");
                                     } else {
-                                      if ($sub > 8000) {
-                                        Util::display("Lifetime");
-                                      } else {
-                                        if ($sub >= 0) {
-                                          Util::display("$sub days");
+                                        if ($sub > 8000) {
+                                            Util::display("Lifetime");
                                         } else {
-                                          Util::display(
-                                            '<i class="fa fa-times"></i>'
-                                          );
+                                            if ($sub >= 0) {
+                                                Util::display("$sub days");
+                                            } else {
+                                                Util::display(
+                                                    '<i class="fa fa-times"></i>'
+                                                );
+                                            }
                                         }
-                                      }
                                     }
 
                                     Util::display("<br>");
 
                                     $days = Util::getjoinprofile(
-                                      $userbyid->createdAt
+                                        $userbyid->createdAt
                                     );
                                     Util::display("Joined: $days days ago");
                                     Util::display("<br>");
                                     Util::display("Administrator: ");
                                     if ($userbyid->admin > 0) {
                                         Util::display("<i class='fa fa-check'></i>");
-                                      } else {
+                                    } else {
                                         Util::display(
-                                          '<i class="fa fa-times"></i>'
+                                            '<i class="fa fa-times"></i>'
                                         );
-                                      }
+                                    }
                                       Util::display("<br>");
                                       Util::display("Supporter: ");
                                       if ($userbyid->supp > 0) {
                                           Util::display("<i class='fa fa-check'></i>");
-                                        } else {
+                                      } else {
                                           Util::display(
-                                            '<i class="fa fa-times"></i>'
+                                              '<i class="fa fa-times"></i>'
                                           );
-                                        }
+                                      }
                                     ?></h3>                                   
                                 </div>                    
                             </div>
