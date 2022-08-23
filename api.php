@@ -10,37 +10,36 @@ $API = new ApiController();
 
 $rateLimiter = new RateLimiter(new Memcache(), $_SERVER["REMOTE_ADDR"]);
 try {
-	// allow a maximum of 100 requests for the IP in 5 minutes
-	$rateLimiter->limitRequestsInMinutes(2, 5);
+    // allow a maximum of 100 requests for the IP in 5 minutes
+    $rateLimiter->limitRequestsInMinutes(2, 5);
     // Check data
-if (
+    if (
     empty($_GET['user']) ||
     empty($_GET['pass']) ||
     empty($_GET['hwid']) ||
     empty($_GET['key'])
 ) {
-    $response = ['status' => 'failed', 'error' => 'Missing arguments'];
-} else {
-    $username = $_GET['user'];
-    $passwordHash = $_GET['pass'];
-    $hwidHash = $_GET['hwid'];
-    $key = $_GET['key'];
-    $admin = $_GET['admin'];
-
-    if (API_KEY === $key) {
-        // decode
-        $password = base64_decode($passwordHash);
-        $hwid = base64_decode($hwidHash);
-
-        $response = $API->getUserAPI($username, $password, $hwid, $admin);
+        $response = ['status' => 'failed', 'error' => 'Missing arguments'];
     } else {
-        $response = ['status' => 'failed', 'error' => 'Invalid API key'];
+        $username = $_GET['user'];
+        $passwordHash = $_GET['pass'];
+        $hwidHash = $_GET['hwid'];
+        $key = $_GET['key'];
+        $admin = $_GET['admin'];
+
+        if (API_KEY === $key) {
+            // decode
+            $password = base64_decode($passwordHash);
+            $hwid = base64_decode($hwidHash);
+
+            $response = $API->getUserAPI($username, $password, $hwid, $admin);
+        } else {
+            $response = ['status' => 'failed', 'error' => 'Invalid API key'];
+        }
     }
-}
 
-echo json_encode($response);
+    echo json_encode($response);
 } catch (RateExceededException $e) {
-	header("HTTP/1.0 529 Too Many Requests");
-	exit;
+    header("HTTP/1.0 529 Too Many Requests");
+    exit;
 }
-
