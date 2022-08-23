@@ -41,6 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $admin->setAdmin($rowUID);
     }
 
+
     header('location: table.php');
 }
 ?>
@@ -224,6 +225,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                             $row->uid
                                                         ); ?>" name="setsupp" class="btn btn-success" type="submit" style="font-size: 11px;margin-left: 10px;color: rgb(255,255,255);">
                                                             <i class="fas fa-key"></i>&nbsp;Supp</button>
+
+
+                                                            <a href="<?php Util::display(SITE_URL . SUB_DIR. "/viewprofile.php?uid=$row->uid"); ?>" target="_blank"><button name="viewprofile" class="btn btn-dark"  style="font-size: 11px;margin-left: 10px;color: rgb(255,255,255);">
+                                                            <i class="fas fa-address-card"></i>&nbsp;View Profile</button></a>
                                                         <?php endif; ?>
                                                     </form>
                                                 </td>
