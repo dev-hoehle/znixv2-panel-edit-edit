@@ -104,8 +104,8 @@ $sub = $user->getSubStatus($username);
                                         $name
                                     ); ?>">
                                 <img width="160" height="160" class="rounded-circle img-profile" src="<?php Util::display(
-                                    Util::getavatar($userbyid->uid)
-                                ); ?>" style="border-color: rgb(255,255,255)!important;"></a>
+                                        Util::getavatar($userbyid->uid)
+                                    ); ?>" style="border-color: rgb(255,255,255)!important;"></a>
                                 <?php endif; ?> 
                                     <h3 class="text-dark mb-4" style="text-align: center;margin-top: 16px;margin-bottom: 18px;font-weight: bold;">
                                     
