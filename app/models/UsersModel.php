@@ -365,7 +365,7 @@ class Users extends Database
         $this->prepare('SELECT `uid` FROM `users` WHERE `username` = ?');
         $this->statement->execute([$username]);
         $result = $this->statement->fetch();
-
+        
         $path = IMG_DIR . $result->uid;
         if (@getimagesize($path . ".png")) {
             return IMG_URL . $result->uid. ".png";
@@ -376,5 +376,12 @@ class Users extends Database
         } else {
             return false;
         }
+    }
+    
+    public function getbyuid($uid){
+        $this->prepare('SELECT * FROM `users` WHERE `uid` = ?');
+        $this->statement->execute([$uid]);
+        $result = $this->statement->fetch();
+        return $result;
     }
 }

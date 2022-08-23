@@ -88,6 +88,7 @@ class Util
 
     public static function getjoin()
     {
+
         $joindate = Session::get("createdAt");
         $now = time();
         $date = strtotime($joindate);
@@ -96,6 +97,14 @@ class Util
         return round($datediff / (60 * 60 * 24));
     }
 
+    public static function getjoinprofile($joindate)
+    {
+        $now = time();
+        $date = strtotime($joindate);
+        $datediff = $now - $date;
+
+        return round($datediff / (60 * 60 * 24));
+    }
 
     public static function getavatar($uid)
     {

@@ -15,3 +15,5 @@ class ShoutBoxController extends ShoutBox
         return $this->getmsgs();
     }
 }
+
+
