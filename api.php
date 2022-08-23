@@ -4,10 +4,15 @@ header('Content-Type: application/json; charset=UTF-8');
 
 require_once 'app/require.php';
 require_once 'app/controllers/ApiController.php';
-
+require_once 'app/ratelimiter.php';
+$RATELIMITER = new RateLimiter();
 $API = new ApiController();
 
-// Check data
+$rateLimiter = new RateLimiter(new Memcache(), $_SERVER["REMOTE_ADDR"]);
+try {
+	// allow a maximum of 100 requests for the IP in 5 minutes
+	$rateLimiter->limitRequestsInMinutes(2, 5);
+    // Check data
 if (
     empty($_GET['user']) ||
     empty($_GET['pass']) ||
@@ -34,3 +39,8 @@ if (
 }
 
 echo json_encode($response);
+} catch (RateExceededException $e) {
+	header("HTTP/1.0 529 Too Many Requests");
+	exit;
+}
+
