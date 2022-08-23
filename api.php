@@ -7,7 +7,7 @@ require_once 'app/controllers/ApiController.php';
 
 $API = new ApiController();
 
-// Check data
+
 if (
     empty($_GET['user']) ||
     empty($_GET['pass']) ||
