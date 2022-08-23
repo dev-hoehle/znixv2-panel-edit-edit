@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Aug 22, 2022 at 02:24 AM
+-- Generation Time: Aug 23, 2022 at 07:10 PM
 -- Server version: 10.1.48-MariaDB-0+deb9u2
 -- PHP Version: 7.4.29
 
@@ -42,7 +42,7 @@ CREATE TABLE `cheat` (
 --
 
 INSERT INTO `cheat` (`status`, `version`, `news`, `maintenance`, `frozen`, `freezingtime`, `invites`) VALUES
-(0, 1, 'Welcome to znixv2-panel-edit by anditv21!', 0, 1, 1657294066, 0);
+(0, 1, 'Welcome to znixv2-panel-edit by anditv21!', 0, 1, 1661271058, 0);
 
 -- --------------------------------------------------------
 
@@ -77,6 +77,7 @@ CREATE TABLE `logs` (
 CREATE TABLE `shoutbox` (
   `id` int(255) NOT NULL,
   `user` varchar(255) NOT NULL,
+  `uid` int(255) NOT NULL,
   `msg` varchar(255) NOT NULL,
   `time` datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -85,8 +86,8 @@ CREATE TABLE `shoutbox` (
 -- Dumping data for table `shoutbox`
 --
 
-INSERT INTO `shoutbox` (`id`, `user`, `msg`, `time`) VALUES
-(1, 'System', 'Hi', '2022-08-22 02:24:14.863472');
+INSERT INTO `shoutbox` (`id`, `user`, `uid`, `msg`, `time`) VALUES
+(1, 'System', 0, 'Hi', '2022-08-22 02:24:14.863472');
 
 -- --------------------------------------------------------
 
@@ -128,7 +129,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`uid`, `username`, `password`, `hwid`, `admin`, `supp`, `sub`, `frozen`, `banned`, `invitedBy`, `createdAt`, `lastIP`, `remembertoken`, `banreason`) VALUES
-(1, 'admin', '$2y$10$7wOzYc.AXpXc1nE/b0IqLOsP2w1cK9LZXDUi6hoSyuWBDj3DoBjOK', 'hwid', 1, 1, '2088-03-23', 1, 0, '', '2022-07-05 22:04:37', '', '', NULL);
+(1, 'admin', '$2y$10$7wOzYc.AXpXc1nE/b0IqLOsP2w1cK9LZXDUi6hoSyuWBDj3DoBjOK', 'hwid', 1, 1, '2088-05-08', 1, 0, '', '2022-07-05 22:04:37', '', '', NULL);
 
 --
 -- Indexes for dumped tables

@@ -385,3 +385,4 @@ class Users extends Database
         return $result;
     }
 }
+

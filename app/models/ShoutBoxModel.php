@@ -8,14 +8,14 @@ require_once SITE_ROOT . '/app/core/Database.php';
 class ShoutBox extends Database
 {
 
-    protected function sendmsg($user, $msg)
+    protected function sendmsg($user, $uid, $msg)
     {
         if(empty($msg))
         {
             return false;
         }
         $this->prepare('INSERT INTO `shoutbox` (`user`, `msg`) VALUES (?, ?)');
-        $this->statement->execute([$user, $msg]);
+        $this->statement->execute([$user, $uid, $msg]);
     }
 
     protected function getmsgs()

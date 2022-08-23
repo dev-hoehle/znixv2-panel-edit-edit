@@ -23,7 +23,7 @@ Util::head($username);
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
   if (isset($_POST["sendmsg"])) {
     $msg = trim($_POST["msg"]);
-    $shoutbox->postmsg($username, $msg);
+    $shoutbox->postmsg($username, $uid, $msg);
   }
 }
 ?>
