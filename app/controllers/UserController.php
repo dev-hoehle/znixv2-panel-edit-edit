@@ -271,20 +271,20 @@ class UserController extends Users
 
     public function getSubStatus($username = null)
     {
-        if($username === null) {
+        if ($username === null) {
             // Bind data
             $username = Session::get("username");
         }
         return $this->subActiveCheck($username);
     }
-    
-    public function getavatarname ($username)
+
+    public function getavatarname($username)
     {
         return $this->avatarname($username);
     }
 
-    public function getuserbyuid($uid){
+    public function getuserbyuid($uid)
+    {
         return $this->getbyuid($uid);
     }
 }
-
