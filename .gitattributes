@@ -2,5 +2,4 @@
 * text=auto
 *.sql linguist-detectable=true
 *.sql linguist-language=sql
-*.htaccess linguist-detectable=true
-*.htaccess linguist-language=ApacheConf
+
