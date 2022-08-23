@@ -10,7 +10,7 @@ $shoutbox = new ShoutBoxController();
 Session::init();
 
 if (!Session::isLogged()) {
-  Util::redirect("/auth/login.php");
+    Util::redirect("/auth/login.php");
 }
 
 $username = Session::get("username");
@@ -21,10 +21,10 @@ Util::banCheck();
 Util::head($username);
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-  if (isset($_POST["sendmsg"])) {
-    $msg = trim($_POST["msg"]);
-    $shoutbox->postmsg($username, $uid, $msg);
-  }
+    if (isset($_POST["sendmsg"])) {
+        $msg = trim($_POST["msg"]);
+        $shoutbox->postmsg($username, $uid, $msg);
+    }
 }
 ?>
 
@@ -58,14 +58,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             </li>
                             <li class="nav-item dropdown no-arrow">
                                 <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><span class="d-none d-lg-inline me-2 text-gray-600 small" style="color: #ffffff !important;"><?php Util::display(
-                                  Session::get("username")
-                                ); ?></span>
+    Session::get("username")
+); ?></span>
                                 <?php if (Util::getavatar($uid) == false): ?>
                                 <img class="border rounded-circle img-profile" src="assets/img/avatars/Portrait_Placeholder.png" style="border-color: rgb(255,255,255)!important;">
 
                                 <?php else: ?>
                                 <img class="rounded-circle img-profile" src="<?php echo Util::getavatar(
-                                  $uid
+                                    $uid
                                 ); ?>" style="border-color: rgb(255,255,255)!important;">
                                 <?php endif; ?>
 
@@ -113,7 +113,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                         <div class="col me-2">
                                             <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span style="color: rgb(255,255,255);">version</span></div>
                                             <div class="text-dark fw-bold h5 mb-0"><span><?php Util::display(
-                                              $cheat->getCheatData()->version
+                                                $cheat->getCheatData()->version
                                             ); ?></span></div>
                                         </div>
                                         <div class="col-auto"><i class="fas fa-code-branch fa-2x text-gray-300" style="color: rgb(200,200,200)!important;"></i></div>
@@ -156,24 +156,24 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                       $cheat->getCheatData()
                                                         ->frozen != 0
                                                     ) {
-                                                      Util::display("Frozen");
-                                                    } else {
-                                                      if ($sub > 0) {
-                                                        if ($sub > 8000) {
-                                                          Util::display(
-                                                            "Lifetime"
-                                                          );
-                                                        } else {
-                                                          Util::display(
-                                                            $sub . " days"
-                                                          );
-                                                        }
-                                                      } else {
+                                                Util::display("Frozen");
+                                            } else {
+                                                if ($sub > 0) {
+                                                    if ($sub > 8000) {
                                                         Util::display(
-                                                          '<i class="fa fa-times"></i>'
+                                                            "Lifetime"
                                                         );
-                                                      }
-                                                    } ?></span></div>
+                                                    } else {
+                                                        Util::display(
+                                                            $sub . " days"
+                                                        );
+                                                    }
+                                                } else {
+                                                    Util::display(
+                                                        '<i class="fa fa-times"></i>'
+                                                    );
+                                                }
+                                            } ?></span></div>
                                         </div>
                                         <div class="col-auto"><i class="fas fa-calendar-alt fa-2x text-gray-300" style="color: rgb(200,200,200)!important;"></i></div>
                                     </div>
@@ -193,8 +193,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                         <div class="row align-items-center no-gutters">
                                             <div class="col me-2" style="color: rgb(255,255,255);">
                                                 <h6 class="mb-0"><strong><?php Util::display(
-                                                  $user->getusernews()
-                                                ); ?></strong></h6>
+                                                $user->getusernews()
+                                            ); ?></strong></h6>
                                             </div>
                                         </div>
                                     </li>
@@ -225,8 +225,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                         <h6 class="text-primary fw-bold m-0" style="color: rgb(255,255,255)!important;">ShoutBox</h6>
                                     </div>
                         <form action="<?php Util::display(
-                          $_SERVER["PHP_SELF"]
-                        ); ?>" method="POST">
+                                                    $_SERVER["PHP_SELF"]
+                                                ); ?>" method="POST">
                                 <ul class="list-group list-group-flush" style="background: rgb(37,41,53);">
                                 <ul class="list-group list-group-flush" style="background: rgb(37,41,53);">
                                     <li class="list-group-item" style="background: rgb(37,41,53);">

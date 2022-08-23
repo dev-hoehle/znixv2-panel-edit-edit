@@ -88,7 +88,6 @@ class Util
 
     public static function getjoin()
     {
-
         $joindate = Session::get("createdAt");
         $now = time();
         $date = strtotime($joindate);
