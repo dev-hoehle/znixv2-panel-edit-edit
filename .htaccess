@@ -1,13 +1,13 @@
-#Change default directory page
+# Change default directory page
 DirectoryIndex index.php
 
-#Prevent viewing of .htaccess file
+# Prevent viewing of .htaccess file
 <Files .htaccess>
 order allow,deny
 deny from all
 </Files>
 
-#Prevent directory listings
+# Prevent directory listings
 Options All -Indexes
 
 php_flag display_startup_errors off
@@ -26,7 +26,7 @@ php_value error_log  /var/www/PHP_errors.log
 </Files>
 
 
-#Block bad bots
+# Block bad bots
 RewriteEngine On 
 RewriteCond %{HTTP_USER_AGENT} ^BlackWidow [OR]
 RewriteCond %{HTTP_USER_AGENT} ^Bot\ mailto:craftbot@yahoo.com [OR]
