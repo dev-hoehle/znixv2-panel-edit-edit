@@ -92,7 +92,7 @@ Screenshot: https://bit.ly/3cMWNTq / https://bit.ly/3pFFqr2
 - Change the default password to a secure one
 - Set https://github.com/anditv21/znixv2-panel-edit-edit/blob/main/app/core/Config.php#L8 to your Website name
 - Set a website description in https://github.com/anditv21/znixv2-panel-edit-edit/blob/main/app/core/Config.php#L11
-- Change https://github.com/anditv21/znixv2-panel-edit-edit/blob/main/app/core/Config.php#L26 to a secure API key
+- Change https://github.com/anditv21/znixv2-panel-edit-edit/blob/main/app/core/Config.php#L30 to a secure API key
 
 ---
 
