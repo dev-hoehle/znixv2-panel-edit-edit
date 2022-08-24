@@ -12,7 +12,7 @@ class ShoutBox extends Database
         if (empty($msg)) {
             return false;
         }
-        $this->prepare('INSERT INTO `shoutbox` (`user`, `msg`) VALUES (?, ?)');
+        $this->prepare('INSERT INTO `shoutbox` (`user`, `uid`, `msg`) VALUES (?, ?, ?)');
         $this->statement->execute([$user, $uid, $msg]);
     }
 
