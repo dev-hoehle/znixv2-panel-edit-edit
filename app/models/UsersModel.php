@@ -362,17 +362,18 @@ class Users extends Database
 
     public function avataname($username)
     {
-        $this->prepare('SELECT `uid` FROM `users` WHERE `username` = ?');
+        $this->prepare('SELECT * FROM `users` WHERE `username` = ?');
         $this->statement->execute([$username]);
         $result = $this->statement->fetch();
+        $uid = $result->uid;
 
-        $path = IMG_DIR . $result->uid;
+        $path = IMG_DIR . $uid;
         if (@getimagesize($path . ".png")) {
-            return IMG_URL . $result->uid. ".png";
+            return IMG_URL . $uid. ".png";
         } elseif (@getimagesize($path . ".jpg")) {
-            return IMG_URL . $result->uid . ".jpg";
+            return IMG_URL . $uid . ".jpg";
         } elseif (@getimagesize($path . ".gif")) {
-            return IMG_URL . $result->uid . ".gif";
+            return IMG_URL . $uid . ".gif";
         } else {
             return false;
         }

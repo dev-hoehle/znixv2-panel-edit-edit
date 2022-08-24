@@ -62,9 +62,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 <img class="border rounded-circle img-profile" src="assets/img/avatars/Portrait_Placeholder.png" style="border-color: rgb(255,255,255)!important;">
 
                                 <?php else: ?>
-                                <img class="rounded-circle img-profile" src="<?php echo Util::getavatar(
+                                <img class="rounded-circle img-profile" src="<?php Util::display(Util::getavatar(
     $uid
-); ?>" style="border-color: rgb(255,255,255)!important;">
+)); ?>" style="border-color: rgb(255,255,255)!important;">
                                 <?php endif; ?>
 
                               </a>
