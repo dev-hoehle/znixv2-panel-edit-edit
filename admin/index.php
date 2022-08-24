@@ -237,12 +237,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                         <div class="col me-2">
                                             <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span style="color: rgb(255,255,255);">frozen</span></div>
                                             <div class="text-dark fw-bold h5 mb-0"><span><?php
-                                            if ($cheat->getCheatData()->frozen == 1) 
-                                            {
+                                            if ($cheat->getCheatData()->frozen == 1) {
                                                 Util::display("True");
-                                            }
-                                            else
-                                            {
+                                            } else {
                                                 Util::display("False");
                                             } ?></span></div>
                                         </div>
