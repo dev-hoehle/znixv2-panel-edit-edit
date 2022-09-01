@@ -140,6 +140,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <table class="table my-0" id="dataTable">
                                     <thead>
                                         <tr>
+                                            <th style="color: rgb(255,255,255);">Picture</th>
                                             <th style="color: rgb(255,255,255);">Username</th>
                                             <th style="color: rgb(255,255,255);">UID</th>
                                             <th style="color: rgb(255,255,255);">Sub</th>
@@ -150,7 +151,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     <?php foreach ($userList2 as $row): ?>
                                        <tr>
         
-        
+                                       <td title="Click to download" data-toggle="tooltip" data-placement="top" style="color: rgb(255,255,255);">                                <?php if (Util::getavatar($row->uid) == false): ?>
+                                <img class="border rounded-circle img-profile" src="../assets/img/avatars/Portrait_Placeholder.png" width="45" height="45" style="border-color: rgb(255,255,255)!important;">
+
+                                <?php else: ?>
+                                    <?php
+                                    $ext = pathinfo(Util::getavatar($uid), PATHINFO_EXTENSION);
+                                    $name = $uid . "." . $ext;
+                                    ?>
+                                <a href="<?php Util::display(Util::getavatar($uid));?>" download="<?php Util::display($name);  ?>">
+                                <img class="rounded-circle img-profile" width="45" height="45" src="<?php Util::display(Util::getavatar($uid)); ?>" style="border-color: rgb(255,255,255)!important;"></a>
+
+
+                              
+                                <?php endif; ?></td>
         <td style="color: rgb(255,255,255);"><?php Util::display(
            $row->username
        ); ?></td>
