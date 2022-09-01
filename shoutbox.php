@@ -11,7 +11,7 @@ if (!Session::isLogged()) {
 <div class="chat"id="chat"><small><?php
 $msgarray = $shoutbox->getmsg();
 foreach ($msgarray as $row) {
-    $avatar = $user->avataname($row->user);
+    $avatar = $user->avatarname($row->user);
     $timestamp = strtotime($row->time);
     $url = SITE_URL . SUB_DIR. "/viewprofile.php?uid=" .$row->uid;
     if ($avatar) {
