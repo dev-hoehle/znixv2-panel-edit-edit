@@ -360,7 +360,7 @@ class Users extends Database
     }
 
 
-    public function avataname($username)
+    public function avatarname($username)
     {
         $this->prepare('SELECT * FROM `users` WHERE `username` = ?');
         $this->statement->execute([$username]);
