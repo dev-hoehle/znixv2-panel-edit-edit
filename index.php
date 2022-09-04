@@ -278,6 +278,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     {
         margin-bottom: 1%;
     }
+    body
+    {
+        overflow: hidden;
+    }
 </style>
 <script>        setInterval("reload();", 500);</script>
     <script>
